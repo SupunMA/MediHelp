@@ -1,15 +1,12 @@
-
-
-
-
 {{-- admin v2 --}}
-
 
 <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-      Anything you want
+      By D.A.V.A.DE SILVA
+      IM/2018/013.
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+    <strong>Faculty of Science
+      University of Kelaniya. </strong>
   </footer>
