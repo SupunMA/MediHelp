@@ -1,4 +1,7 @@
     {{-- New template adminLTEv2 --}}
+
+    {{-- Starter --}}
+
     <link rel="stylesheet" href={{ URL::asset('adminPages/v2/bower_components/bootstrap/dist/css/bootstrap.min.css'); }}>
     <!-- Font Awesome -->
     <link rel="stylesheet" href={{ URL::asset('adminPages/v2/bower_components/font-awesome/css/font-awesome.min.css'); }}>
@@ -21,3 +24,10 @@
     <!-- Google Font -->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+
+
+        
+<!-- DataTables -->
+<link rel="stylesheet" href="../../bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+       

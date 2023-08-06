@@ -41,14 +41,14 @@
 
 
         <li class="treeview {{ Route::currentRouteNamed('admin.pendingPaymentList') || Route::currentRouteNamed('admin.approvedPayment') || Route::currentRouteNamed('admin.DeclinedPayment') || Route::currentRouteNamed('admin.currentMonthTable')? 'active' : '' }}">
-          <a href="#"><i class="fa fa-link"></i> <span>Payments</span>
+          <a href="#"><i class="fa fa-link"></i> <span>Patients</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
           </a>
           <ul class="treeview-menu">
-            <li class="{{ Route::currentRouteNamed('admin.currentMonthTable') ? 'active' : '' }}"><a href="{{ route('admin.currentMonthTable') }}">Current Month</a></li>
-            <li class="{{ Route::currentRouteNamed('admin.pendingPaymentList') ? 'active' : '' }}"><a href="{{ route('admin.pendingPaymentList') }}">Pending List</a></li>
+            <li class="{{ Route::currentRouteNamed('admin.currentMonthTable') ? 'active' : '' }}"><a href="{{ route('admin.currentMonthTable') }}">Register Patients</a></li>
+            <li class="{{ Route::currentRouteNamed('admin.pendingPaymentList') ? 'active' : '' }}"><a href="{{ route('admin.pendingPaymentList') }}">All Patients</a></li>
             <li class="{{ Route::currentRouteNamed('admin.approvedPayment') ? 'active' : '' }}"><a href="{{ route('admin.approvedPayment') }}">Approved List</a></li>
             <li class="{{ Route::currentRouteNamed('admin.DeclinedPayment') ? 'active' : '' }}"><a href="{{ route('admin.DeclinedPayment') }}">Declined List</a></li>
           </ul>
@@ -57,14 +57,14 @@
 
 
         <li class="treeview {{ Route::currentRouteNamed('admin.addClient') || Route::currentRouteNamed('admin.allClient') ? 'active' : '' }}">
-          <a href="#"><i class="fa fa-link"></i> <span>Customers</span>
+          <a href="#"><i class="fa fa-link"></i> <span>Doctors</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
           </a>
           <ul class="treeview-menu">
-            <li class="{{ Route::currentRouteNamed('admin.addClient') ? 'active' : '' }}"><a href="{{ route('admin.addClient') }}">Register New Customer</a></li>
-            <li class="{{ Route::currentRouteNamed('admin.allClient') ? 'active' : '' }}"><a href="{{ route('admin.allClient') }}">All Customers</a></li>
+            <li class="{{ Route::currentRouteNamed('admin.addClient') ? 'active' : '' }}"><a href="{{ route('admin.addClient') }}">Register Doctor</a></li>
+            <li class="{{ Route::currentRouteNamed('admin.allClient') ? 'active' : '' }}"><a href="{{ route('admin.allClient') }}">All Doctors</a></li>
             
           </ul>
         </li> 
@@ -72,37 +72,64 @@
 
         
         <li class="treeview {{ Route::currentRouteNamed('admin.addPlan') || Route::currentRouteNamed('admin.allPlan') ? 'active' : '' }}">
-          <a href="#"><i class="fa fa-link"></i> <span>Plans</span>
+          <a href="#"><i class="fa fa-link"></i> <span>Request Test</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
           </a>
           <ul class="treeview-menu">
-            <li class="{{ Route::currentRouteNamed('admin.addPlan') ? 'active' : '' }}"><a href="{{ route('admin.addPlan') }}">Add New Plan</a></li>
-            <li class="{{ Route::currentRouteNamed('admin.allPlan') ? 'active' : '' }}"><a href="{{ route('admin.allPlan') }}">All Plans</a></li>
+            <li class="{{ Route::currentRouteNamed('admin.addPlan') ? 'active' : '' }}"><a href="{{ route('admin.addPlan') }}">Add New Test</a></li>
+            <li class="{{ Route::currentRouteNamed('admin.allPlan') ? 'active' : '' }}"><a href="{{ route('admin.allPlan') }}">All Tests</a></li>
             
           </ul>
-        </li> 
+        </li>
+        
+
+        <li class="treeview {{ Route::currentRouteNamed('admin.addPlan') || Route::currentRouteNamed('admin.allPlan') ? 'active' : '' }}">
+          <a href="#"><i class="fa fa-link"></i> <span>Reports</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="{{ Route::currentRouteNamed('admin.addPlan') ? 'active' : '' }}"><a href="{{ route('admin.addPlan') }}">Add Report</a></li>
+            <li class="{{ Route::currentRouteNamed('admin.allPlan') ? 'active' : '' }}"><a href="{{ route('admin.allPlan') }}">All Reports</a></li>
+            
+          </ul>
+        </li>
+        
 
 
+        <li class="treeview {{ Route::currentRouteNamed('admin.addPlan') || Route::currentRouteNamed('admin.allPlan') ? 'active' : '' }}">
+          <a href="#"><i class="fa fa-link"></i> <span>Payments</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="{{ Route::currentRouteNamed('admin.addPlan') ? 'active' : '' }}"><a href="{{ route('admin.addPlan') }}">Add Payment</a></li>
+            <li class="{{ Route::currentRouteNamed('admin.allPlan') ? 'active' : '' }}"><a href="{{ route('admin.allPlan') }}">All Payment</a></li>
+            
+          </ul>
+        </li>
 
 
         <li class="treeview {{ Route::currentRouteNamed('admin.addStaff') || Route::currentRouteNamed('admin.allStaff') ? 'active' : '' }}">
-          <a href="#"><i class="fa fa-link"></i> <span>Staff</span>
+          <a href="#"><i class="fa fa-link"></i> <span>Available Tests</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
           </a>
           <ul class="treeview-menu">
-            <li class="{{ Route::currentRouteNamed('admin.addStaff') ? 'active' : '' }}"><a href="{{ route('admin.addStaff') }}">Add New Staff Member</a></li>
-            <li class="{{ Route::currentRouteNamed('admin.allStaff') ? 'active' : '' }}"><a href="{{ route('admin.allStaff') }}">All Staff</a></li>
+            <li class="{{ Route::currentRouteNamed('admin.addStaff') ? 'active' : '' }}"><a href="{{ route('admin.addStaff') }}">Add New Test</a></li>
+            <li class="{{ Route::currentRouteNamed('admin.allStaff') ? 'active' : '' }}"><a href="{{ route('admin.allStaff') }}">All Tests</a></li>
             
           </ul>
         </li> 
 
 
 
-        <li class="{{ Route::currentRouteNamed('StaffProfileUpdate') ? 'active' : '' }}"><a href="{{ route('StaffProfileUpdate') }}"><i class="fa fa-tachometer"></i> <span>Profile
+        <li class="{{ Route::currentRouteNamed('StaffProfileUpdate') ? 'active' : '' }}"><a href="{{ route('StaffProfileUpdate') }}"><i class="fa fa-tachometer"></i> <span>My Profile
           <span class="right badge badge-warning">Update</span></span></a></li>
           
        
