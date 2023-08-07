@@ -5,8 +5,8 @@
 
     {{-- button to go to all clients --}}
     <a class="btn btn-danger mb-1" href="{{route('admin.allPatient')}}">
-        <i class="fas fa-list-ul mr-1"></i>
-        <b>View All Patients</b>
+        <i class="fa fa-th-list" aria-hidden="true"></i>
+        <b> View All Patients</b>
     </a>
     
     <form action="{{route('admin.addingPatient')}}" method="post">
