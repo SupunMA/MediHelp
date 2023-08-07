@@ -11,7 +11,8 @@ class Patient extends Model
 
     protected $fillable = ['mobile', 'dob', 'doctorName', 'gender', 'userID'];
 
-
+    protected $primaryKey = 'pid';
+    
     public function user()
     {
         return $this->belongsTo(User::class, 'userID', 'id');

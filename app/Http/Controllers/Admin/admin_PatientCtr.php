@@ -42,11 +42,17 @@ class admin_PatientCtr extends Controller
         return view('Users.Admin.Patients.allPatients',compact('usersWithPatients'));
     }
     
-    public function deleteClient($userID)
+    public function deletePatient($userID)
     {
-        //dd($branchID);
+        //
+        
+        $patient = Patient::where('userID', $userID)->first();
+        //dd($patient);
         $delete = User::find($userID);
         $delete->delete();
+        $patient->delete();
+       
+        
         return redirect()->back()->with('message','successful');
     }
 

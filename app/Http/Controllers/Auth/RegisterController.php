@@ -7,7 +7,7 @@ use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use App\Models\Patient;
 use Carbon\Carbon;
-
+use DB;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -171,7 +171,9 @@ class RegisterController extends Controller
             'doctorName'=> ['required', 'string']
         ]);
 
+
         $user = new User();
+
         $user->name = $request->name;
         $user->email = $request->email;
         
@@ -187,11 +189,12 @@ class RegisterController extends Controller
         $patient->gender = $request->gender;
 
 
-            $lastUser = User::latest()->first();
+            //Getting next Users table ID
+            $tableName = 'users';
+            $nextId = DB::select("SHOW TABLE STATUS LIKE '$tableName'")[0]->Auto_increment;
 
-            if ($lastUser) {
-                $lastUserId = $lastUser->id;
-                $patient->userID = ($lastUserId + 1);
+            if ($nextId) {
+                $patient->userID = $nextId;
             } else {
                 return "No users found.";
             }

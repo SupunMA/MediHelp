@@ -10,7 +10,7 @@
                 </button>
             </div>
 
-            <form action="client/delete/{{$UserPatient->pid}}" method="get">
+            <form action="patient/delete/{{$UserPatient->userID}}" method="get">
                 @csrf
                 
                 <div class="modal-body">
