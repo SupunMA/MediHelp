@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Models\Patient;
+use Carbon\Carbon;
+
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -157,18 +160,15 @@ class RegisterController extends Controller
 
     function addingPatient(Request $request)
     {
-        
+        //dd($request);
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'gender' => ['required', 'string', 'in:M,F,O'],
-            'dob' => ['required', 'string', 'date','before:-13 years'],
+            'dob' => ['required', 'string', 'date','before:-1 years'],
             'email' => ['string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'address' => ['string'],
             'mobile' =>['string','unique:users'],
-            'zipCode'=>['integer'],
-            'joinDate'=> ['required', 'string', 'date'],
-            'refPlan'=>['integer']
+            'doctorName'=> ['required', 'string']
         ]);
 
         $user = new User();
@@ -176,17 +176,30 @@ class RegisterController extends Controller
         $user->email = $request->email;
         
         $user->password = \Hash::make($request->password);
-
-        $user->mobile = $request->mobile;
-        $user->address = $request->address;
-        $user->zipCode = $request->zipCode;
-        $user->dob = $request->dob;
-        $user->joinDate = $request->joinDate;
-        $user->gender = $request->gender;
-        $user->refPlan = $request->refPlan;
         $user->role = $request->role;
 
-        if( $user->save() ){
+        $patient = new Patient();
+        $patient->mobile = $request->mobile;
+       //change the date format
+        $formattedDate = Carbon::createFromFormat('m/d/Y', $request->dob)->format('Y-m-d');
+        $patient->dob =  $formattedDate;
+        $patient->doctorName = $request->doctorName;
+        $patient->gender = $request->gender;
+
+
+            $lastUser = User::latest()->first();
+
+            if ($lastUser) {
+                $lastUserId = $lastUser->id;
+                $patient->userID = ($lastUserId + 1);
+            } else {
+                return "No users found.";
+            }
+
+        
+        
+
+        if( $user->save() &&  $patient->save()){
             return redirect()->back()->with('message','successful');
         }else{
             return redirect()->back()->with('message','Failed');

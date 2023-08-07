@@ -5,15 +5,12 @@
 <div class="col-lg-6">
     <div class="box box-primary">
         <div class="box-header with-border">
-            <h3 class="box-title">New Customer's Details</h3>
+            <h3 class="box-title">Logging Password</h3>
         </div>
-        
-
-
-
-
+    
         <!-- /.card-header -->
         <!-- form start -->
+        
         <div class="box-body">
             
             <div class="row">
@@ -33,11 +30,11 @@
                 
             </div>
 
-            <small class="form-text text-muted text-left">Minimum Password Length is 8 characters!</small>
+            <small class="form-text text-muted">Minimum Password Length is 8 characters!</small>
 
             <div class="box-footer">
-                <div class="form-group">
-                    <small class="form-text text-muted text-right">Please check details again.</small>
+                <div class="form-group pull-right">
+                    <small class="form-text text-muted text-right">Please check details again.</small><br>
                     <button type="submit" class="btn btn-danger btn-lg float-right"><b>&nbsp; Save All&nbsp;</b>
                     </button>
                 </div>

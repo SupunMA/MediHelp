@@ -42,14 +42,28 @@
 <!-- bootstrap datepicker -->
 <script src={{ URL::asset('adminPages/v2/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js'); }}></script>
 
-<script>
-    //Date picker
-    $('#datepicker').datepicker({
-      autoclose: true
-    })
-</script>
+
+{{-- input mask like mibile number --}}
+<!-- InputMask -->
+<script src={{ URL::asset('adminPages/v2/plugins/input-mask/jquery.inputmask.js'); }}></script>
+<script src={{ URL::asset('adminPages/v2/plugins/input-mask/jquery.inputmask.date.extensions.js'); }}></script>
+<script src={{ URL::asset('adminPages/v2/plugins/input-mask/jquery.inputmask.extensions.js'); }}></script>
 
 
+
+<!-- date-range-picker -->
+<script src={{ URL::asset('adminPages/v2/bower_components/moment/min/moment.min.js'); }}></script>
+<script src={{ URL::asset('adminPages/v2/bower_components/bootstrap-daterangepicker/daterangepicker.js'); }}></script>
+<!-- bootstrap datepicker -->
+<script src={{ URL::asset('adminPages/v2/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js'); }}></script>
+<!-- bootstrap color picker -->
+<script src={{ URL::asset('adminPages/v2/bower_components/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js'); }}></script>
+<!-- bootstrap time picker -->
+<script src={{ URL::asset('adminPages/v2/plugins/timepicker/bootstrap-timepicker.min.js'); }}></script>
+<!-- SlimScroll -->
+<script src={{ URL::asset('adminPages/v2/bower_components/jquery-slimscroll/jquery.slimscroll.min.js'); }}></script>
+<!-- iCheck 1.0.1 -->
+<script src={{ URL::asset('adminPages/v2/plugins/iCheck/icheck.min.js'); }}></script>
 <!-- page script -->
 @stack('specificJs')
 
