@@ -152,4 +152,87 @@ class RegisterController extends Controller
         }
 
     }
+
+
+
+    function addingPatient(Request $request)
+    {
+        
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'gender' => ['required', 'string', 'in:M,F,O'],
+            'dob' => ['required', 'string', 'date','before:-13 years'],
+            'email' => ['string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'address' => ['string'],
+            'mobile' =>['string','unique:users'],
+            'zipCode'=>['integer'],
+            'joinDate'=> ['required', 'string', 'date'],
+            'refPlan'=>['integer']
+        ]);
+
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        
+        $user->password = \Hash::make($request->password);
+
+        $user->mobile = $request->mobile;
+        $user->address = $request->address;
+        $user->zipCode = $request->zipCode;
+        $user->dob = $request->dob;
+        $user->joinDate = $request->joinDate;
+        $user->gender = $request->gender;
+        $user->refPlan = $request->refPlan;
+        $user->role = $request->role;
+
+        if( $user->save() ){
+            return redirect()->back()->with('message','successful');
+        }else{
+            return redirect()->back()->with('message','Failed');
+        }
+
+    }
+
+
+
+
+    function addingDoctor(Request $request)
+    {
+        
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'gender' => ['required', 'string', 'in:M,F,O'],
+            'dob' => ['required', 'string', 'date','before:-13 years'],
+            'email' => ['string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'address' => ['string'],
+            'mobile' =>['string','unique:users'],
+            'zipCode'=>['integer'],
+            'joinDate'=> ['required', 'string', 'date'],
+            'refPlan'=>['integer']
+        ]);
+
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        
+        $user->password = \Hash::make($request->password);
+
+        $user->mobile = $request->mobile;
+        $user->address = $request->address;
+        $user->zipCode = $request->zipCode;
+        $user->dob = $request->dob;
+        $user->joinDate = $request->joinDate;
+        $user->gender = $request->gender;
+        $user->refPlan = $request->refPlan;
+        $user->role = $request->role;
+
+        if( $user->save() ){
+            return redirect()->back()->with('message','successful');
+        }else{
+            return redirect()->back()->with('message','Failed');
+        }
+
+    }
 }

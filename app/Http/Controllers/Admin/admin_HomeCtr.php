@@ -9,6 +9,8 @@ use App\Models\Plan;
 use App\Models\Payment;
 use App\Models\User;
 
+use Auth;
+
 class admin_HomeCtr extends Controller
 {
    //protected $task;
@@ -25,6 +27,9 @@ class admin_HomeCtr extends Controller
 //Dashboard
     public function checkAdmin()
     {
+        $ids=Auth::user()->id;
+
+
         $ClientsCount   =   User::where('users.role',0)->count();
         $AdminCount     =   User::where('users.role',1)->count();
         $CoachCount     =   User::where('users.role',2)->count();
@@ -33,7 +38,7 @@ class admin_HomeCtr extends Controller
 
         $AllPlans       = Plan::all();
         $AllPayments    = Payment::all();
-        return view('Users.Admin.home',compact('PlanCount','ClientsCount','ManagerCount','CoachCount','AdminCount','AllPlans','AllPayments'));
+        return view('Users.Admin.home',compact('PlanCount','ClientsCount','ManagerCount','CoachCount','AdminCount','AllPlans','AllPayments','ids'));
     }
 
     

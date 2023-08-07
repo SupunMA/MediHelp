@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Admin\admin_HomeCtr;
 use App\Http\Controllers\Admin\admin_PlanCtr;
 use App\Http\Controllers\Admin\admin_TimeCtr;
+use App\Http\Controllers\Admin\admin_PatientCtr;
 use App\Http\Controllers\Admin\admin_ClientCtr;
 use App\Http\Controllers\Admin\admin_PaymentCtr;
 use App\Http\Controllers\UpdateProfile;
@@ -50,6 +51,10 @@ Route::middleware(['middleware'=>'lockBack'])->group(function(){
 //admin
 Route::group(['prefix'=>'Admin','middleware'=>['checkAdmin','auth','lockBack']],function(){
     Route::get('/', [admin_HomeCtr::class, 'checkAdmin'])->name('admin.home');
+
+    Route::get('AddPatient', [admin_PatientCtr::class, 'addPatient'])->name('admin.addPatient');
+
+
 
     Route::get('AddClient', [admin_ClientCtr::class, 'addClient'])->name('admin.addClient');
     Route::get('AllClient', [admin_ClientCtr::class, 'allClient'])->name('admin.allClient');
