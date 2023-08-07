@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Plan;
 use App\Models\User;
+use App\Models\Patient;
 
 
 
@@ -30,16 +31,15 @@ class admin_PatientCtr extends Controller
         return view('Users.Admin.Patients.addPatient');
     }
 
-    public function allClient()
+    public function allPatient()
     {
         //$clients=User::where('role',0)->get();
 
-        $plans=Plan::all('planName', 'planID', 'planPrice');
-        $clients = User::join('plan','plan.planID','=','users.refPlan')
-        ->where('users.role',0)->get();
+        $usersWithPatients = Patient::with('user')->get();
+
         //->join('table1','table1.id','=','table3.id');
-        //dd($clients);
-        return view('Users.Admin.Clients.allClients',compact('clients','plans'));
+        //dd($usersWithPatients->user->name);
+        return view('Users.Admin.Patients.allPatients',compact('usersWithPatients'));
     }
     
     public function deleteClient($userID)

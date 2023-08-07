@@ -17,6 +17,14 @@ class User extends Authenticatable
      *
      * @var string[]
      */
+
+     public function patient()
+     {
+         return $this->hasOne(Patient::class, 'userID', 'id');
+     }
+
+
+
     protected $fillable = [
         'name',
         'email',

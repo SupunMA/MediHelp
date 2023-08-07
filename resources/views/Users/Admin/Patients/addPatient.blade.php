@@ -4,9 +4,9 @@
 <div class="container-fluid ">
 
     {{-- button to go to all clients --}}
-    <a class="btn btn-danger mb-1" href="{{route('admin.allClient')}}">
+    <a class="btn btn-danger mb-1" href="{{route('admin.allPatient')}}">
         <i class="fas fa-list-ul mr-1"></i>
-        <b>View All Clients</b>
+        <b>View All Patients</b>
     </a>
     
     <form action="{{route('admin.addingPatient')}}" method="post">
@@ -32,5 +32,5 @@
 @endsection
 
 @section('header')
-Register New Customer
+Add New Patient
 @endsection

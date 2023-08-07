@@ -9,13 +9,13 @@
             <div class="col-12">
 
                 {{-- button to go to add client --}}
-                <a class="btn btn-danger mb-1" href="{{route('admin.addClient')}}">
-                    <i class="fas fa-user-plus mr-1"></i>
-                    <b>Add New Clients</b>
+                <a class="btn btn-danger mb-1" href="{{route('admin.addPatient')}}">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                    <b>Add New Patient</b>
                 </a>
 
                 <!-- Import Table -->
-               @include('Users.Admin.Clients.components.allClientTable')
+               @include('Users.Admin.Patients.components.allPatientTable')
             
             </div>
             <!-- /.col -->
@@ -32,5 +32,5 @@
 @endsection
 
 @section('header')
-All Clients
+All Patients
 @endsection

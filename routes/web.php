@@ -52,8 +52,10 @@ Route::middleware(['middleware'=>'lockBack'])->group(function(){
 Route::group(['prefix'=>'Admin','middleware'=>['checkAdmin','auth','lockBack']],function(){
     Route::get('/', [admin_HomeCtr::class, 'checkAdmin'])->name('admin.home');
 
+    // Patients
     Route::get('AddPatient', [admin_PatientCtr::class, 'addPatient'])->name('admin.addPatient');
     Route::POST('addingPatient', [RegisterController::class, 'addingPatient'])->name('admin.addingPatient');
+    Route::get('AllPatient', [admin_PatientCtr::class, 'allPatient'])->name('admin.allPatient');
 
 
 
