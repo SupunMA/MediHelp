@@ -6,13 +6,13 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Plan;
 use App\Models\User;
-use App\Models\Patient;
+use App\Models\Doctor;
 
 use Carbon\Carbon;
 
 
 
-class admin_PatientCtr extends Controller
+class admin_DoctorCtr extends Controller
 {
     
    
@@ -26,30 +26,29 @@ class admin_PatientCtr extends Controller
 
     //Client
 
-    public function addPatient()
+    public function addDoctor()
     {
        
         
-        return view('Users.Admin.Patients.addPatient');
+        return view('Users.Admin.Doctors.addDoctor');
     }
 
-    public function allPatient()
+    public function allDoctor()
     {
         //$clients=User::where('role',0)->get();
 
-        $usersWithPatients = Patient::with('user')->get();
-        
+        $usersWithDoctors = Doctor::with('user')->get();
 
         //->join('table1','table1.id','=','table3.id');
-        //dd($usersWithPatients);
-        return view('Users.Admin.Patients.allPatients',compact('usersWithPatients'));
+        //dd($usersWithDoctors);
+        return view('Users.Admin.Doctors.allDoctors',compact('usersWithDoctors'));
     }
     
-    public function deletePatient($userID)
+    public function deleteDoctor($userID)
     {
         //
         
-        $patient = Patient::where('userID', $userID)->first();
+        $patient = Doctor::where('userID', $userID)->first();
         //dd($patient);
         $delete = User::find($userID);
         $delete->delete();

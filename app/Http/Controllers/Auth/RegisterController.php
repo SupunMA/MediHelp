@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use App\Models\Patient;
+use App\Models\Doctor;
 use Carbon\Carbon;
 use DB;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -166,7 +167,7 @@ class RegisterController extends Controller
             'dob' => ['required', 'string', 'date','before:-1 years'],
             'email' => ['string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'mobile' =>['string','unique:users'],
+            'mobile' =>['string','unique:patients'],
             'address' =>['string']
         ]);
 
@@ -213,42 +214,49 @@ class RegisterController extends Controller
 
 
 
-    // function addingDoctor(Request $request)
-    // {
+    function addingDoctor(Request $request)
+    {
         
-    //     $request->validate([
-    //         'name' => ['required', 'string', 'max:255'],
-    //         'gender' => ['required', 'string', 'in:M,F,O'],
-    //         'dob' => ['required', 'string', 'date','before:-13 years'],
-    //         'email' => ['string', 'email', 'max:255', 'unique:users'],
-    //         'password' => ['required', 'string', 'min:8', 'confirmed'],
-    //         'address' => ['string'],
-    //         'mobile' =>['string','unique:users'],
-    //         'zipCode'=>['integer'],
-    //         'joinDate'=> ['required', 'string', 'date'],
-    //         'refPlan'=>['integer']
-    //     ]);
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'gender' => ['required', 'string', 'in:M,F,O'],
+            'email' => ['string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'mobile' =>['string','unique:doctors'],
+            'clinicName' => ['required', 'string', 'max:255'],
+            'clinicAddress' =>['string']
+        ]);
 
-    //     $user = new User();
-    //     $user->name = $request->name;
-    //     $user->email = $request->email;
+        $user = new User();
+
+        $user->name = $request->name;
+        $user->email = $request->email;
         
-    //     $user->password = \Hash::make($request->password);
+        $user->password = \Hash::make($request->password);
+        $user->role = $request->role;
 
-    //     $user->mobile = $request->mobile;
-    //     $user->address = $request->address;
-    //     $user->zipCode = $request->zipCode;
-    //     $user->dob = $request->dob;
-    //     $user->joinDate = $request->joinDate;
-    //     $user->gender = $request->gender;
-    //     $user->refPlan = $request->refPlan;
-    //     $user->role = $request->role;
+        $doctor = new Doctor();
+        $doctor->mobile = $request->mobile;
+        $doctor->gender = $request->gender;
+        $doctor->clinicName = $request->clinicName;
+        $doctor->clinicAddress = $request->clinicAddress;
 
-    //     if( $user->save() ){
-    //         return redirect()->back()->with('message','successful');
-    //     }else{
-    //         return redirect()->back()->with('message','Failed');
-    //     }
+            //Getting next Users table ID
+            $tableName = 'users';
+            $nextId = DB::select("SHOW TABLE STATUS LIKE '$tableName'")[0]->Auto_increment;
 
-    //}
+            if ($nextId) {
+                $doctor->userID = $nextId;
+            } else {
+                return "No users found.";
+            }
+
+        
+
+        if( $user->save() &&  $doctor->save()){
+            return redirect()->back()->with('message','successful');
+        }else{
+            //return redirect()->back()->with('message','Failed');
+        }
+    }
 }

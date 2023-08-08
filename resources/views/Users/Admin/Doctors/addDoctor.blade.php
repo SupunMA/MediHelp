@@ -4,12 +4,12 @@
 <div class="container-fluid ">
 
     {{-- button to go to all clients --}}
-    <a class="btn btn-danger mb-1" href="{{route('admin.allClient')}}">
-        <i class="fas fa-list-ul mr-1"></i>
-        <b>View All Clients</b>
+    <a class="btn btn-danger mb-1" href="{{route('admin.allDoctor')}}">
+        <i class="fa fa-th-list" aria-hidden="true"></i>
+        <b>View All Doctors</b>
     </a>
     
-    <form action="{{route('admin.addingClient')}}" method="post">
+    <form action="{{route('admin.addingDoctor')}}" method="post">
         @csrf
         <div class="row">
 
@@ -31,5 +31,5 @@
 @endsection
 
 @section('header')
-Register New Customer
+Register Doctor
 @endsection

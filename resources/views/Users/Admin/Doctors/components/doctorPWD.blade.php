@@ -3,14 +3,29 @@
  {{-- Start of Second Card --}}
 
  <div class="col-lg-6 col-12">
-    <div class="card card-info">
-        <div class="card-header">
-            <h3 class="card-title">Client's Login Credentials</h3>
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title">Doctor's Login Credentials</h3>
         </div>
+    
         <!-- /.card-header -->
         <!-- form start -->
+        
+        <div class="box-body">
 
-        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-6 col-12">
+                    <div class="form-group">
+                        <label >Email Address</label>
+                        <input type="email" class="form-control" name="email" placeholder="Email Address">
+                    </div>
+                </div>
+
+
+            
+                
+            </div>
+            
             <div class="row">
                 <div class="col-lg-6 col-12">
                     <div class="form-group">
@@ -25,20 +40,19 @@
                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                     </div>
                 </div>
-                <small class="form-text text-muted text-left">Minimum Password Length is 8 characters!</small>
-
+                
             </div>
 
+            <small class="form-text text-muted">Minimum Password Length is 8 characters!</small>
 
-        </div>
-        <!-- /.card-body -->
-
-        <div class="card-footer">
-            <div class="form-group">
-                <small class="form-text text-muted text-right">Please check details again.</small>
-                <button type="submit" class="btn btn-danger btn-lg float-right"><b>&nbsp; Save All&nbsp;</b>
-                </button>
+            <div class="box-footer">
+                <div class="form-group pull-right">
+                    <small class="form-text text-muted text-right">Please check details again.</small><br>
+                    <button type="submit" class="btn btn-danger btn-lg float-right"><b>&nbsp; Save All&nbsp;</b>
+                    </button>
+                </div>
             </div>
+        
         </div>
     </div>
 </div>

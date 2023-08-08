@@ -20,9 +20,13 @@ class User extends Authenticatable
 
      public function patient()
      {
-         return $this->hasOne(Patient::class, 'userID', 'id');
+         return $this->hasOne(Patient::class, 'userID');
      }
 
+     public function doctor()
+     {
+         return $this->hasOne(Doctor::class, 'userID');
+     }
 
 
     protected $fillable = [

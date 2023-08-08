@@ -1,3 +1,5 @@
+@include('Users.Admin.messages.addMsg')
+
 <div class="col-lg-6">
     <div class="box box-primary">
         <div class="box-header with-border">

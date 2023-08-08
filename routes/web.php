@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\admin_HomeCtr;
 use App\Http\Controllers\Admin\admin_PlanCtr;
 use App\Http\Controllers\Admin\admin_TimeCtr;
 use App\Http\Controllers\Admin\admin_PatientCtr;
+use App\Http\Controllers\Admin\admin_DoctorCtr;
 use App\Http\Controllers\Admin\admin_ClientCtr;
 use App\Http\Controllers\Admin\admin_PaymentCtr;
 use App\Http\Controllers\UpdateProfile;
@@ -58,6 +59,12 @@ Route::group(['prefix'=>'Admin','middleware'=>['checkAdmin','auth','lockBack']],
     Route::get('AllPatient', [admin_PatientCtr::class, 'allPatient'])->name('admin.allPatient');
     Route::get('patient/delete/{userID}', [admin_PatientCtr::class, 'deletePatient'])->name('admin.deletePatient');
     Route::post('patient/update', [admin_PatientCtr::class, 'updatePatient'])->name('admin.updatePatient');
+
+    //Doctors
+    Route::get('AddDoctor', [admin_DoctorCtr::class, 'addDoctor'])->name('admin.addDoctor');
+    Route::POST('addingDoctor', [RegisterController::class, 'addingDoctor'])->name('admin.addingDoctor');
+    Route::get('AllDoctor', [admin_DoctorCtr::class, 'allDoctor'])->name('admin.allDoctor');
+    Route::get('doctor/delete/{userID}', [admin_DoctorCtr::class, 'deleteDoctor'])->name('admin.deleteDoctor');
 
 
 
