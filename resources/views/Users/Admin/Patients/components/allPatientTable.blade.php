@@ -18,7 +18,8 @@
                     <th>Date of Birth</th>
                     <th>Gender</th>
                     <th>Mobile</th>
-                    <th>Doctor</th>
+                    <th>Email</th>
+                    <th>Address</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -40,17 +41,18 @@
                         </td>
                     
                         <td>{{$UserPatient->mobile}}</td>
-                        <td>{{$UserPatient->doctorName}}</td>
+                        <td>{{$UserPatient->user->email}}</td>
+                        <td>{{$UserPatient->address}}</td>
                         
                         
                         
                         
                         <td>
                             <a class="btn btn-warning" type="button" data-toggle="modal" data-target="#ClientEditModal-{{$UserPatient->pid}}" >
-                                <i class="far fa-edit"></i>
+                                <i class="fa fa-pencil" aria-hidden="true"></i>
                             </a>
                             <a class="btn btn-danger" type="button" data-toggle="modal" data-target="#clientDeleteModal-{{$UserPatient->pid}}"  >
-                                <i class="far fa-trash-alt"></i>
+                                <i class="fa fa-trash-o" aria-hidden="true"></i>
                             </a>
                         </td>
                     </tr>
@@ -70,7 +72,8 @@
                     <th>Date of Birth</th>
                     <th>Gender</th>
                     <th>Mobile</th>
-                    <th>Doctor</th>
+                    <th>Email</th>
+                    <th>Address</th>
                     <th>Actions</th>
                 </tr>
             </tfoot>

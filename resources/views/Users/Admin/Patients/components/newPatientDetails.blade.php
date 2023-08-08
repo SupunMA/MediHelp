@@ -60,7 +60,7 @@
 
                     <!-- phone mask -->
                     <div class="form-group">
-                        <label>US phone mask:</label>
+                        <label>Mobile</label>
 
                         <div class="input-group">
                         <div class="input-group-addon">
@@ -76,25 +76,19 @@
             </div>
 
 
+
             <div class="row">
                 <div class="col-lg-6 col-12">
                     <div class="form-group">
-                        <label >Email Address</label>
-                        <input type="email" class="form-control" name="email" placeholder="Email Address">
+                        <label>Address</label>
+                        <textarea class="form-control" rows="3" name="address" placeholder="Enter ..."></textarea>
+                 
                     </div>
                 </div>
+            </div>
 
 
             
-                    <!-- Date  -->
-                    <div class="col-lg-6 col-12">
-                    <div class="form-group">
-                        <label >Name of the Doctor</label>
-                        <input type="text" class="form-control" name="doctorName" placeholder="Name of the Doctor">
-                    </div>
-                </div>
-                
-            </div>
             
 
             {{-- Role value --}}
@@ -113,7 +107,7 @@
 
 
 
-  @push('specificJs')
+@push('specificJs')
   
   <script>
     //Date picker

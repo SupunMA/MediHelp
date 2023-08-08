@@ -8,6 +8,8 @@ use App\Models\Plan;
 use App\Models\User;
 use App\Models\Patient;
 
+use Carbon\Carbon;
+
 
 
 class admin_PatientCtr extends Controller
@@ -56,35 +58,32 @@ class admin_PatientCtr extends Controller
         return redirect()->back()->with('message','successful');
     }
 
-    public function updateClient(Request $request)
+    public function updatePatient(Request $request)
     {
 
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'gender' => ['required', 'string', 'in:M,F,O'],
-            'dob' => ['required', 'string', 'date','before:-13 years'],
-            'email' => ['string', 'email', 'max:255'],
-            //'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'address' => ['string'],
-            'mobile' =>['string'],
-            'zipCode'=>['integer'],
-            'joinDate'=> ['required', 'string', 'date'],
-            'refPlan'=>['required','integer']
+            'dob' => ['required', 'string', 'date','before:-1 years'],
+            'mobile' =>['string','unique:users'],
+            'address' =>['string']
         ]);
+//change the date format
+$formattedDate = Carbon::createFromFormat('m/d/Y', $request->dob)->format('Y-m-d');
 
+        Patient::where('pid', $request->pid)
+        ->update([
+                    'mobile' => $request->mobile,
+                    'address' => $request->address,
+                    'gender'=> $request->gender,
+                    'dob'=> $formattedDate
+                    
+                ]);
 
         User::where('id', $request->id)
         ->update([
                     'name' => $request->name,
-                    'email' => $request->email,
-                    //'password' => \Hash::make($request->password),
-                    'mobile' => $request->mobile,
-                    'address' => $request->address,
-                    'zipCode'=> $request->zipCode,
-                    'joinDate'=> $request->joinDate,
-                    'dob'=> $request->dob,
-                    'gender' => $request->gender,
-                    'refPlan' => $request->refPlan
+                    
                 ]);
 
         return redirect()->back()->with('message','successful');

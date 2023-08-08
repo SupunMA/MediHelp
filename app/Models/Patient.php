@@ -9,7 +9,7 @@ class Patient extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['mobile', 'dob', 'doctorName', 'gender', 'userID'];
+    protected $fillable = ['mobile', 'dob', 'gender', 'userID','address'];
 
     protected $primaryKey = 'pid';
     

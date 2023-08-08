@@ -160,7 +160,6 @@ class RegisterController extends Controller
 
     function addingPatient(Request $request)
     {
-        //dd($request);
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'gender' => ['required', 'string', 'in:M,F,O'],
@@ -168,7 +167,7 @@ class RegisterController extends Controller
             'email' => ['string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'mobile' =>['string','unique:users'],
-            'doctorName'=> ['required', 'string']
+            'address' =>['string']
         ]);
 
 
@@ -185,8 +184,9 @@ class RegisterController extends Controller
        //change the date format
         $formattedDate = Carbon::createFromFormat('m/d/Y', $request->dob)->format('Y-m-d');
         $patient->dob =  $formattedDate;
-        $patient->doctorName = $request->doctorName;
         $patient->gender = $request->gender;
+        $patient->address = $request->address;
+
 
 
             //Getting next Users table ID
@@ -205,7 +205,7 @@ class RegisterController extends Controller
         if( $user->save() &&  $patient->save()){
             return redirect()->back()->with('message','successful');
         }else{
-            return redirect()->back()->with('message','Failed');
+            //return redirect()->back()->with('message','Failed');
         }
 
     }

@@ -17,9 +17,10 @@ class CreatePatientsTable extends Migration
             $table->id('pid');
             $table->string('mobile')->nullable();
             $table->date('dob')->nullable();
-            $table->string('doctorName')->nullable();
             $table->string('gender')->nullable();
+            $table->string('address')->nullable();
             $table->integer('userID')->unique()->nullable();
+
             $table->timestamps();
         });
     }
