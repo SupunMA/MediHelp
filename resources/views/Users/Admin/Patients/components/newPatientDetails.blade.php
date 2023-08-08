@@ -38,7 +38,7 @@
                     <!-- Date dd/mm/yyyy -->
                     <!-- Date -->
                     <div class="form-group">
-                        <label>Date of Birth</label>
+                        <label>Date of Birth (M/D/Y)</label>
 
                         <div class="input-group date">
                         <div class="input-group-addon">
