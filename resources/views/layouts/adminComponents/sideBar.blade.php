@@ -40,15 +40,15 @@
         
 
 
-        <li class="treeview {{ Route::currentRouteNamed('admin.pendingPaymentList') || Route::currentRouteNamed('admin.approvedPayment') || Route::currentRouteNamed('admin.DeclinedPayment') || Route::currentRouteNamed('admin.currentMonthTable')? 'active' : '' }}">
+        <li class="treeview {{ Route::currentRouteNamed('admin.addPatient') || Route::currentRouteNamed('admin.allPatient')? 'active' : '' }}">
           <a href="#"><i class="fa fa-link"></i> <span>Patients</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
           </a>
           <ul class="treeview-menu">
-            <li class="{{ Route::currentRouteNamed('admin.currentMonthTable') ? 'active' : '' }}"><a href="{{ route('admin.currentMonthTable') }}">Register Patients</a></li>
-            <li class="{{ Route::currentRouteNamed('admin.pendingPaymentList') ? 'active' : '' }}"><a href="{{ route('admin.pendingPaymentList') }}">All Patients</a></li>
+            <li class="{{ Route::currentRouteNamed('admin.addPatient') ? 'active' : '' }}"><a href="{{ route('admin.addPatient') }}">Register Patients</a></li>
+            <li class="{{ Route::currentRouteNamed('admin.allPatient') ? 'active' : '' }}"><a href="{{ route('admin.allPatient') }}">All Patients</a></li>
             <li class="{{ Route::currentRouteNamed('admin.approvedPayment') ? 'active' : '' }}"><a href="{{ route('admin.approvedPayment') }}">Approved List</a></li>
             <li class="{{ Route::currentRouteNamed('admin.DeclinedPayment') ? 'active' : '' }}"><a href="{{ route('admin.DeclinedPayment') }}">Declined List</a></li>
           </ul>
