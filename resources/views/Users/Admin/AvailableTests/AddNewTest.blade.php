@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-fluid ">
     <a class="btn btn-danger mb-1" href="{{route('admin.allAvailableTest')}}">
-        <i class="fas fa-list-ul mr-1"></i>
+        <i class="fa fa-th-list" aria-hidden="true"></i>
         <b>View Available Test</b>
     </a>
         

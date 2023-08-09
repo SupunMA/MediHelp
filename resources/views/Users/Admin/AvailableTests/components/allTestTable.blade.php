@@ -26,16 +26,16 @@
                         
                         <td>
                             <a class="btn btn-warning" type="button" data-toggle="modal" data-target="#branchEditModal-{{$AvailableTest->id}}" >
-                                <i class="far fa-edit"></i>
+                                <i class="fa fa-pencil" aria-hidden="true"></i>
                             </a>
                             <a class="btn btn-danger" type="button" data-toggle="modal" data-target="#branchDeleteModal-{{$AvailableTest->id}}"  >
-                                <i class="far fa-trash-alt"></i>
+                                <i class="fa fa-trash-o" aria-hidden="true"></i>
                             </a>
                         </td>
                     </tr>
                     
                             {{-- update modal and delete modal --}}
-                            {{-- @include('Users.Admin.Plan.components.updatePlan') --}}
+                            @include('Users.Admin.AvailableTests.components.updateTest')
                             @include('Users.Admin.AvailableTests.components.deleteTest')
                 @endforeach
 

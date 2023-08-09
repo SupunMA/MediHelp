@@ -58,35 +58,19 @@ class admin_AvailableTestCtr extends Controller
         return redirect()->back()->with('message','successful');
     }
 
-    public function updateClient(Request $request)
+    public function updateAvailableTest(Request $request)
     {
 
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'gender' => ['required', 'string', 'in:M,F,O'],
-            'dob' => ['required', 'string', 'date','before:-13 years'],
-            'email' => ['string', 'email', 'max:255'],
-            //'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'address' => ['string'],
-            'mobile' =>['string'],
-            'zipCode'=>['integer'],
-            'joinDate'=> ['required', 'string', 'date'],
-            'refPlan'=>['required','integer']
+            'AvailableTestName' =>['required','string'],
+            'AvailableTestRange' =>['required','string']
         ]);
 
-
-        User::where('id', $request->id)
+        AvailableTest::where('id', $request->id)
         ->update([
-                    'name' => $request->name,
-                    'email' => $request->email,
-                    //'password' => \Hash::make($request->password),
-                    'mobile' => $request->mobile,
-                    'address' => $request->address,
-                    'zipCode'=> $request->zipCode,
-                    'joinDate'=> $request->joinDate,
-                    'dob'=> $request->dob,
-                    'gender' => $request->gender,
-                    'refPlan' => $request->refPlan
+                    'AvailableTestName' => $request->AvailableTestName,
+                    'AvailableTestRange'=> $request->AvailableTestRange
+                    
                 ]);
 
         return redirect()->back()->with('message','successful');

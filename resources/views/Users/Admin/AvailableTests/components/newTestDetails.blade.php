@@ -13,7 +13,7 @@
             <div class="row">
                 <div class="col-lg-8 col-12">
                     <div class="form-group">
-                        <label >Name</label>
+                        <label>Test Name</label>
                         <input type="text" name="AvailableTestName" class="form-control"  placeholder="Enter Name">
                     </div>
                 </div>
@@ -21,7 +21,7 @@
             
                 <div class="col-lg-4 col-12">
                     <div class="form-group">
-                        <label>Gender</label>
+                        <label>Normal Range</label>
                         
                         <input type="text" id="normal_range" name="AvailableTestRange" pattern="\d+-\d+" class="form-control" placeholder="Enter range (e.g. 40-120)">
                     </div>
