@@ -14,7 +14,7 @@ class CreateAvailableTestsTable extends Migration
     public function up()
     {
         Schema::create('available_tests', function (Blueprint $table) {
-            $table->id();
+            $table->id('tlid');
             $table->string('AvailableTestName')->nullable();
             $table->string('AvailableTestRange')->nullable();
             $table->integer('AvailableTestCost')->nullable();

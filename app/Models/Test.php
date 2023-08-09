@@ -20,4 +20,15 @@ class Test extends Model
     
     
     protected $primaryKey = 'tid';
+
+
+    public function patient()
+    {
+        return $this->belongsTo(Patient::class, 'pid', 'pid');
+    }
+
+    public function availableTest()
+    {
+        return $this->belongsTo(AvailableTest::class, 'tlid', 'tlid');
+    }
 }

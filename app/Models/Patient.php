@@ -15,6 +15,12 @@ class Patient extends Model
     
     public function user()
     {
-        return $this->belongsTo(User::class, 'userID');
+        return $this->belongsTo(User::class, 'userID', 'id');
     }
+
+    public function tests()
+    {
+        return $this->hasMany(Test::class, 'pid', 'pid');
+    }
+    
 }

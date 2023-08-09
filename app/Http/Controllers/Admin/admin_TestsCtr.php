@@ -58,12 +58,26 @@ class admin_TestsCtr extends Controller
     }
 
 
-    public function allAvailableTest()
+    public function allTest()
     {
        
-        $AvailableTests=AvailableTest::all();
-       
-        return view('Users.Admin.AvailableTests.AllTests',compact('AvailableTests'));
+        // $testsData = User::with(['patient.tests' => function ($query) {
+        //     $query->join('available_tests', 'tests.tlid', '=', 'available_tests.tlid')
+        //            ->select('users.*', 'tests.*', 'available_tests.*')
+        //           ->orderBy('tests.date', 'desc');
+        // }])->get();
+
+
+        // ->where('users.id', '=', $userId)
+
+        $allTestData = User::join('patients', 'patients.userID', '=', 'users.id')
+    ->join('tests', 'tests.pid', '=', 'patients.pid')
+    ->join('available_tests', 'available_tests.tlid', '=', 'tests.tlid')
+    ->select('users.*', 'tests.*', 'available_tests.*')
+    ->get();
+
+       //dd($test2Data);
+        return view('Users.Admin.Tests.AllTests',compact('allTestData'));
     }
     
     public function deleteAvailableTest($ID)

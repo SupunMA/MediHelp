@@ -1,6 +1,6 @@
 <div class="box">
     <div class="box-header">
-      <h3 class="box-title">List of Patients</h3>
+      <h3 class="box-title">List of Tests</h3>
     </div>
     <!-- /.box-header -->
     <div class="box-body">
@@ -8,43 +8,52 @@
         <table id="example1" class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Available Test Name</th>
-                    <th>Normal Range</th>
+                    <th>Test ID</th>
+                    <th>Patient Name</th>
+                    <th>Selected Test</th>
+                    <th>Date</th>
+                    <th>Cost</th>
+                    <th>Doctor</th>
                     <th>Action</th>
                     
                 </tr>
             </thead>
             <tbody>
 
-                @foreach ($AvailableTests as $AvailableTest)
+                @foreach ($allTestData as $TestData)
                     <tr>
-                        <td>{{$AvailableTest->id}}</td>
-                        <td>{{$AvailableTest->AvailableTestName}}</td>
-                        <td>{{$AvailableTest->AvailableTestRange}}</td>
+                        <td>{{$TestData->id}}</td>
+                        <td>{{$TestData->name}}</td>
+                        <td>{{$TestData->AvailableTestName}}</td>
+                        <td>{{$TestData->date}}</td>
+                        <td>{{$TestData->AvailableTestCost}}</td>
+                        <td>{{$TestData->doctorName}}</td>
                         
                         
                         <td>
-                            <a class="btn btn-warning" type="button" data-toggle="modal" data-target="#branchEditModal-{{$AvailableTest->id}}" >
+                            <a class="btn btn-warning" type="button" data-toggle="modal" data-target="#branchEditModal-{{$TestData->tid}}" >
                                 <i class="fa fa-pencil" aria-hidden="true"></i>
                             </a>
-                            <a class="btn btn-danger" type="button" data-toggle="modal" data-target="#branchDeleteModal-{{$AvailableTest->id}}"  >
+                            <a class="btn btn-danger" type="button" data-toggle="modal" data-target="#branchDeleteModal-{{$TestData->tid}}"  >
                                 <i class="fa fa-trash-o" aria-hidden="true"></i>
                             </a>
                         </td>
                     </tr>
                     
                             {{-- update modal and delete modal --}}
-                            @include('Users.Admin.Tests.components.updateTest')
-                            @include('Users.Admin.Tests.components.deleteTest')
+                            {{-- @include('Users.Admin.Tests.components.updateTest') --}}
+                            {{-- @include('Users.Admin.Tests.components.deleteTest') --}}
                 @endforeach
 
             </tbody>
             <tfoot>
                 <tr>
-                    <th>ID</th>
-                    <th>Available Test Name</th>
-                    <th>Normal Range</th>
+                    <th>Test ID</th>
+                    <th>Patient Name</th>
+                    <th>Selected Test</th>
+                    <th>Date</th>
+                    <th>Cost</th>
+                    <th>Doctor</th>
                     <th>Action</th>
                 </tr>
             </tfoot>

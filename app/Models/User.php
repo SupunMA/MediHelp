@@ -20,7 +20,7 @@ class User extends Authenticatable
 
      public function patient()
      {
-         return $this->hasOne(Patient::class, 'userID');
+        return $this->hasOne(Patient::class, 'userID', 'id');
      }
 
      public function doctor()
@@ -28,6 +28,7 @@ class User extends Authenticatable
          return $this->hasOne(Doctor::class, 'userID');
      }
 
+     
 
     protected $fillable = [
         'name',
