@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\admin_PlanCtr;
 use App\Http\Controllers\Admin\admin_TimeCtr;
 use App\Http\Controllers\Admin\admin_PatientCtr;
 use App\Http\Controllers\Admin\admin_DoctorCtr;
+use App\Http\Controllers\Admin\admin_AvailableTestCtr;
 use App\Http\Controllers\Admin\admin_ClientCtr;
 use App\Http\Controllers\Admin\admin_PaymentCtr;
 use App\Http\Controllers\UpdateProfile;
@@ -67,8 +68,13 @@ Route::group(['prefix'=>'Admin','middleware'=>['checkAdmin','auth','lockBack']],
     Route::get('doctor/delete/{userID}', [admin_DoctorCtr::class, 'deleteDoctor'])->name('admin.deleteDoctor');
     Route::post('doctor/update', [admin_DoctorCtr::class, 'updateDoctor'])->name('admin.updateDoctor');
 
+    //Available Test
+    Route::get('AddAvailableTest', [admin_AvailableTestCtr::class, 'addAvailableTest'])->name('admin.addAvailableTest');
+    Route::POST('addingAvailableTest', [admin_AvailableTestCtr::class, 'addingAvailableTest'])->name('admin.addingAvailableTest');
+    Route::get('AllAvailableTest', [admin_AvailableTestCtr::class, 'allAvailableTest'])->name('admin.allAvailableTest');
+    Route::get('availableTest/delete/{ID}', [admin_AvailableTestCtr::class, 'deleteAvailableTest'])->name('admin.deleteAvailableTest');
 
-    Route::get('AddClient', [admin_ClientCtr::class, 'addClient'])->name('admin.addClient');
+    
     Route::get('AllClient', [admin_ClientCtr::class, 'allClient'])->name('admin.allClient');
     Route::POST('addingClient', [RegisterController::class, 'addingClient'])->name('admin.addingClient');
     Route::get('client/delete/{userID}', [admin_ClientCtr::class, 'deleteClient'])->name('admin.deleteClient');

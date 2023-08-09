@@ -79,6 +79,7 @@
     <!-- /.box-body -->
   </div>
   <!-- /.box -->
+
   
   @push('specificJs')
   {{-- toastr msg --}}
@@ -88,5 +89,7 @@
         $('#example1').DataTable()
       })
     </script>
+
+
   
   @endpush
