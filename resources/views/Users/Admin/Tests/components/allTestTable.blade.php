@@ -41,7 +41,7 @@
                     </tr>
                     
                             {{-- update modal and delete modal --}}
-                            {{-- @include('Users.Admin.Tests.components.updateTest') --}}
+                            @include('Users.Admin.Tests.components.updateTest')
                             @include('Users.Admin.Tests.components.deleteTest')
                 @endforeach
 

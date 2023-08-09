@@ -1,4 +1,4 @@
-<div class="modal fade" id="branchDeleteModal-{{$AvailableTest->id}}" tabindex="-1" role="dialog"
+<div class="modal fade" id="branchDeleteModal-{{$AvailableTest->tlid}}" tabindex="-1" role="dialog"
     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -9,7 +9,7 @@
                 </button>
             </div>
 
-            <form action="availableTest/delete/{{$AvailableTest->id}}" method="get">
+            <form action="availableTest/delete/{{$AvailableTest->tlid}}" method="get">
                 @csrf
                 
                 <div class="modal-body">

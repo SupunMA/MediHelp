@@ -68,7 +68,7 @@ class admin_AvailableTestCtr extends Controller
             'AvailableTestCost' =>['required','integer']
         ]);
 
-        AvailableTest::where('id', $request->id)
+        AvailableTest::where('tlid', $request->id)
         ->update([
                     'AvailableTestName' => $request->AvailableTestName,
                     'AvailableTestRange'=> $request->AvailableTestRange,

@@ -20,17 +20,17 @@
 
                 @foreach ($AvailableTests as $AvailableTest)
                     <tr>
-                        <td>{{$AvailableTest->id}}</td>
+                        <td>{{$AvailableTest->tlid}}</td>
                         <td>{{$AvailableTest->AvailableTestName}}</td>
                         <td>{{$AvailableTest->AvailableTestRange}}</td>
                         <td>{{$AvailableTest->AvailableTestCost}}</td>
                         
                         
                         <td>
-                            <a class="btn btn-warning" type="button" data-toggle="modal" data-target="#branchEditModal-{{$AvailableTest->id}}" >
+                            <a class="btn btn-warning" type="button" data-toggle="modal" data-target="#branchEditModal-{{$AvailableTest->tlid}}" >
                                 <i class="fa fa-pencil" aria-hidden="true"></i>
                             </a>
-                            <a class="btn btn-danger" type="button" data-toggle="modal" data-target="#branchDeleteModal-{{$AvailableTest->id}}"  >
+                            <a class="btn btn-danger" type="button" data-toggle="modal" data-target="#branchDeleteModal-{{$AvailableTest->tlid}}"  >
                                 <i class="fa fa-trash-o" aria-hidden="true"></i>
                             </a>
                         </td>

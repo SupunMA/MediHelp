@@ -1,16 +1,16 @@
 <!-- Edit Plan -->
-<div class="modal fade" id="branchEditModal-{{$AvailableTest->id}}" tabindex="-1" role="dialog"
+<div class="modal fade" id="branchEditModal-{{$TestData->tid}}" tabindex="-1" role="dialog"
     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title" id="exampleModalCenterTitle">Update Test <b>{{$AvailableTest->AvailableTestName}}</b> </h3>
+                <h3 class="modal-title" id="exampleModalCenterTitle">Update Test <b>{{$TestData->tid}}</b> </h3>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
 
-            <form action="{{ route('admin.updateAvailableTest') }}" method="post">
+            <form action="{{ route('admin.updateTest') }}" method="post">
                 @csrf
                 <div class="box box-primary">
                     <div class="box-body">
@@ -33,7 +33,7 @@
                         </div>
                     
         
-                        <input type="hidden" name="id" value="{{$AvailableTest->id}}">
+                        <input type="hidden" name="id" value="{{$TestData->tid}}">
 
                     </div>
 

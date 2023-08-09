@@ -1,5 +1,5 @@
 <!-- Edit Plan -->
-<div class="modal fade" id="branchEditModal-{{$AvailableTest->id}}" tabindex="-1" role="dialog"
+<div class="modal fade" id="branchEditModal-{{$AvailableTest->tlid}}" tabindex="-1" role="dialog"
     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -42,7 +42,7 @@
                         </div>
                         
         
-                        <input type="hidden" name="id" value="{{$AvailableTest->id}}">
+                        <input type="hidden" name="id" value="{{$AvailableTest->tlid}}">
 
                     </div>
 

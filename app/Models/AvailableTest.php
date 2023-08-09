@@ -16,5 +16,5 @@ class AvailableTest extends Model
     ];
     
     
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'tlid';
 }
