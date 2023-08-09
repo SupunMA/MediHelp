@@ -76,8 +76,11 @@ class admin_TestsCtr extends Controller
     ->select('users.*', 'tests.*', 'available_tests.*')
     ->get();
 
+    $availableTests = AvailableTest::all();
+
+
        //dd($test2Data);
-        return view('Users.Admin.Tests.AllTests',compact('allTestData'));
+        return view('Users.Admin.Tests.AllTests',compact('allTestData','availableTests'));
     }
     
     public function deleteTest($ID)
@@ -88,18 +91,18 @@ class admin_TestsCtr extends Controller
         return redirect()->back()->with('message','successful');
     }
 
-    public function updateAvailableTest(Request $request)
+    public function updateTest(Request $request)
     {
 
         $request->validate([
-            'AvailableTestName' =>['required','string'],
-            'AvailableTestRange' =>['required','string']
+            'tlid' =>['required','string'],
+            'doctorName' => ['string']
         ]);
 
-        AvailableTest::where('id', $request->id)
+        Test::where('tid', $request->tid)
         ->update([
-                    'AvailableTestName' => $request->AvailableTestName,
-                    'AvailableTestRange'=> $request->AvailableTestRange
+                    'tlid' => $request->tlid,
+                    'doctorName'=> $request->doctorName
                     
                 ]);
 

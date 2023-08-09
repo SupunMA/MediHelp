@@ -71,15 +71,15 @@
        
 
         
-        <li class="treeview {{ Route::currentRouteNamed('admin.addPlan') || Route::currentRouteNamed('admin.allPlan') ? 'active' : '' }}">
-          <a href="#"><i class="fa fa-link"></i> <span>Request Test</span>
+        <li class="treeview {{ Route::currentRouteNamed('admin.addTest') || Route::currentRouteNamed('admin.allTest') ? 'active' : '' }}">
+          <a href="#"><i class="fa fa-bullhorn" aria-hidden="true"></i> <span>Request Test</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
           </a>
           <ul class="treeview-menu">
-            <li class="{{ Route::currentRouteNamed('admin.addPlan') ? 'active' : '' }}"><a href="{{ route('admin.addPlan') }}">Add New Test</a></li>
-            <li class="{{ Route::currentRouteNamed('admin.allPlan') ? 'active' : '' }}"><a href="{{ route('admin.allPlan') }}">All Tests</a></li>
+            <li class="{{ Route::currentRouteNamed('admin.addTest') ? 'active' : '' }}"><a href="{{ route('admin.addTest') }}">Add New Test</a></li>
+            <li class="{{ Route::currentRouteNamed('admin.allTest') ? 'active' : '' }}"><a href="{{ route('admin.allTest') }}">All Tests</a></li>
             
           </ul>
         </li>

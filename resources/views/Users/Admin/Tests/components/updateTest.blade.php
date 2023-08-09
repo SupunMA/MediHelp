@@ -15,25 +15,39 @@
                 <div class="box box-primary">
                     <div class="box-body">
                         <div class="row">
-                            <div class="col-lg-8 col-12">
+            
+                            <div class="col-lg-6 col-12">
                                 <div class="form-group">
-                                    <label>Test Name</label>
-                                    <input type="text" name="AvailableTestName" class="form-control" value="{{$AvailableTest->AvailableTestName}}"  placeholder="Enter Name">
-                                </div>
-                            </div>
-                        {{-- Gender --}}
-                        
-                            <div class="col-lg-4 col-12">
-                                <div class="form-group">
-                                    <label>Normal Range</label>
+                                    <label>Select The Test</label>
                                     
-                                    <input type="text" id="normal_range" name="AvailableTestRange" value="{{$AvailableTest->AvailableTestRange}}" pattern="\d+-\d+" class="form-control" placeholder="Enter range (e.g. 40-120)">
+                                    <select class="form-control select2" style="width: 100%;" name="tlid">
+                                        {{-- <option selected="selected">Alabama</option> --}}
+                                        @foreach ($availableTests as $availableTest)
+                                            @if ($availableTest->tlid == $TestData->tlid)
+                                                <option value="{{$availableTest->tlid}}" selected="selected">{{$availableTest->AvailableTestName}} - Rs.{{$availableTest->AvailableTestCost}}</option>
+                                                @else
+                                                <option value="{{$availableTest->tlid}}">{{$availableTest->AvailableTestName}} - Rs.{{$availableTest->AvailableTestCost}}</option>
+                                            @endif
+                                            
+                                        @endforeach
+                                        
+                                    </select>
                                 </div>
                             </div>
+            
+                        
+                    
+                            <div class="col-lg-6 col-12">
+                                <div class="form-group">
+                                    <label>Name of the Doctor</label>
+                                    
+                                    <input type="text" name="doctorName" value="{{$TestData->doctorName}}" class="form-control" placeholder="Name of the Doctor">
+                                </div>
+                            </div>
+            
                         </div>
                     
-        
-                        <input type="hidden" name="id" value="{{$TestData->tid}}">
+                        <input type="hidden" name="tid" value="{{$TestData->tid}}">
 
                     </div>
 

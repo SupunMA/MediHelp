@@ -81,6 +81,7 @@ Route::group(['prefix'=>'Admin','middleware'=>['checkAdmin','auth','lockBack']],
     Route::POST('addingTest', [admin_TestsCtr::class, 'addingTest'])->name('admin.addingTest');
     Route::get('AllTest', [admin_TestsCtr::class, 'allTest'])->name('admin.allTest');
     Route::get('test/delete/{ID}', [admin_TestsCtr::class, 'deleteTest'])->name('admin.deleteTest');
+    Route::post('test/update', [admin_TestsCtr::class, 'updateTest'])->name('admin.updateTest');
 
     
     Route::get('AllClient', [admin_ClientCtr::class, 'allClient'])->name('admin.allClient');
