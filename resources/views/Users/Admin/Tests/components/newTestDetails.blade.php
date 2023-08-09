@@ -35,7 +35,7 @@
                         <select class="form-control select2" style="width: 100%;" name="tlid">
                             {{-- <option selected="selected">Alabama</option> --}}
                             @foreach ($availableTests as $availableTest)
-                                <option value="{{$availableTest->id}}">{{$availableTest->AvailableTestName}} - Rs.{{$availableTest->AvailableTestCost}}</option>
+                                <option value="{{$availableTest->tlid}}">{{$availableTest->AvailableTestName}} - Rs.{{$availableTest->AvailableTestCost}}</option>
                             @endforeach
                             
                         </select>

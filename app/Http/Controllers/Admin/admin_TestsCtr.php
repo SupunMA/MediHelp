@@ -80,10 +80,10 @@ class admin_TestsCtr extends Controller
         return view('Users.Admin.Tests.AllTests',compact('allTestData'));
     }
     
-    public function deleteAvailableTest($ID)
+    public function deleteTest($ID)
     {
         //dd($branchID);
-        $delete = AvailableTest::find($ID);
+        $delete = Test::find($ID);
         $delete->delete();
         return redirect()->back()->with('message','successful');
     }
