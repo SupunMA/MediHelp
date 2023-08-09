@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\admin_PatientCtr;
 use App\Http\Controllers\Admin\admin_DoctorCtr;
 use App\Http\Controllers\Admin\admin_AvailableTestCtr;
 use App\Http\Controllers\Admin\admin_TestsCtr;
+use App\Http\Controllers\Admin\admin_ReportsCtr;
 use App\Http\Controllers\Admin\admin_ClientCtr;
 use App\Http\Controllers\Admin\admin_PaymentCtr;
 use App\Http\Controllers\UpdateProfile;
@@ -82,6 +83,13 @@ Route::group(['prefix'=>'Admin','middleware'=>['checkAdmin','auth','lockBack']],
     Route::get('AllTest', [admin_TestsCtr::class, 'allTest'])->name('admin.allTest');
     Route::get('test/delete/{ID}', [admin_TestsCtr::class, 'deleteTest'])->name('admin.deleteTest');
     Route::post('test/update', [admin_TestsCtr::class, 'updateTest'])->name('admin.updateTest');
+
+    //Report
+    Route::get('AddReport', [admin_ReportsCtr::class, 'addReport'])->name('admin.addReport');
+    Route::POST('addingReport', [admin_ReportsCtr::class, 'addingReport'])->name('admin.addingReport');
+    Route::get('AllReport', [admin_ReportsCtr::class, 'allReport'])->name('admin.allReport');
+    Route::get('report/delete/{ID}', [admin_ReportsCtr::class, 'deleteReport'])->name('admin.deleteReport');
+    Route::post('report/update', [admin_ReportsCtr::class, 'updateReport'])->name('admin.updateReport');
 
     
     Route::get('AllClient', [admin_ClientCtr::class, 'allClient'])->name('admin.allClient');

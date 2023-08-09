@@ -85,15 +85,15 @@
         </li>
         
 
-        <li class="treeview {{ Route::currentRouteNamed('admin.addPlan') || Route::currentRouteNamed('admin.allPlan') ? 'active' : '' }}">
-          <a href="#"><i class="fa fa-link"></i> <span>Reports</span>
+        <li class="treeview {{ Route::currentRouteNamed('admin.addReport') || Route::currentRouteNamed('admin.allReport') ? 'active' : '' }}">
+          <a href="#"><i class="fa fa-file" aria-hidden="true"></i> <span>Reports</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
           </a>
           <ul class="treeview-menu">
-            <li class="{{ Route::currentRouteNamed('admin.addPlan') ? 'active' : '' }}"><a href="{{ route('admin.addPlan') }}">Add Report</a></li>
-            <li class="{{ Route::currentRouteNamed('admin.allPlan') ? 'active' : '' }}"><a href="{{ route('admin.allPlan') }}">All Reports</a></li>
+            <li class="{{ Route::currentRouteNamed('admin.addReport') ? 'active' : '' }}"><a href="{{ route('admin.addReport') }}">Add Report</a></li>
+            <li class="{{ Route::currentRouteNamed('admin.allReport') ? 'active' : '' }}"><a href="{{ route('admin.allReport') }}">All Reports</a></li>
             
           </ul>
         </li>
