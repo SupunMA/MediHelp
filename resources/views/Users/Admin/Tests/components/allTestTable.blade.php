@@ -63,9 +63,16 @@
 </div>
   <!-- /.box -->
 
+
+
+  
+
+
   
 @push('specificJs')
 {{-- toastr msg --}}
+
+
 
 <script>
     $(function () {

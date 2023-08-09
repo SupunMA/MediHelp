@@ -61,25 +61,19 @@ class admin_TestsCtr extends Controller
     public function allTest()
     {
        
-        // $testsData = User::with(['patient.tests' => function ($query) {
-        //     $query->join('available_tests', 'tests.tlid', '=', 'available_tests.tlid')
-        //            ->select('users.*', 'tests.*', 'available_tests.*')
-        //           ->orderBy('tests.date', 'desc');
-        // }])->get();
-
-
-        // ->where('users.id', '=', $userId)
-
+        
+        //all not done test with other tables
         $allTestData = User::join('patients', 'patients.userID', '=', 'users.id')
-    ->join('tests', 'tests.pid', '=', 'patients.pid')
-    ->join('available_tests', 'available_tests.tlid', '=', 'tests.tlid')
-    ->select('users.*', 'tests.*', 'available_tests.*')
-    ->get();
+        ->join('tests', 'tests.pid', '=', 'patients.pid')
+        ->join('available_tests', 'available_tests.tlid', '=', 'tests.tlid')
+        ->select('users.*', 'tests.*', 'available_tests.*')
+        ->where('tests.done','=', 0)
+        ->get();
 
-    $availableTests = AvailableTest::all();
+        //All available tests
+        $availableTests = AvailableTest::all();
 
 
-       //dd($test2Data);
         return view('Users.Admin.Tests.AllTests',compact('allTestData','availableTests'));
     }
     

@@ -11,7 +11,7 @@
 
             {{-- Client Details form --}}
             @include('Users.Admin.Tests.components.allTestTable')
-           
+            
             {{-- Client Password form --}}
 
         {{-- </div>  --}}
@@ -25,3 +25,4 @@
 @section('header')
 All Available Tests
 @endsection
+
