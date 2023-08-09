@@ -12,7 +12,7 @@ class AvailableTest extends Model
     protected $fillable = [
         'AvailableTestName', 
         'AvailableTestRange',
-
+        'AvailableTestCost'
     ];
     
     

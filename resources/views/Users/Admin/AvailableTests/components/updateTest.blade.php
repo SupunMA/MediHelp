@@ -31,7 +31,16 @@
                                 </div>
                             </div>
                         </div>
-                    
+
+                        <div class="row">
+                            <div class="col-lg-3 col-12">
+                                <div class="form-group">
+                                    <label>Cost</label>
+                                    <input type="number" name="AvailableTestCost" class="form-control" value="{{$AvailableTest->AvailableTestCost}}" placeholder="Cost for the test">
+                                </div>
+                            </div>
+                        </div>
+                        
         
                         <input type="hidden" name="id" value="{{$AvailableTest->id}}">
 

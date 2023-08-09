@@ -33,7 +33,8 @@ class admin_AvailableTestCtr extends Controller
     {
          $data->validate([
             'AvailableTestName' =>['required','string'],
-            'AvailableTestRange' =>['required','string']
+            'AvailableTestRange' =>['required','string'],
+            'AvailableTestCost' =>['required','integer']
             
          ]);
         $AvailableTest = AvailableTest::create($data->all());
@@ -63,13 +64,15 @@ class admin_AvailableTestCtr extends Controller
 
         $request->validate([
             'AvailableTestName' =>['required','string'],
-            'AvailableTestRange' =>['required','string']
+            'AvailableTestRange' =>['required','string'],
+            'AvailableTestCost' =>['required','integer']
         ]);
 
         AvailableTest::where('id', $request->id)
         ->update([
                     'AvailableTestName' => $request->AvailableTestName,
-                    'AvailableTestRange'=> $request->AvailableTestRange
+                    'AvailableTestRange'=> $request->AvailableTestRange,
+                    'AvailableTestCost'=> $request->AvailableTestCost
                     
                 ]);
 

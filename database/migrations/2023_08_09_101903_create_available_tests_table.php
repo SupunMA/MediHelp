@@ -17,6 +17,7 @@ class CreateAvailableTestsTable extends Migration
             $table->id();
             $table->string('AvailableTestName')->nullable();
             $table->string('AvailableTestRange')->nullable();
+            $table->integer('AvailableTestCost')->nullable();
 
             $table->timestamps();
         });

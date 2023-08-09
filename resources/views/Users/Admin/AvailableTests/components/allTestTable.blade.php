@@ -11,6 +11,7 @@
                     <th>ID</th>
                     <th>Available Test Name</th>
                     <th>Normal Range</th>
+                    <th>Cost</th>
                     <th>Action</th>
                     
                 </tr>
@@ -22,6 +23,7 @@
                         <td>{{$AvailableTest->id}}</td>
                         <td>{{$AvailableTest->AvailableTestName}}</td>
                         <td>{{$AvailableTest->AvailableTestRange}}</td>
+                        <td>{{$AvailableTest->AvailableTestCost}}</td>
                         
                         
                         <td>
@@ -45,6 +47,7 @@
                     <th>ID</th>
                     <th>Available Test Name</th>
                     <th>Normal Range</th>
+                    <th>Cost</th>
                     <th>Action</th>
                 </tr>
             </tfoot>
