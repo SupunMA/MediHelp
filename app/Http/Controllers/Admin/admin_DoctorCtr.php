@@ -58,25 +58,23 @@ class admin_DoctorCtr extends Controller
         return redirect()->back()->with('message','successful');
     }
 
-    public function updatePatient(Request $request)
+    public function updateDoctor(Request $request)
     {
 
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'gender' => ['required', 'string', 'in:M,F,O'],
-            'dob' => ['required', 'string', 'date','before:-1 years'],
-            'mobile' =>['string','unique:users'],
-            'address' =>['string']
+            'mobile' =>['string','unique:doctors'],
+            'clinicName' => ['required', 'string', 'max:255'],
+            'clinicAddress' =>['string']
         ]);
-//change the date format
-$formattedDate = Carbon::createFromFormat('m/d/Y', $request->dob)->format('Y-m-d');
 
-        Patient::where('pid', $request->pid)
+        Doctor::where('did', $request->did)
         ->update([
                     'mobile' => $request->mobile,
-                    'address' => $request->address,
                     'gender'=> $request->gender,
-                    'dob'=> $formattedDate
+                    'clinicAddress' => $request->clinicAddress,
+                    'clinicName'=> $request->clinicName
                     
                 ]);
 

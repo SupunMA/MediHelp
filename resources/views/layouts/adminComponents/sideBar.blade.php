@@ -41,7 +41,7 @@
 
 
         <li class="treeview {{ Route::currentRouteNamed('admin.addPatient') || Route::currentRouteNamed('admin.allPatient')? 'active' : '' }}">
-          <a href="#"><i class="fa fa-link"></i> <span>Patients</span>
+          <a href="#"><i class="fa fa-users" aria-hidden="true"></i> <span>Patients</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
@@ -49,22 +49,22 @@
           <ul class="treeview-menu">
             <li class="{{ Route::currentRouteNamed('admin.addPatient') ? 'active' : '' }}"><a href="{{ route('admin.addPatient') }}">Register Patients</a></li>
             <li class="{{ Route::currentRouteNamed('admin.allPatient') ? 'active' : '' }}"><a href="{{ route('admin.allPatient') }}">All Patients</a></li>
-            <li class="{{ Route::currentRouteNamed('admin.approvedPayment') ? 'active' : '' }}"><a href="{{ route('admin.approvedPayment') }}">Approved List</a></li>
-            <li class="{{ Route::currentRouteNamed('admin.DeclinedPayment') ? 'active' : '' }}"><a href="{{ route('admin.DeclinedPayment') }}">Declined List</a></li>
+            {{-- <li class="{{ Route::currentRouteNamed('admin.approvedPayment') ? 'active' : '' }}"><a href="{{ route('admin.approvedPayment') }}">Approved List</a></li>
+            <li class="{{ Route::currentRouteNamed('admin.DeclinedPayment') ? 'active' : '' }}"><a href="{{ route('admin.DeclinedPayment') }}">Declined List</a></li> --}}
           </ul>
         </li> 
 
 
 
-        <li class="treeview {{ Route::currentRouteNamed('admin.addClient') || Route::currentRouteNamed('admin.allClient') ? 'active' : '' }}">
-          <a href="#"><i class="fa fa-link"></i> <span>Doctors</span>
+        <li class="treeview {{ Route::currentRouteNamed('admin.addDoctor') || Route::currentRouteNamed('admin.allDoctor') ? 'active' : '' }}">
+          <a href="#"><i class="fa fa-user-md" aria-hidden="true"></i> <span>Doctors</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
           </a>
           <ul class="treeview-menu">
-            <li class="{{ Route::currentRouteNamed('admin.addClient') ? 'active' : '' }}"><a href="{{ route('admin.addClient') }}">Register Doctor</a></li>
-            <li class="{{ Route::currentRouteNamed('admin.allClient') ? 'active' : '' }}"><a href="{{ route('admin.allClient') }}">All Doctors</a></li>
+            <li class="{{ Route::currentRouteNamed('admin.addDoctor') ? 'active' : '' }}"><a href="{{ route('admin.addDoctor') }}">Register Doctor</a></li>
+            <li class="{{ Route::currentRouteNamed('admin.allDoctor') ? 'active' : '' }}"><a href="{{ route('admin.allDoctor') }}">All Doctors</a></li>
             
           </ul>
         </li> 

@@ -58,7 +58,7 @@
                       {{-- delete modal --}}
                       @include('Users.Admin.Doctors.components.deleteDoctor')
                       {{-- update modal --}}
-                      {{-- @include('Users.Admin.Doctors.components.updateDoctor') --}}
+                      @include('Users.Admin.Doctors.components.updateDoctor')
   
   
                   @endforeach
