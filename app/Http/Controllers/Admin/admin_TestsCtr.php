@@ -8,8 +8,9 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Patient;
 use App\Models\AvailableTest;
+use App\Models\Test;
 
-
+use Carbon\Carbon;
 
 class admin_TestsCtr extends Controller
 {
@@ -32,14 +33,26 @@ class admin_TestsCtr extends Controller
         return view('Users.Admin.Tests.AddNewTest',compact('patients','availableTests'));
     }
 
-    public function addingAvailableTest(Request $data)
+    public function addingTest(Request $data)
     {
          $data->validate([
-            'AvailableTestName' =>['required','string'],
-            'AvailableTestRange' =>['required','string']
-            
+            'pid' =>['required','string'],
+            'tlid' =>['required','string'],
+            'date' => ['date'],
+            'doctorName' => ['string']
          ]);
-        $AvailableTest = AvailableTest::create($data->all());
+
+         //change the date format
+        $formattedDate = Carbon::createFromFormat('m/d/Y', $data->date)->format('Y-m-d');
+
+        $test = new Test();
+        $test->pid = $data->pid;
+        $test->tlid = $data->tlid;
+        $test->date = $formattedDate; // Assign the formatted date
+        $test->doctorName = $data->doctorName;
+
+        // Save the Test instance to the database
+        $test->save();
         return redirect()->back()->with('message','successful');
         //->route('your_url_where_you_want_to_redirect');
     }

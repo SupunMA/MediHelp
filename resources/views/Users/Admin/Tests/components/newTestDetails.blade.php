@@ -1,6 +1,6 @@
 @include('Users.Admin.messages.addMsg')
 
-<div class="col-lg-6">
+<div class="col-lg-8">
     <div class="box box-primary">
         <div class="box-header with-border">
             <h3 class="box-title">Test's Details</h3>
@@ -8,7 +8,7 @@
         <!-- /.box-header -->
         <!-- form start -->
         <div class="box-body">
-{{-- <form action="{{ route('admin.addingTest') }}" method="post"> --}}
+<form action="{{ route('admin.addingTest') }}" method="post">
                 @csrf
             <div class="row">
             
@@ -35,7 +35,7 @@
                         <select class="form-control select2" style="width: 100%;" name="tlid">
                             {{-- <option selected="selected">Alabama</option> --}}
                             @foreach ($availableTests as $availableTest)
-                                <option value="{{$availableTest->id}}">{{$availableTest->AvailableTestName}}</option>
+                                <option value="{{$availableTest->id}}">{{$availableTest->AvailableTestName}} - Rs.{{$availableTest->AvailableTestCost}}</option>
                             @endforeach
                             
                         </select>
@@ -83,7 +83,7 @@
                 </div>
             </div>
     
- {{-- </form>            --}}
+ </form>           
         </div>
     </div>
     <!-- /.box -->

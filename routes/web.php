@@ -78,6 +78,7 @@ Route::group(['prefix'=>'Admin','middleware'=>['checkAdmin','auth','lockBack']],
 
     //Test
     Route::get('AddTest', [admin_TestsCtr::class, 'addTest'])->name('admin.addTest');
+    Route::POST('addingTest', [admin_TestsCtr::class, 'addingTest'])->name('admin.addingTest');
 
     
     Route::get('AllClient', [admin_ClientCtr::class, 'allClient'])->name('admin.allClient');
