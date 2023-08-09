@@ -36,7 +36,7 @@
         <!-- Optionally, you can add icons to the links -->
 
         <li class="{{ Route::currentRouteNamed('admin.home') ? 'active' : ' ' }}"><a href="{{ route('admin.home') }}"><i class="fa fa-tachometer"></i> <span>Dashboard</span></a></li>
-        <li class="{{ Route::currentRouteNamed('admin.allTimeTable') ? 'active' : ' ' }}"><a href="{{ route('admin.allTimeTable') }}"><i class="fa fa-tachometer"></i> <span>Timetable</span></a></li>
+        <li class="{{ Route::currentRouteNamed('admin.allTimeTable') ? 'active' : ' ' }}"><a href="{{ route('admin.allTimeTable') }}" class="bt btn-danger"><i class="fa fa-tachometer"></i> <span>Timetable</span></a></li>
         
 
 
@@ -114,15 +114,18 @@
         </li>
 
 
-        <li class="treeview {{ Route::currentRouteNamed('admin.addStaff') || Route::currentRouteNamed('admin.allStaff') ? 'active' : '' }}">
-          <a href="#"><i class="fa fa-link"></i> <span>Available Tests</span>
+        <li class="treeview {{ Route::currentRouteNamed('admin.addAvailableTest') || Route::currentRouteNamed('admin.allAvailableTest') ? 'active' : '' }}">
+          <a href="#"><i class="fa fa-list-ol" aria-hidden="true"></i> <span>Available Tests</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
           </a>
           <ul class="treeview-menu">
-            <li class="{{ Route::currentRouteNamed('admin.addStaff') ? 'active' : '' }}"><a href="{{ route('admin.addStaff') }}">Add New Test</a></li>
-            <li class="{{ Route::currentRouteNamed('admin.allStaff') ? 'active' : '' }}"><a href="{{ route('admin.allStaff') }}">All Tests</a></li>
+            {{-- <li class="{{ Route::currentRouteNamed('admin.addStaff') ? 'active' : '' }}"><a href="{{ route('admin.addStaff') }}">Add New Test</a></li>
+            <li class="{{ Route::currentRouteNamed('admin.allStaff') ? 'active' : '' }}"><a href="{{ route('admin.allStaff') }}">All Tests</a></li> --}}
+
+            <li class="{{ Route::currentRouteNamed('admin.addAvailableTest') ? 'active' : '' }}"><a href="{{ route('admin.addAvailableTest') }}">Add Available Test</a></li>
+            <li class="{{ Route::currentRouteNamed('admin.allAvailableTest') ? 'active' : '' }}"><a href="{{ route('admin.allAvailableTest') }}">All Available Tests</a></li>
             
           </ul>
         </li> 

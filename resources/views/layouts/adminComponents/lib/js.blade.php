@@ -64,6 +64,16 @@
 <script src={{ URL::asset('adminPages/v2/bower_components/jquery-slimscroll/jquery.slimscroll.min.js'); }}></script>
 <!-- iCheck 1.0.1 -->
 <script src={{ URL::asset('adminPages/v2/plugins/iCheck/icheck.min.js'); }}></script>
+
+
+
+
+<!-- Select2 -->
+<script src={{ URL::asset('adminPages/v2/bower_components/select2/dist/js/select2.full.min.js'); }}></script>
+
+
+
+
 <!-- page script -->
 @stack('specificJs')
 

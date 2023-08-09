@@ -6,11 +6,12 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\User;
+use App\Models\Patient;
 use App\Models\AvailableTest;
 
 
 
-class admin_AvailableTestCtr extends Controller
+class admin_TestsCtr extends Controller
 {
     
    
@@ -22,11 +23,13 @@ class admin_AvailableTestCtr extends Controller
     }
 
 
-    //Client
+    //Test
 
-    public function addAvailableTest()
+    public function addTest()
     {
-        return view('Users.Admin.AvailableTests.AddNewTest');
+        $patients = Patient::with('user')->get();
+        $availableTests = AvailableTest::all();
+        return view('Users.Admin.Tests.AddNewTest',compact('patients','availableTests'));
     }
 
     public function addingAvailableTest(Request $data)

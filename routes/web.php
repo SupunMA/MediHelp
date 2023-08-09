@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\admin_TimeCtr;
 use App\Http\Controllers\Admin\admin_PatientCtr;
 use App\Http\Controllers\Admin\admin_DoctorCtr;
 use App\Http\Controllers\Admin\admin_AvailableTestCtr;
+use App\Http\Controllers\Admin\admin_TestsCtr;
 use App\Http\Controllers\Admin\admin_ClientCtr;
 use App\Http\Controllers\Admin\admin_PaymentCtr;
 use App\Http\Controllers\UpdateProfile;
@@ -74,6 +75,9 @@ Route::group(['prefix'=>'Admin','middleware'=>['checkAdmin','auth','lockBack']],
     Route::get('AllAvailableTest', [admin_AvailableTestCtr::class, 'allAvailableTest'])->name('admin.allAvailableTest');
     Route::get('availableTest/delete/{ID}', [admin_AvailableTestCtr::class, 'deleteAvailableTest'])->name('admin.deleteAvailableTest');
     Route::post('availableTest/update', [admin_AvailableTestCtr::class, 'updateAvailableTest'])->name('admin.updateAvailableTest');
+
+    //Test
+    Route::get('AddTest', [admin_TestsCtr::class, 'addTest'])->name('admin.addTest');
 
     
     Route::get('AllClient', [admin_ClientCtr::class, 'allClient'])->name('admin.allClient');
