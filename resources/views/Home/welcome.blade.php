@@ -5,13 +5,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>3 Kings Swimming Pool Complex</title>
+    <title>MediHelp Lab</title>
 
     <!-- style -->
     @include('Home.components.cssJs.style')
 
     <!-- Fav icon -->
-    @include('Home.components.cssJs.fav')
+    {{-- @include('Home.components.cssJs.fav') --}}
 
 
 
