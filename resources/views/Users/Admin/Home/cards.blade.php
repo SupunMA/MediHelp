@@ -129,17 +129,6 @@
       <!-- /.col (RIGHT) -->
     </div>
     <!-- /.row -->
-
-
-
-
-
-
-
-
-
-{{-- table --}}
-        
           
 
 <div class="box">
@@ -195,33 +184,37 @@
                * -------
                * Here we will create a few charts using ChartJS
                */
-        
-          
+
+              var barChartList = @json($testList);
+              var notDoneTestsArray = @json($notDoneTestsArray);
+              var DoneTestsArray = @json($DoneTestsArray);
+
+
               var areaChartData = {
-                labels  : ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-                datasets: [
-                  {
-                    label               : 'The Requested Test',
-                    fillColor           : 'rgba(210, 214, 222, 1)',
-                    strokeColor         : 'rgba(210, 214, 222, 1)',
-                    pointColor          : 'rgba(210, 214, 222, 1)',
-                    pointStrokeColor    : '#c1c7d1',
-                    pointHighlightFill  : '#fff',
-                    pointHighlightStroke: 'rgba(220,220,220,1)',
-                    data                : [95, 59, 80, 81, 56, 55, 40]
-                  },
-                  {
-                    label               : 'The Tested Test',
-                    fillColor           : 'rgba(60,141,188,0.9)',
-                    strokeColor         : 'rgba(60,141,188,0.8)',
-                    pointColor          : '#3b8bba',
-                    pointStrokeColor    : 'rgba(60,141,188,1)',
-                    pointHighlightFill  : '#fff',
-                    pointHighlightStroke: 'rgba(60,141,188,1)',
-                    data                : [28, 48, 40, 19, 86, 27, 90]
-                  }
-                ]
-              }
+                  labels: barChartList,
+                  datasets: [
+                      {
+                          label: 'The Requested Test',
+                          fillColor: 'rgba(210, 214, 222, 1)',
+                          strokeColor: 'rgba(210, 214, 222, 1)',
+                          pointColor: 'rgba(210, 214, 222, 1)',
+                          pointStrokeColor: '#c1c7d1',
+                          pointHighlightFill: '#fff',
+                          pointHighlightStroke: 'rgba(220, 220, 220, 1)',
+                          data: notDoneTestsArray
+                      },
+                      {
+                          label: 'The Tested Test',
+                          fillColor: 'rgba(60, 141, 188, 0.9)',
+                          strokeColor: 'rgba(60, 141, 188, 0.8)',
+                          pointColor: '#3b8bba',
+                          pointStrokeColor: 'rgba(60, 141, 188, 1)',
+                          pointHighlightFill: '#fff',
+                          pointHighlightStroke: 'rgba(60, 141, 188, 1)',
+                          data: DoneTestsArray
+                      }
+                  ]
+              };
           
               
           
@@ -233,19 +226,19 @@
               var pieChart       = new Chart(pieChartCanvas)
               var PieData        = [
                 {
-                  value    : 700,
+                  value    : {{$maleP}},
                   color    : '#f56954',
                   highlight: '#c2422f',
                   label    : 'Male'
                 },
                 {
-                  value    : 300,
+                  value    : {{$femaleP}},
                   color    : '#00a65a',
                   highlight: '#188754',
                   label    : 'Famale'
                 },
                 {
-                  value    : 100,
+                  value    : {{$otherP}},
                   color    : '#08aabf',
                   highlight: '#0f7c8a',
                   label    : 'Other'
