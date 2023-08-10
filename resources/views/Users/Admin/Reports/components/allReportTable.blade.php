@@ -36,12 +36,17 @@
                             <a class="btn btn-danger" type="button" data-toggle="modal" data-target="#branchDeleteModal-{{$data->rid}}"  >
                                 <i class="fa fa-trash-o" aria-hidden="true"></i>
                             </a>
+
+                            <a class="btn btn-success" type="button" href="report/view/{{$data->rid}}" target="_blank">
+                                <i class="fa fa-cloud-download" aria-hidden="true"></i> Download
+                            </a>
                         </td>
                     </tr>
                     
                             {{-- update modal and delete modal --}}
                             @include('Users.Admin.Reports.components.updateReport')
                             @include('Users.Admin.Reports.components.deleteReport') 
+                            {{-- @include('Users.Admin.Reports.components.invoice-print')  --}}
                 @endforeach
 
             </tbody>
