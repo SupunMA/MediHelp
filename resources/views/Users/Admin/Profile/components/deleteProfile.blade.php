@@ -4,13 +4,13 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title text-danger" id="exampleModalCenterTitle">Delete <b>{{$client->name}}</b> Account</h5>
+                <h3 class="modal-title text-danger" id="exampleModalCenterTitle">Delete <b>{{$client->name}}</b> Account</h3>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
 
-            <form action="client/delete/{{$client->id}}" method="get">
+            <form action="admin/delete/{{$client->id}}" method="get">
                 @csrf
                 
                 <div class="modal-body">

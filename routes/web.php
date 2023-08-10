@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\admin_DoctorCtr;
 use App\Http\Controllers\Admin\admin_AvailableTestCtr;
 use App\Http\Controllers\Admin\admin_TestsCtr;
 use App\Http\Controllers\Admin\admin_ReportsCtr;
+use App\Http\Controllers\Admin\admin_ProfileCtr;
 use App\Http\Controllers\Admin\admin_ClientCtr;
 use App\Http\Controllers\Admin\admin_PaymentCtr;
 use App\Http\Controllers\UpdateProfile;
@@ -91,6 +92,10 @@ Route::group(['prefix'=>'Admin','middleware'=>['checkAdmin','auth','lockBack']],
     Route::get('report/delete/{ID}', [admin_ReportsCtr::class, 'deleteReport'])->name('admin.deleteReport');
     Route::post('report/update', [admin_ReportsCtr::class, 'updateReport'])->name('admin.updateReport');
 
+    //Profile
+    Route::POST('updateAdmin', [admin_ProfileCtr::class, 'updateAdmin'])->name('admin.updateAdmin');
+    Route::get('admin/delete/{userID}', [admin_ProfileCtr::class, 'deleteAdmin'])->name('admin.deleteAdmin');
+ 
     
     Route::get('AllClient', [admin_ClientCtr::class, 'allClient'])->name('admin.allClient');
     Route::POST('addingClient', [RegisterController::class, 'addingClient'])->name('admin.addingClient');
@@ -181,4 +186,3 @@ Route::group(['prefix'=>'Account/Manager','middleware'=>['checkManager','auth','
 Route::post('/register', function() {
     return redirect('/register');
 });
-

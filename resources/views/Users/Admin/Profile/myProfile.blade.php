@@ -7,21 +7,26 @@
     @include('Users.Admin.messages.addMsg')
     
    <h3> Update the Account Details</h3>
-    <form action="{{route('StaffProfileUpdating')}}" method="post">
+    <form action="{{route('admin.updateAdmin')}}" method="post">
         @csrf
         <div class="row">
 
             {{-- Client Details form --}}
             @include('Users.Admin.Profile.components.myProfileDetails')
+        </div>
+        <div class="row">
 
             {{-- Client Password form --}}
             @include('Users.Admin.Profile.components.profilePWD')
             
  
         </div>
-        <h3> Delete the Account</h3>
-        @include('Users.Admin.Profile.components.profileDelete')
-    </form>
+</form>
+        <div class="row">
+            @include('Users.Admin.Profile.components.profileDelete')
+        </div>
+
+    
     {{-- End of Row --}}
 
     
