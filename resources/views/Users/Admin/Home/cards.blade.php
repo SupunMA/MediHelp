@@ -21,12 +21,12 @@
       <!-- small box -->
       <div class="small-box bg-green">
         <div class="inner">
-          <h3>53<sup style="font-size: 20px">%</sup></h3>
+          <h3>Rs {{$total}}<sup style="font-size: 20px">.00</sup></h3>
 
-          <p>Total Income</p>
+          <h4>Total Income</h4>
         </div>
         <div class="icon">
-          <i class="ion ion-stats-bars"></i>
+          <i class="fa fa-money" aria-hidden="true"></i>
         </div>
         <a href="#" class="small-box-footer">
           More info <i class="fa fa-arrow-circle-right"></i>
@@ -40,13 +40,13 @@
         <div class="inner">
           <h3>{{$TestCount}}</h3>
 
-          <p>Requested Tests</p>
+          <h4>Requested Tests</h4>
         </div>
         <div class="icon">
           <i class="ion ion-person-add"></i>
         </div>
-        <a href="#" class="small-box-footer">
-          More info <i class="fa fa-arrow-circle-right"></i>
+        <a href="{{route('admin.allTest')}}" class="small-box-footer">
+          View Requested Tests <i class="fa fa-arrow-circle-right"></i>
         </a>
       </div>
     </div>
@@ -57,13 +57,13 @@
         <div class="inner">
           <h3>{{$DoctorCount}}</h3>
 
-          <p>Doctors</p>
+          <h4>Doctors</h4>
         </div>
         <div class="icon">
-          <i class="ion ion-pie-graph"></i>
+          <i class="fa fa-user-md" aria-hidden="true"></i>
         </div>
-        <a href="#" class="small-box-footer">
-          More info <i class="fa fa-arrow-circle-right"></i>
+        <a href="{{route('admin.allDoctor')}}" class="small-box-footer">
+          View Doctors <i class="fa fa-arrow-circle-right"></i>
         </a>
       </div>
     </div>

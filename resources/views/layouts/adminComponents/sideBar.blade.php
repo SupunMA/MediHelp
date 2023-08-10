@@ -100,18 +100,7 @@
         
 
 
-        <li class="treeview {{ Route::currentRouteNamed('admin.addPlan') || Route::currentRouteNamed('admin.allPlan') ? 'active' : '' }}">
-          <a href="#"><i class="fa fa-link"></i> <span>Payments</span>
-            <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-          </a>
-          <ul class="treeview-menu">
-            <li class="{{ Route::currentRouteNamed('admin.addPlan') ? 'active' : '' }}"><a href="{{ route('admin.addPlan') }}">Add Payment</a></li>
-            <li class="{{ Route::currentRouteNamed('admin.allPlan') ? 'active' : '' }}"><a href="{{ route('admin.allPlan') }}">All Payment</a></li>
-            
-          </ul>
-        </li>
+
 
 
         <li class="treeview {{ Route::currentRouteNamed('admin.addAvailableTest') || Route::currentRouteNamed('admin.allAvailableTest') ? 'active' : '' }}">

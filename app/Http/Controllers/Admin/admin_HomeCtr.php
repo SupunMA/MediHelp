@@ -79,8 +79,28 @@ class admin_HomeCtr extends Controller
             
         }
 
+        $total=0;
+        foreach ($testList as $oneTest) {
+            $allDoneList = Test::join('available_tests', 'available_tests.tlid', '=', 'tests.tlid')
+            ->select( 'tests.*', 'available_tests.*')
+            ->where('tests.done','=', 1)
+            ->where('available_tests.AvailableTestName','=', $oneTest)
+            ->get();
+            
+            
+            //dd($allDoneList);
+            
+            foreach ($allDoneList as $allDoneItem) {
+                $total = $total + $allDoneItem->AvailableTestCost;
+            }
+            
 
-        return view('Users.Admin.home',compact('ClientsCount','DoctorCount','TestCount','allReportData','testList','maleP','femaleP','otherP','notDoneTestsArray','DoneTestsArray'));
+            
+        }
+     
+
+
+        return view('Users.Admin.home',compact('ClientsCount','DoctorCount','TestCount','allReportData','testList','maleP','femaleP','otherP','notDoneTestsArray','DoneTestsArray','total'));
     }
 
 }
