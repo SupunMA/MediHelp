@@ -22,8 +22,6 @@ class admin_ProfileCtr extends Controller
     }
 
 
-    //Client
-
 
     public function updateAdmin(Request $request)
     {

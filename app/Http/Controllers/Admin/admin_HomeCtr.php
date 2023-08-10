@@ -78,6 +78,7 @@ class admin_HomeCtr extends Controller
             
         }
 
+        //Get total income
         $total=0;
         foreach ($testList as $oneTest) {
             $allDoneList = Test::join('available_tests', 'available_tests.tlid', '=', 'tests.tlid')
@@ -87,7 +88,7 @@ class admin_HomeCtr extends Controller
             ->get();
             
             
-            //dd($allDoneList);
+       
             
             foreach ($allDoneList as $allDoneItem) {
                 $total = $total + $allDoneItem->AvailableTestCost;

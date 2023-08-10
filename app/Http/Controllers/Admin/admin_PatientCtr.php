@@ -24,7 +24,7 @@ class admin_PatientCtr extends Controller
     }
 
 
-    //Client
+    //Patient
 
     public function addPatient()
     {
@@ -69,8 +69,8 @@ class admin_PatientCtr extends Controller
             'mobile' =>['string','unique:users'],
             'address' =>['string']
         ]);
-//change the date format
-$formattedDate = Carbon::createFromFormat('m/d/Y', $request->dob)->format('Y-m-d');
+        //change the date format
+        $formattedDate = Carbon::createFromFormat('m/d/Y', $request->dob)->format('Y-m-d');
 
         Patient::where('pid', $request->pid)
         ->update([
