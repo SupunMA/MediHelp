@@ -67,6 +67,16 @@
     })
 </script>
 
-
+<script>
+    $(document).ready(function() {
+        $('#normal_range').inputmask('99-999', {
+            placeholder: ' ', // Space as a placeholder for each digit
+        });
+    });
+</script>
 
 @endpush
+
+
+
+
