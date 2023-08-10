@@ -9,7 +9,7 @@ use App\Models\User;
 use App\Models\Doctor;
 
 use Carbon\Carbon;
-
+use Illuminate\Validation\Rule;
 
 
 class admin_DoctorCtr extends Controller
@@ -60,11 +60,11 @@ class admin_DoctorCtr extends Controller
 
     public function updateDoctor(Request $request)
     {
-
+        
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'gender' => ['required', 'string', 'in:M,F,O'],
-            'mobile' =>['string','unique:doctors'],
+            'mobile' => ['string', Rule::unique('doctors', 'mobile')->ignore($request->did, 'did')],
             'clinicName' => ['required', 'string', 'max:255'],
             'clinicAddress' =>['string']
         ]);

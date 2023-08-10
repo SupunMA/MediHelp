@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\Patient;
 
 use Carbon\Carbon;
+use Illuminate\Validation\Rule;
 
 
 
@@ -66,7 +67,7 @@ class admin_PatientCtr extends Controller
             'name' => ['required', 'string', 'max:255'],
             'gender' => ['required', 'string', 'in:M,F,O'],
             'dob' => ['required', 'string', 'date','before:-1 years'],
-            'mobile' =>['string','unique:users'],
+            'mobile' =>['string',Rule::unique('patients', 'mobile')->ignore($request->pid, 'pid')],
             'address' =>['string']
         ]);
         //change the date format
