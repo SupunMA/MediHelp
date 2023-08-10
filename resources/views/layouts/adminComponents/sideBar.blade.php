@@ -9,7 +9,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src={{ URL::asset('adminPages/v2/dist/img/admin.png'); }} class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>{{ Auth::user()->name }}</p>
@@ -49,8 +49,7 @@
           <ul class="treeview-menu">
             <li class="{{ Route::currentRouteNamed('admin.addPatient') ? 'active' : '' }}"><a href="{{ route('admin.addPatient') }}">Register Patients</a></li>
             <li class="{{ Route::currentRouteNamed('admin.allPatient') ? 'active' : '' }}"><a href="{{ route('admin.allPatient') }}">All Patients</a></li>
-            {{-- <li class="{{ Route::currentRouteNamed('admin.approvedPayment') ? 'active' : '' }}"><a href="{{ route('admin.approvedPayment') }}">Approved List</a></li>
-            <li class="{{ Route::currentRouteNamed('admin.DeclinedPayment') ? 'active' : '' }}"><a href="{{ route('admin.DeclinedPayment') }}">Declined List</a></li> --}}
+           
           </ul>
         </li> 
 
@@ -110,8 +109,6 @@
               </span>
           </a>
           <ul class="treeview-menu">
-            {{-- <li class="{{ Route::currentRouteNamed('admin.addStaff') ? 'active' : '' }}"><a href="{{ route('admin.addStaff') }}">Add New Test</a></li>
-            <li class="{{ Route::currentRouteNamed('admin.allStaff') ? 'active' : '' }}"><a href="{{ route('admin.allStaff') }}">All Tests</a></li> --}}
 
             <li class="{{ Route::currentRouteNamed('admin.addAvailableTest') ? 'active' : '' }}"><a href="{{ route('admin.addAvailableTest') }}">Add Available Test</a></li>
             <li class="{{ Route::currentRouteNamed('admin.allAvailableTest') ? 'active' : '' }}"><a href="{{ route('admin.allAvailableTest') }}">All Available Tests</a></li>

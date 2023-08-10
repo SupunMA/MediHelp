@@ -7,8 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\RegisterController;
 
 use App\Http\Controllers\Admin\admin_HomeCtr;
-use App\Http\Controllers\Admin\admin_PlanCtr;
-use App\Http\Controllers\Admin\admin_TimeCtr;
+
 use App\Http\Controllers\Admin\admin_PatientCtr;
 use App\Http\Controllers\Admin\admin_DoctorCtr;
 use App\Http\Controllers\Admin\admin_AvailableTestCtr;
@@ -16,7 +15,7 @@ use App\Http\Controllers\Admin\admin_TestsCtr;
 use App\Http\Controllers\Admin\admin_ReportsCtr;
 use App\Http\Controllers\Admin\admin_ProfileCtr;
 use App\Http\Controllers\Admin\admin_ClientCtr;
-use App\Http\Controllers\Admin\admin_PaymentCtr;
+
 use App\Http\Controllers\UpdateProfile;
 
 use App\Http\Controllers\Admin\admin_TransactionCtr;
@@ -121,21 +120,7 @@ Route::group(['prefix'=>'Admin','middleware'=>['checkAdmin','auth','lockBack']],
     Route::get('plan/delete/{planID}', [admin_planCtr::class, 'deletePlan'])->name('admin.deletePlan');
     Route::post('plan/update', [admin_planCtr::class, 'updatePlan'])->name('admin.updatePlan');
 
-//Timetable View
-    Route::get('allTimeTable', [admin_TimeCtr::class, 'allTimeTable'])->name('admin.allTimeTable');
 
-
-    //paymentView
-    Route::get('pendingPayment', [admin_PaymentCtr::class, 'pendingPaymentList'])->name('admin.pendingPaymentList');
-    Route::POST('approvePayment', [admin_PaymentCtr::class, 'approvePayment'])->name('admin.approvePayment');
-
-    Route::get('approvedPayment', [admin_PaymentCtr::class, 'approvedPayment'])->name('admin.approvedPayment');
-    Route::get('DeclinedPayment', [admin_PaymentCtr::class, 'DeclinedPayment'])->name('admin.DeclinedPayment');
-    //current Month
-    Route::get('currentMonthTable', [admin_PaymentCtr::class, 'currentMonthTable'])->name('admin.currentMonthTable');
-
-    //View Ratings
-    Route::get('allRatings', [admin_TimeCtr::class, 'allRatings'])->name('admin.allRatings');
 
     
 });

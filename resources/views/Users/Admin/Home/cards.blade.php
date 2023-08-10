@@ -95,6 +95,7 @@
           </div>
           <div class="box-body">
             <canvas id="pieChart" ></canvas>
+    
           </div>
           <!-- /.box-body -->
         </div>
@@ -255,9 +256,9 @@
                 //Number - The percentage of the chart that we cut out of the middle
                 percentageInnerCutout: 50, // This is 0 for Pie charts
                 //Number - Amount of animation steps
-                animationSteps       : 180,
+                animationSteps       : 140,
                 //String - Animation easing effect
-                animationEasing      : 'easeOutBounce',
+                animationEasing      : 'easeInBounce',
                 //Boolean - Whether we animate the rotation of the Doughnut
                 animateRotate        : true,
                 //Boolean - Whether we animate scaling the Doughnut from the centre
