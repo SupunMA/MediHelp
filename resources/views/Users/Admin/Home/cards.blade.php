@@ -6,13 +6,13 @@
       <div class="small-box bg-aqua">
         <div class="inner">
             <h3>{{$ClientsCount}}</h3>
-            <h4>Clients</h4>
+            <h4>Patients</h4>
         </div>
         <div class="icon">
-          <i class="fa fa-shopping-cart"></i>
+          <i class="fa fa-users" aria-hidden="true"></i>
         </div>
-        <a href="#" class="small-box-footer">
-          More info <i class="fa fa-arrow-circle-right"></i>
+        <a href="{{route('admin.allPatient')}}" class="small-box-footer">
+          View Patients <i class="fa fa-arrow-circle-right"></i>
         </a>
       </div>
     </div>
@@ -23,7 +23,7 @@
         <div class="inner">
           <h3>53<sup style="font-size: 20px">%</sup></h3>
 
-          <p>Bounce Rate</p>
+          <p>Total Income</p>
         </div>
         <div class="icon">
           <i class="ion ion-stats-bars"></i>
@@ -38,9 +38,9 @@
       <!-- small box -->
       <div class="small-box bg-yellow">
         <div class="inner">
-          <h3>44</h3>
+          <h3>{{$TestCount}}</h3>
 
-          <p>User Registrations</p>
+          <p>Requested Tests</p>
         </div>
         <div class="icon">
           <i class="ion ion-person-add"></i>
@@ -55,9 +55,9 @@
       <!-- small box -->
       <div class="small-box bg-red">
         <div class="inner">
-          <h3>65</h3>
+          <h3>{{$DoctorCount}}</h3>
 
-          <p>Unique Visitors</p>
+          <p>Doctors</p>
         </div>
         <div class="icon">
           <i class="ion ion-pie-graph"></i>
@@ -94,7 +94,7 @@
             </div>
           </div>
           <div class="box-body">
-            <canvas id="pieChart" style="height:500px"></canvas>
+            <canvas id="pieChart" ></canvas>
           </div>
           <!-- /.box-body -->
         </div>
@@ -118,7 +118,7 @@
           </div>
           <div class="box-body">
             <div class="chart">
-              <canvas id="barChart" style="height:370px"></canvas>
+              <canvas id="barChart" ></canvas>
             </div>
           </div>
           <!-- /.box-body -->
@@ -150,36 +150,40 @@
   <div class="box-body">
     <table id="example1" class="table table-bordered table-striped">
       <thead>
-      <tr>
-        <th>Rendering engine</th>
-        <th>Browser</th>
-        <th>Platform(s)</th>
-        <th>Engine version</th>
-        <th>CSS grade</th>
-      </tr>
+          <tr>
+              <th>Report ID</th>
+              <th>Patient Name</th>
+              <th>Test Name</th>
+              <th>Result</th>
+              <th>Status</th>
+
+            
+              
+          </tr>
       </thead>
       <tbody>
-      <tr>
-        <td>Trident</td>
-        <td>Internet
-          Explorer 4.0
-        </td>
-        <td>Win 95+</td>
-        <td> 4</td>
-        <td>X</td>
-      </tr>
-     
+
+          @foreach ($allReportData as $data)
+              <tr>
+                  <td>{{$data->rid}}</td>
+                  <td>{{$data->name}}</td>
+                  <td>{{$data->AvailableTestName}}</td>
+                  <td>{{$data->result}}</td>
+                  <td>{{$data->status}}</td>
+              </tr>
+          @endforeach
+
       </tbody>
       <tfoot>
-      <tr>
-        <th>Rendering engine</th>
-        <th>Browser</th>
-        <th>Platform(s)</th>
-        <th>Engine version</th>
-        <th>CSS grade</th>
-      </tr>
+          <tr>
+              <th>Report ID</th>
+              <th>Patient Name</th>
+              <th>Test Name</th>
+              <th>Result</th>
+              <th>Status</th>
+          </tr>
       </tfoot>
-    </table>
+  </table>
   </div>
   <!-- /.box-body -->
 </div>

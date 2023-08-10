@@ -36,7 +36,7 @@
         <!-- Optionally, you can add icons to the links -->
 
         <li class="{{ Route::currentRouteNamed('admin.home') ? 'active' : ' ' }}"><a href="{{ route('admin.home') }}"><i class="fa fa-tachometer"></i> <span>Dashboard</span></a></li>
-        <li class="{{ Route::currentRouteNamed('admin.allTimeTable') ? 'active' : ' ' }}"><a href="{{ route('admin.allTimeTable') }}" class="bt btn-danger"><i class="fa fa-tachometer"></i> <span>Timetable</span></a></li>
+        <li class="{{ Route::currentRouteNamed('admin.addTest') ? 'active' : ' ' }}"><a href="{{ route('admin.addTest') }}" class="bt btn-danger"><i class="fa fa-hand-paper-o" aria-hidden="true"></i> <span>Request Test</span></a></li>
         
 
 

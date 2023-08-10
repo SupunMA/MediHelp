@@ -4,7 +4,7 @@
 <div class="container-fluid">
 
     @include('Users.Admin.Home.cards')
-{{$ids}}
+
 </div>
 @endsection
 

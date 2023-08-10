@@ -127,7 +127,7 @@
   function delayedPrint() {
       setTimeout(function() {
           window.print();
-      }, 800); // Delay in milliseconds (2000ms = 2 seconds)
+      }, 200); // Delay in milliseconds (2000ms = 2 seconds)
   }
   </script>
 </body>

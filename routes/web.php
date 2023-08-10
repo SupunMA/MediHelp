@@ -93,6 +93,7 @@ Route::group(['prefix'=>'Admin','middleware'=>['checkAdmin','auth','lockBack']],
     Route::post('report/update', [admin_ReportsCtr::class, 'updateReport'])->name('admin.updateReport');
     Route::get('report/view/{ID}', [admin_ReportsCtr::class, 'viewReport'])->name('admin.viewReport');
     
+    
 
     //Profile
     Route::POST('updateAdmin', [admin_ProfileCtr::class, 'updateAdmin'])->name('admin.updateAdmin');
