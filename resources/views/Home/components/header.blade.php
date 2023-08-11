@@ -1,32 +1,58 @@
 <header id="header" class="fixed-top">
-    <div class="container">
+    <div class="container d-flex align-items-center">
 
-        <div class="logo float-left">
-           
-            <a href="#intro" class="scrollto"><img src="homePage/img/3kingLogo.png" alt="" class="img-fluid"></a>
-        </div>
+      <h1 class="logo me-auto"><a href="index.html">MediHelp</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
-
-        <nav class="main-nav float-right d-none d-lg-block">
-            <ul>
-                <li class="active"><a href="/#intro">Home</a></li>
-
-                @if (Route::has('login'))
-
-                @auth
-                <li> <a href="{{ route('admin.home') }}">My Account</a></li>
-                @else
-                <li><a href="{{ route('login') }}">Login</a></li>
-                @if (Route::has('register'))
-                <li><a href="{{ route('register2') }}">Register</a></li>
-                @endif
-                @endauth
-
-                @endif
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto" href="#services">Services</a></li>
 
 
-            </ul>
-        </nav><!-- .main-nav -->
+        
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+      @if (Route::has('login'))
+
+      @auth
+      <a href="{{ route('admin.home') }}" class="appointment-btn scrollto"><span class="d-none d-md-inline">My Account</a>
+      @else
+      <a href="{{ route('login') }}" class="appointment-btn scrollto"><span class="d-none d-md-inline">Login</a>
+        @endauth
+        @endif
 
     </div>
-</header><!-- #header -->
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container">
+      <h1>Welcome to MediHelp</h1>
+      <h2>"Testing Today, Healthier Tomorrow"</h2>
+      @if (Route::has('login'))
+   
+        @auth
+        <a href="{{ route('admin.home') }}" class="btn-get-started scrollto">My Account</a>
+        @else
+        <a href="{{ route('login') }}" class="btn-get-started scrollto">Login</a>
+
+        @if (Route::has('register2'))
+        <a href="{{ route('register2') }}" class="btn-services scrollto">Register</a>
+        @endif
+        @endauth
+   
+    @endif
+    </div>
+  </section><!-- End Hero -->
+
+
+
+
+  <div>
+    
+</div>

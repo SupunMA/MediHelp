@@ -1,28 +1,12 @@
-<!-- JavaScript Libraries -->
-<script src={{ URL::asset('homePage/lib/jquery/jquery.min.js'); }}></script>
+  <!-- Vendor JS Files -->
+  <script src={{ URL::asset('homePage/assets/vendor/purecounter/purecounter_vanilla.js'); }}></script>
+  <script src={{ URL::asset('homePage/assets/vendor/bootstrap/js/bootstrap.bundle.min.js'); }}></script>
 
-<script src={{ URL::asset('homePage/lib/jquery/jquery-migrate.min.js'); }}></script>
+  <script src={{ URL::asset('homePage/assets/vendor/glightbox/js/glightbox.min.js'); }}></script>
 
-<script src={{ URL::asset('homePage/lib/bootstrap/js/bootstrap.bundle.min.js'); }}></script>
+  <script src={{ URL::asset('homePage/assets/vendor/swiper/swiper-bundle.min.js'); }}></script>
 
-<script src={{ URL::asset('homePage/lib/easing/easing.min.js'); }}></script>
+  
 
-<script src={{ URL::asset('homePage/lib/mobile-nav/mobile-nav.js'); }}></script>
-
-<script src={{ URL::asset('homePage/lib/wow/wow.min.js'); }}></script>
-
-<script src={{ URL::asset('homePage/lib/waypoints/waypoints.min.js'); }}></script>
-
-<script src={{ URL::asset('homePage/lib/counterup/counterup.min.js'); }}></script>
-
-<script src={{ URL::asset('homePage/lib/owlcarousel/owl.carousel.min.js'); }}></script>
-
-<script src={{ URL::asset('homePage/lib/isotope/isotope.pkgd.min.js'); }}></script>
-
-<script src={{ URL::asset('homePage/lib/lightbox/js/lightbox.min.js'); }}></script>
-
-<!-- Contact Form JavaScript File -->
-<script src={{ URL::asset('homePage/contactform/contactform.js'); }}></script>
-
-<!-- Template Main Javascript File -->
-<script src={{ URL::asset('homePage/js/main.js'); }}></script>
+  <!-- Template Main JS File -->
+  <script src={{ URL::asset('homePage/assets/js/main.js'); }}></script>
