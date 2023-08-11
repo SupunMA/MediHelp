@@ -22,31 +22,9 @@
                                 <input type="name" name="name" class="form-control" id="name" placeholder="Enter Name">
                             </div>
                 {{-- Gender and DOB --}}
-                            <div class="row">
-                        
-                
-                                
-                
-                                <!-- Date -->
-                               
                             
-                
-                            </div>
-                {{-- Address and zipcode --}}
                             <div class="row">
                                 
-                
-                                
-                
-                                
-                
-                            </div>
-                
-                {{-- Mobile and Email --}}
-                            <div class="row">
-                                
-                
-                
                                 <div class="col-lg-6 col-12">
                                     <div class="form-group">
                                         <label >Email Address</label>
@@ -58,18 +36,8 @@
                             </div>
                 
                             
-                {{-- Joining Date and Plan --}}
-                        <div class="row">
-                                <!-- Date  -->
-                                
-            
-                      
-                            
-            
-                        </div>
-                
                         {{-- Role value --}}
-                        <input name="role" type="hidden" value="0">
+                        <input name="role" type="hidden" value="1">
                     </div>
                         <!-- /.card-body -->
                 
