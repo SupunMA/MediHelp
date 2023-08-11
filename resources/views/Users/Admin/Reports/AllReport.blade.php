@@ -23,5 +23,5 @@
 @endsection
 
 @section('header')
-All Available Tests
+All Reports
 @endsection

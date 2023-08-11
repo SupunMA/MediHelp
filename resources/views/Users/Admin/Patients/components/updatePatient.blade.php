@@ -66,13 +66,13 @@
                             <!-- Date dd/mm/yyyy -->
                             <!-- Date -->
                             <div class="form-group">
-                                <label>Date of Birth (M/D/Y)</label>
+                                <label>Date of Birth </label>
 
                                 <div class="input-group date">
                                 <div class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                 </div>
-                                <input type="text" value="{{\Carbon\Carbon::parse($UserPatient->dob)->format('d/m/Y')}}" class="form-control pull-right" id="datepicker" name="dob">
+                                <input type="text" value="{{\Carbon\Carbon::parse($UserPatient->dob)->format('m/d/Y')}}" class="form-control pull-right" id="{{$UserPatient->pid}}datepicker" name="dob">
                                 </div>
                                 <!-- /.input group -->
                             </div>
@@ -136,12 +136,10 @@
 
 
 @push('specificJs')
-  
-  <script>
+    <script>
     //Date picker
-    $('#datepicker').datepicker({
-      autoclose: true
+    $('#{{$UserPatient->pid}}datepicker').datepicker({
+        autoclose: true
     })
-  </script>
-
+    </script>
 @endpush

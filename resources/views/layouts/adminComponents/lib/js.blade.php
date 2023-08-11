@@ -73,7 +73,14 @@
 
 
 
+{{-- Phone Mask --}}
+<script>
+    $(function () {
+    $('[data-mask]').inputmask()
+})
+</script>
 
 <!-- page script -->
 @stack('specificJs')
+
 

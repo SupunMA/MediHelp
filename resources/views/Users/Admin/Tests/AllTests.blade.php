@@ -23,6 +23,6 @@
 @endsection
 
 @section('header')
-All Available Tests
+All Requested Tests
 @endsection
 

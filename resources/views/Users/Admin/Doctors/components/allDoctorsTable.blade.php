@@ -1,6 +1,6 @@
 <div class="box">
     <div class="box-header">
-      <h3 class="box-title">List of Patients</h3>
+      <h3 class="box-title">List of Doctors</h3>
     </div>
     <!-- /.box-header -->
     <div class="box-body">

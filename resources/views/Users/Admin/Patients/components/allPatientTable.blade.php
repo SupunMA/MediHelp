@@ -61,8 +61,9 @@
                     @include('Users.Admin.Patients.components.deletePatient')
                     {{-- update modal --}}
                     @include('Users.Admin.Patients.components.updatePatient')
-
-
+                    
+                    
+                    
                 @endforeach
             </tbody>
             <tfoot>
@@ -87,8 +88,17 @@
 {{-- toastr msg --}}
 
 <script>
+
     $(function () {
       $('#example1').DataTable()
+    })
+  </script>
+
+
+<script>
+    //Date picker
+    $('#datepicker').datepicker({
+      autoclose: true
     })
   </script>
 
