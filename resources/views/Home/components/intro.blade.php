@@ -97,7 +97,7 @@
         <div class="col-lg-4 col-md-6">
           <div class="count-box">
             <i class="fas fa-user-md"></i>
-            <span data-purecounter-start="0" data-purecounter-end="85" data-purecounter-duration="1" class="purecounter"></span>
+            <span data-purecounter-start="0" data-purecounter-end="{{$Dcount}}" data-purecounter-duration="1" class="purecounter"></span>
             <p>Doctors</p>
           </div>
         </div>
@@ -105,7 +105,7 @@
         <div class="col-lg-4 col-md-6 mt-5 mt-md-0">
           <div class="count-box">
             <i class="far fa-hospital"></i>
-            <span data-purecounter-start="0" data-purecounter-end="18" data-purecounter-duration="1" class="purecounter"></span>
+            <span data-purecounter-start="0" data-purecounter-end="{{$Pcount}}" data-purecounter-duration="1" class="purecounter"></span>
             <p>Registered Patients</p>
           </div>
         </div>
@@ -113,7 +113,7 @@
         <div class="col-lg-4 col-md-6 mt-5 mt-lg-0">
           <div class="count-box">
             <i class="fas fa-flask"></i>
-            <span data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="1" class="purecounter"></span>
+            <span data-purecounter-start="0" data-purecounter-end="{{$availableTcount}}" data-purecounter-duration="1" class="purecounter"></span>
             <p>Available Tests</p>
           </div>
         </div>
@@ -135,13 +135,17 @@
       </div>
 
       <div class="row">
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-          <div class="icon-box">
-            <div class="icon"><i class="fas fa-heartbeat"></i></div>
-            <h4><a href="">Lorem Ipsum</a></h4>
-            <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
-          </div>
-        </div>
+        @foreach ($allAvialableTest as $oneAT)
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                <div class="icon-box">
+                    <div class="icon"><i class="fas fa-heartbeat"></i></div>
+                    <h4>{{$oneAT->AvailableTestName}}</h4>
+                    
+                </div>
+                </div>
+        @endforeach
+                
+
       </div>
     </div>
   </section><!-- End Services Section -->
