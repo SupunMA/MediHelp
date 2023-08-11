@@ -38,11 +38,13 @@ use Illuminate\Support\Facades\Auth;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
+
 */
 
-
+//Homepage
 Route::get('/', [homePageController::class, 'index'])->name('welcome');
 
+//Register through HomePage
 Route::get('signup', [homePageController::class, 'register2'])->name('register2');
 Route::POST('registering', [RegisterController::class, 'addingClient'])->name('registering');
 

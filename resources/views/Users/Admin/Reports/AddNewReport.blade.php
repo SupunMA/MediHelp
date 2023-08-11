@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="container-fluid ">
-    <a class="btn btn-danger mb-1" href="{{route('admin.allAvailableTest')}}">
+    <a class="btn btn-danger mb-1" href="{{route('admin.allReport')}}">
         <i class="fa fa-th-list" aria-hidden="true"></i>
-        <b>View Available Test</b>
+        <b>View Reports</b>
     </a>
         
     <div class="row">

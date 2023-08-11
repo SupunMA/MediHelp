@@ -11,14 +11,14 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>3 kings - Page Not Found</title>
+		<title>MediHelp - Page Not Found</title>
 		<meta name="description" content="The description should optimally be between 150-160 characters.">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="ThemeHelite">
 
         <!-- ================= Favicons ================== -->
         <!-- Standard -->
-        @include('CDN_Css_Js.exImages.favIcon')
+        {{-- @include('CDN_Css_Js.exImages.favIcon') --}}
        
 
 		<!-- ============== Resources style ============== -->

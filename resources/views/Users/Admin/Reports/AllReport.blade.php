@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="container-fluid ">
-    <a class="btn btn-danger mb-1" href="{{route('admin.addAvailableTest')}}">
+    <a class="btn btn-danger mb-1" href="{{route('admin.addReport')}}">
         <i class="fa fa-plus" aria-hidden="true"></i>
-        <b>Add Available Test</b>
+        <b>Add Report</b>
     </a>
         @include('Users.Admin.messages.deleteMsg')
         {{-- <div class="row"> --}}
