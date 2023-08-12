@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Jane Doe',
             'email' => 'admin@a.com',
             'password' => Hash::make('12345678'),
-	    'role' => 1
+	        'role' => 1
         ]);
 
         AvailableTest::create([
