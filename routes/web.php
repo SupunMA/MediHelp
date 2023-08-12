@@ -7,25 +7,20 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\RegisterController;
 
 use App\Http\Controllers\Admin\admin_HomeCtr;
-
 use App\Http\Controllers\Admin\admin_PatientCtr;
 use App\Http\Controllers\Admin\admin_DoctorCtr;
 use App\Http\Controllers\Admin\admin_AvailableTestCtr;
 use App\Http\Controllers\Admin\admin_TestsCtr;
 use App\Http\Controllers\Admin\admin_ReportsCtr;
 use App\Http\Controllers\Admin\admin_ProfileCtr;
-use App\Http\Controllers\Admin\admin_ClientCtr;
+
 
 use App\Http\Controllers\UpdateProfile;
 
-use App\Http\Controllers\Admin\admin_TransactionCtr;
-
 use App\Http\Controllers\Home\homePageController;
+use App\Http\Controllers\Patient\patientController;
+use App\Http\Controllers\Doctor\doctorController;
 
-
-use App\Http\Controllers\User\userController;
-use App\Http\Controllers\Manager\managerController;
-use App\Http\Controllers\Checker\checkerController;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -94,79 +89,45 @@ Route::group(['prefix'=>'Admin','middleware'=>['checkAdmin','auth','lockBack']],
     Route::post('report/update', [admin_ReportsCtr::class, 'updateReport'])->name('admin.updateReport');
     Route::get('report/view/{ID}', [admin_ReportsCtr::class, 'viewReport'])->name('admin.viewReport');
     
-    
-
     //Profile
+    Route::get('/myProfile', [admin_ProfileCtr::class, 'AdminViewUpdateProfile'])->name('AdminViewUpdateProfile');
     Route::POST('updateAdmin', [admin_ProfileCtr::class, 'updateAdmin'])->name('admin.updateAdmin');
     Route::get('admin/delete/{userID}', [admin_ProfileCtr::class, 'deleteAdmin'])->name('admin.deleteAdmin');
  
     
-    Route::get('AllClient', [admin_ClientCtr::class, 'allClient'])->name('admin.allClient');
-    Route::POST('addingClient', [RegisterController::class, 'addingClient'])->name('admin.addingClient');
-    Route::get('client/delete/{userID}', [admin_ClientCtr::class, 'deleteClient'])->name('admin.deleteClient');
-    Route::post('client/update', [admin_ClientCtr::class, 'updateClient'])->name('admin.updateClient');
-    
-    Route::get('AddStaff', [admin_ClientCtr::class, 'addStaff'])->name('admin.addStaff');
-    Route::get('AllStaff', [admin_ClientCtr::class, 'allStaff'])->name('admin.allStaff');
-    Route::POST('addingStaff', [RegisterController::class, 'addingStaff'])->name('admin.addingStaff');
-    Route::get('staff/delete/{ID}', [admin_ClientCtr::class, 'deleteStaff'])->name('admin.deleteStaff');
-    Route::post('staff/update', [admin_ClientCtr::class, 'updateStaff'])->name('admin.updateStaff');
-
-    Route::get('/myProfile', [UpdateProfile::class, 'StaffViewUpdateProfile'])->name('StaffProfileUpdate');
-    Route::post('/updatingProfile', [UpdateProfile::class, 'StaffUpdateProfile'])->name('StaffProfileUpdating');
-
-
-    Route::get('AddPlan', [admin_planCtr::class, 'addPlan'])->name('admin.addPlan');
-    Route::get('AllPlan', [admin_planCtr::class, 'allPlan'])->name('admin.allPlan');
-    Route::POST('addingPlan', [admin_planCtr::class, 'addingPlan'])->name('admin.addingPlan');
-    Route::get('plan/delete/{planID}', [admin_planCtr::class, 'deletePlan'])->name('admin.deletePlan');
-    Route::post('plan/update', [admin_planCtr::class, 'updatePlan'])->name('admin.updatePlan');
-
-
-
-    
 });
 
-//user
+//Patient
 Route::group(['prefix'=>'Account/Client','middleware'=>['checkUser','auth','lockBack']],function(){
-    Route::get('/', [userController::class, 'checkUser'])->name('user.home');
+    Route::get('/', [patientController::class, 'checkUser'])->name('user.home');
     
     //update user profile
     Route::get('/myProfile', [UpdateProfile::class, 'CustomerViewUpdateProfile'])->name('CustomerProfileUpdate');
     Route::post('/updatingProfile', [UpdateProfile::class, 'CustomerUpdateProfile'])->name('CustomerProfileUpdating');
 
     //Delete user profile
-    Route::get('user/delete/{ID}', [userController::class, 'deleteUser'])->name('user.deleteProfile');
+    Route::get('user/delete/{ID}', [patientController::class, 'deleteUser'])->name('user.deleteProfile');
 
-    //View Plans
-    Route::get('/CustomerAllPlans', [userController::class, 'allPlanView'])->name('CustomerAllPlanView');
-    
-    //Select Plan
-    Route::post('/CustomerSelectPlans', [userController::class, 'CustomerSelectPlan'])->name('selectPlan');
-
-    //view make payment 
-    Route::get('/makePayments', [userController::class, 'makePaymentsView'])->name('CustomerMakePaymentsView');
-    Route::POST('/makingPayments', [userController::class, 'makePayments'])->name('CustomerMakePayments');
-
-    //Booking
-    Route::POST('/bookingTime', [userController::class, 'bookingTime'])->name('CustomerBookingTime');
-
-    //Coach Review
-    Route::POST('/review/coach', [userController::class, 'coachReview'])->name('coachReview');
-
-    //
-   
-    Route::POST('clientPayment/delete', [userController::class, 'deletePayment'])->name('user.deletePayment');
-    
-
-    Route::get('patientReport/view/{ID}', [userController::class, 'viewReport'])->name('user.viewReport');
+    //Download Report
+    Route::get('patientReport/view/{ID}', [patientController::class, 'viewReport'])->name('user.viewReport');
     
 });
 
 
-//Manager
-Route::group(['prefix'=>'Account/Manager','middleware'=>['checkManager','auth','lockBack']],function(){
-    Route::get('/', [managerController::class, 'checkManager'])->name('manager.home');
+//Doctor
+Route::group(['prefix'=>'Account/Doctor','middleware'=>['checkManager','auth','lockBack']],function(){
+    Route::get('/', [doctorController::class, 'checkDoctor'])->name('manager.home');
+    
+    //update user profile
+    Route::get('/myProfile', [UpdateProfile::class, 'DoctorViewUpdateProfile'])->name('CustomerProfileUpdate');
+    Route::post('/updatingProfile', [UpdateProfile::class, 'DoctorUpdateProfile'])->name('CustomerProfileUpdating');
+
+    //Delete user profile
+    Route::get('user/delete/{ID}', [doctorController::class, 'deleteUser'])->name('user.deleteProfile');
+
+    //Download Report
+    Route::get('patientReport/view/{ID}', [doctorController::class, 'viewReport'])->name('user.viewReport');
+
     
 });
 
@@ -175,7 +136,6 @@ Route::group(['prefix'=>'Account/Manager','middleware'=>['checkManager','auth','
 
 
 //Disabled User Registration
-
 Route::post('/register', function() {
     return redirect('/register');
 });

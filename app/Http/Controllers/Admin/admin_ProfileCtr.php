@@ -22,6 +22,11 @@ class admin_ProfileCtr extends Controller
     }
 
 
+    public function AdminViewUpdateProfile(Request $request)
+    {
+        $client = Auth::user();
+        return view('Users.Admin.Profile.myProfile',compact('client'));
+    }
 
     public function updateAdmin(Request $request)
     {

@@ -118,7 +118,7 @@
 
 
 
-        <li class="{{ Route::currentRouteNamed('StaffProfileUpdate') ? 'active' : '' }}"><a href="{{ route('StaffProfileUpdate') }}"><i class="fa fa-tachometer"></i> <span>My Profile
+        <li class="{{ Route::currentRouteNamed('AdminViewUpdateProfile') ? 'active' : '' }}"><a href="{{ route('AdminViewUpdateProfile') }}"><i class="fa fa-tachometer"></i> <span>My Profile
           <span class="right badge badge-warning">Update</span></span></a></li>
           
        

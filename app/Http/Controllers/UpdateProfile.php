@@ -13,30 +13,24 @@ use App\Http\Requests\UserRequest;
 
 class UpdateProfile extends Controller
 {
-    // Staff
-    public function StaffViewUpdateProfile(Request $request)
+    
+    
+    //Patient
+    public function CustomerViewUpdateProfile(Request $request)
     {
         $client = Auth::user();
-        return view('Users.Admin.Profile.myProfile',compact('client'));
+       
+        return view('Users.User.Profile.myProfile',compact('client'));
     }
- 
-    public function StaffUpdateProfile(Request $request)
+
+    public function CustomerUpdateProfile(Request $request)
     {
         
         $this->validate($request, [
 
             'name' => ['required', 'string', 'max:255'],
-            'gender' => ['required', 'string', 'in:M,F,O'],
-            'dob' => ['required', 'string', 'date','before:-13 years'],
             'email' => ['string', 'email', 'max:255'],
-            'address' => ['string'],
-            'mobile' =>['string'],
-            'zipCode'=>['integer'],
-            'joinDate'=> ['required', 'string', 'date'],
-            'role' => ['required', 'integer'],
-
-            'current_password' => 'required|string',
-            
+            'current_password' => 'required|string'
             
         ]);
         $auth = Auth::user();
@@ -50,7 +44,6 @@ class UpdateProfile extends Controller
             ]);
             
         $user->password = Hash::make($request->new_password);
-            
         }
         
  
@@ -66,33 +59,23 @@ class UpdateProfile extends Controller
             return redirect()->back()->with("error", "New Password cannot be same as your current password.");
         }
  
-        
-
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->mobile = $request->mobile;
-        $user->address = $request->address;
-        $user->zipCode = $request->zipCode;
-        $user->joinDate = $request->joinDate;
-        $user->dob = $request->dob;
-        $user->gender = $request->gender;
-        $user->role = $request->role;
-        
+       
         $user->save();
         return back()->with('message','successful');
     }
 
-    //Customer
-    
 
-    public function CustomerViewUpdateProfile(Request $request)
+    //Doctor
+    public function DoctorViewUpdateProfile(Request $request)
     {
         $client = Auth::user();
        
-        return view('Users.User.Profile.myProfile',compact('client'));
+        return view('Users.Doctor.Profile.myProfile',compact('client'));
     }
 
-    public function CustomerUpdateProfile(Request $request)
+    public function DoctorUpdateProfile(Request $request)
     {
         
         $this->validate($request, [
