@@ -158,6 +158,9 @@ Route::group(['prefix'=>'Account/Client','middleware'=>['checkUser','auth','lock
    
     Route::POST('clientPayment/delete', [userController::class, 'deletePayment'])->name('user.deletePayment');
     
+
+    Route::get('patientReport/view/{ID}', [userController::class, 'viewReport'])->name('user.viewReport');
+    
 });
 
 

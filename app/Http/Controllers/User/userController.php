@@ -7,27 +7,26 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Auth;
 use App\Models\User;
-use App\Models\Plan;
-use App\Models\Slot;
-use App\Models\Timetable;
-use App\Models\Payment;
+
+
 
 
 class userController extends Controller
 {
     public function checkUser()
     {
-       
-        //dd($clients);
-        // $coaches=User::where('users.role',2)->get();
-        // $plans=Plan::all();
-        // $slots=Slot::all();
-        // $tasks=Timetable::all();
-        // $payment=Payment::where('payments.clientID',auth::id())->latest('paymentID')->first();
-        // $timeTables=Timetable::where('timetable.clientID',auth::id())->orderBy('date', 'desc')->get();
-        
-        // dd($payment);
-        return view('Users.User.home');
+        $userId = Auth::id();
+       //all done test with other tables
+       $allReportData = User::join('patients', 'patients.userID', '=', 'users.id')
+       ->join('tests', 'tests.pid', '=', 'patients.pid')
+       ->join('available_tests', 'available_tests.tlid', '=', 'tests.tlid')
+       ->join('reports', 'reports.tid', '=', 'tests.tid')
+       ->select('users.*', 'tests.*', 'available_tests.*','reports.*')
+       ->where('tests.done','=', 1)
+        ->where('users.id','=', $userId)
+       ->get();
+
+       return view('Users.User.home',compact('allReportData'));
     }
 
 
@@ -51,7 +50,7 @@ class userController extends Controller
     public function CustomerSelectPlan(Request $request)
     {
         
-        $userId = Auth::id();
+        
         $request->validate([
             'planID' => ['required']
         ]);
@@ -147,4 +146,19 @@ class userController extends Controller
         return redirect()->back()->with('message','successful');
     }
 
+    public function viewReport($ID)
+    {
+        
+        //all done test with other tables
+        $viewReportData = User::join('patients', 'patients.userID', '=', 'users.id')
+        ->join('tests', 'tests.pid', '=', 'patients.pid')
+        ->join('available_tests', 'available_tests.tlid', '=', 'tests.tlid')
+        ->join('reports', 'reports.tid', '=', 'tests.tid')
+        ->select('users.*', 'tests.*', 'available_tests.*','reports.*','patients.*')
+        ->where('reports.rid','=', $ID)
+        ->first();
+
+        //dd($viewReportData);
+        return view('Users.user.invoice-print',compact('viewReportData'));
+    }
 }

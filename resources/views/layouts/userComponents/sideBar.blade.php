@@ -36,7 +36,6 @@
         <!-- Optionally, you can add icons to the links -->
 
         <li class="{{ Route::currentRouteNamed('user.home') ? 'active' : ' ' }}"><a href="{{ route('user.home') }}"><i class="fa fa-tachometer"></i> <span>Dashboard</span></a></li>
-        <li class="{{ Route::currentRouteNamed('admin.addTest') ? 'active' : ' ' }}"><a href="{{ route('admin.addTest') }}" class="bt btn-danger"><i class="fa fa-file" aria-hidden="true"></i> <span>My Reports</span></a></li>
         
 
         <li class="{{ Route::currentRouteNamed('CustomerProfileUpdate') ? 'active' : '' }}"><a href="{{ route('CustomerProfileUpdate') }}"><i class="fa fa-tachometer"></i> <span>My Profile
