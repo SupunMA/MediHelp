@@ -10,94 +10,58 @@
 
     <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 ">
-            <div class="card card-primary">
-                <div class="card-header">
-                    <h3 class="card-title">Details</h3>
+            <div class="box box-primary">
+                <div class="box-header">
+                   
 
-                    <div class="card-tools">
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                            <i class="fas fa-minus"></i>
-                        </button>
-                    </div>
+                   
                     <!-- /.card-tools -->
                 </div>
                 <!-- /.card-header -->
-                <div class="card-body">
+                <div class="box-body">
                     <div class="row">
                         
                         
                         
-                       {{-- <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                            <div class="info-box shadow">
-                                <span class="info-box-icon bg-danger"><i class="fas fa-book-open"></i></span>
-
-                                <div class="info-box-content">
-                                    <span class="info-box-text">
-
-                                        <h5>Available Slots</h5>
-
-                                    </span>
-                                    <span class="info-box-number">
-                                        <h5><b>{{ $slots->count() }} Slots</b> </h5>
-                                    </span>
-                                </div>
-
-                                <!-- /.info-box-content -->
-                            </div>
-                            <!-- /.info-box -->
-                        </div>
-
-
-                        
-                        
                        
-                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                            <div class="info-box shadow">
-                                <span class="info-box-icon bg-info"><i class="far fa-clock"></i></span>
-
-                                <div class="info-box-content">
-                                    <span class="info-box-text">
-
-                                        <h5> Available Coaches</h5>
-
-                                    </span>
-                                    <span class="info-box-number">
-                                        <h5>
-                                            <b>{{ $coaches->count() }} Coaches</b>
-                                        </h5>
-                                    </span>
+                        <!-- Small boxes (Stat box) -->
+                        <div class="row">
+                            <div class="col-lg-3 col-xs-6">
+                            <!-- small box -->
+                            <div class="small-box bg-aqua">
+                                <div class="inner">
+                                    <h3>435</h3>
+                                    <h4>Pending Results</h4>
                                 </div>
-
-                                <!-- /.info-box-content -->
+                                <div class="icon">
+                                <i class="fa fa-users" aria-hidden="true"></i>
+                                </div>
+                                <a href="{{route('admin.allPatient')}}" class="small-box-footer">
+                                View Patients <i class="fa fa-arrow-circle-right"></i>
+                                </a>
                             </div>
-                            <!-- /.info-box -->
+                            </div>
+                            <!-- ./col -->
+                            <div class="col-lg-3 col-xs-6">
+                            <!-- small box -->
+                            <div class="small-box bg-green">
+                                <div class="inner">
+                                <h3>Rs 454<sup style="font-size: 20px">.00</sup></h3>
+
+                                <h4>Reports</h4>
+                                </div>
+                                <div class="icon">
+                                <i class="fa fa-money" aria-hidden="true"></i>
+                                </div>
+                                <a href="#" class="small-box-footer">
+                                More info <i class="fa fa-arrow-circle-right"></i>
+                                </a>
+                            </div>
+                            </div>
+                            <!-- ./col -->
+                            
                         </div>
-                        
-
-
-                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                            <div class="info-box shadow">
-                                <span class="info-box-icon bg-info"><i class="far fa-clock"></i></span>
-
-                                <div class="info-box-content">
-                                    <span class="info-box-text">
-
-                                        <h5> Available Plans </h5>
-
-                                    </span>
-                                    <span class="info-box-number">
-                                        <h5>
-                                            <b>
-                                                {{$plans->count()}} Plans
-                                            </b>
-                                        </h5>
-                                    </span>
-                                </div>
-
-                                <!-- /.info-box-content -->
-                            </div>
-                            <!-- /.info-box -->
-                        </div> --}}
+                        <!-- /.row -->
 
                     </div>
 
@@ -108,7 +72,7 @@
 
 
 
-
+dfd
 
                 </div>
                 <!-- /.card-body -->
