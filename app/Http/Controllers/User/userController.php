@@ -15,7 +15,29 @@ class userController extends Controller
 {
     public function checkUser()
     {
+
         $userId = Auth::id();
+
+        //Reports count
+        $reportCount = User::join('patients', 'patients.userID', '=', 'users.id')
+        ->join('tests', 'tests.pid', '=', 'patients.pid')
+        ->join('available_tests', 'available_tests.tlid', '=', 'tests.tlid')
+        ->join('reports', 'reports.tid', '=', 'tests.tid')
+        ->select('users.*', 'tests.*', 'available_tests.*','reports.*')
+        ->where('tests.done','=', 1)
+         ->where('users.id','=', $userId)
+        ->count();
+
+        //pending count
+        $pendingCount = User::join('patients', 'patients.userID', '=', 'users.id')
+        ->join('tests', 'tests.pid', '=', 'patients.pid')
+        ->join('available_tests', 'available_tests.tlid', '=', 'tests.tlid')
+        ->join('reports', 'reports.tid', '=', 'tests.tid')
+        ->select('users.*', 'tests.*', 'available_tests.*','reports.*')
+        ->where('tests.done','=', 0)
+         ->where('users.id','=', $userId)
+        ->count();
+        
        //all done test with other tables
        $allReportData = User::join('patients', 'patients.userID', '=', 'users.id')
        ->join('tests', 'tests.pid', '=', 'patients.pid')
@@ -26,7 +48,7 @@ class userController extends Controller
         ->where('users.id','=', $userId)
        ->get();
 
-       return view('Users.User.home',compact('allReportData'));
+       return view('Users.User.home',compact('allReportData','pendingCount','reportCount'));
     }
 
 

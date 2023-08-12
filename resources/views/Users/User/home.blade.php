@@ -30,7 +30,7 @@
                             <!-- small box -->
                             <div class="small-box bg-aqua">
                                 <div class="inner">
-                                    <h3>435</h3>
+                                    <h3>{{$pendingCount}}</h3>
                                     <h4>Pending Results</h4>
                                 </div>
                                 <div class="icon">
@@ -46,12 +46,12 @@
                             <!-- small box -->
                             <div class="small-box bg-green">
                                 <div class="inner">
-                                <h3>Rs 454<sup style="font-size: 20px">.00</sup></h3>
+                                <h3>{{$reportCount}}</h3>
 
                                 <h4>Reports</h4>
                                 </div>
                                 <div class="icon">
-                                <i class="fa fa-money" aria-hidden="true"></i>
+                                    <i class="fa fa-file-o" aria-hidden="true"></i>
                                 </div>
                                 <a href="#" class="small-box-footer">
                                 More info <i class="fa fa-arrow-circle-right"></i>
@@ -104,12 +104,7 @@
                                             
                                             
                                             <td>
-                                                <a class="btn btn-warning" type="button" data-toggle="modal" data-target="#branchEditModal-{{$data->rid}}" >
-                                                    <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                </a>
-                                                <a class="btn btn-danger" type="button" data-toggle="modal" data-target="#branchDeleteModal-{{$data->rid}}"  >
-                                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                                </a>
+                                               
                                                 @php
                                                      $viewReportURL = route('user.viewReport', ['ID' => $data->rid]);
                                                 @endphp
@@ -122,10 +117,7 @@
                                             </td>
                                         </tr>
                                         
-                                                {{-- update modal and delete modal --}}
-                                                @include('Users.Admin.Reports.components.updateReport')
-                                                @include('Users.Admin.Reports.components.deleteReport') 
-                                                {{-- @include('Users.Admin.Reports.components.invoice-print')  --}}
+                                               
                                     @endforeach
                     
                                 </tbody>
