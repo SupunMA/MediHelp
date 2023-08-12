@@ -19,15 +19,15 @@ class userController extends Controller
     {
        
         //dd($clients);
-        $coaches=User::where('users.role',2)->get();
-        $plans=Plan::all();
-        $slots=Slot::all();
-        $tasks=Timetable::all();
-        $payment=Payment::where('payments.clientID',auth::id())->latest('paymentID')->first();
-        $timeTables=Timetable::where('timetable.clientID',auth::id())->orderBy('date', 'desc')->get();
+        // $coaches=User::where('users.role',2)->get();
+        // $plans=Plan::all();
+        // $slots=Slot::all();
+        // $tasks=Timetable::all();
+        // $payment=Payment::where('payments.clientID',auth::id())->latest('paymentID')->first();
+        // $timeTables=Timetable::where('timetable.clientID',auth::id())->orderBy('date', 'desc')->get();
         
         // dd($payment);
-        return view('Users.User.home',compact('coaches','plans','slots','tasks','payment','timeTables'));
+        return view('Users.User.home');
     }
 
 

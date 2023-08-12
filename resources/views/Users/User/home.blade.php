@@ -27,7 +27,7 @@
                         
                         
                         
-                       <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                       {{-- <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
                             <div class="info-box shadow">
                                 <span class="info-box-icon bg-danger"><i class="fas fa-book-open"></i></span>
 
@@ -97,7 +97,7 @@
                                 <!-- /.info-box-content -->
                             </div>
                             <!-- /.info-box -->
-                        </div>
+                        </div> --}}
 
                     </div>
 
@@ -105,10 +105,7 @@
                     <br>
 
                     
-                    @include("Users.User.book")
-                    @if (isset($payment) && $payment->confirm === 1)
-                        @include("Users.User.myBooks")
-                    @endif
+
 
 
 

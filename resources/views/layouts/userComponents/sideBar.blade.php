@@ -1,91 +1,62 @@
-<!-- Main Sidebar Container -->
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
-    <a href="{{route('admin.home')}}" class="brand-link">
-        <img src="https://media.istockphoto.com/id/1145254708/vector/portable-swimming-pool-vector-icon-illustration.jpg?s=612x612&w=0&k=20&c=lmIkgqOrzddXYqGZwWgClceUT5ZDK11MjKKarmXm90U="
-            alt="MMC Logo" class="brand-image img-circle elevation-3" style="opacity: 1">
-        <span class="brand-text font-weight-light">Client Account</span>
-    </a>
 
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <!-- Sidebar user panel (optional) -->
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <div class="image">
-                <img src="https://icon-library.com/images/admin-user-icon/admin-user-icon-4.jpg"
-                    class="img-circle elevation-2" alt="User Image">
-            </div>
-            <div class="info">
-                <a href="#" class="d-block">{{ Auth::user()->name }}</a>
-            </div>
+{{-- v2 admin --}}
+
+<aside class="main-sidebar">
+
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src={{ URL::asset('adminPages/v2/dist/img/patient.png'); }} class="img-circle" alt="User Image">
         </div>
+        <div class="pull-left info">
+          <p>{{ Auth::user()->name }}</p>
+          <!-- Status -->
+          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+        </div>
+      </div>
 
+      <!-- search form (Optional) -->
+      {{-- <form action="#" method="get" class="sidebar-form">
+        <div class="input-group">
+          <input type="text" name="q" class="form-control" placeholder="Search...">
+          <span class="input-group-btn">
+              <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+              </button>
+            </span>
+        </div>
+      </form> --}}
+      <!-- /.search form -->
+
+      <!-- Sidebar Menu -->
+      <ul class="sidebar-menu" data-widget="tree">
+        <li class="header">Menu List</li>
+        <!-- Optionally, you can add icons to the links -->
+
+        <li class="{{ Route::currentRouteNamed('user.home') ? 'active' : ' ' }}"><a href="{{ route('user.home') }}"><i class="fa fa-tachometer"></i> <span>Dashboard</span></a></li>
+        <li class="{{ Route::currentRouteNamed('admin.addTest') ? 'active' : ' ' }}"><a href="{{ route('admin.addTest') }}" class="bt btn-danger"><i class="fa fa-file" aria-hidden="true"></i> <span>My Reports</span></a></li>
         
-        
-        <!-- Sidebar Menu -->
-        <nav class="mt-2">
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                data-accordion="false">
-                <!-- Add icons to the links using the .nav-icon class
-       with font-awesome or any other icon font library -->
-                <li class="nav-item">
-                  <a href="{{ route('user.home') }}" class="nav-link {{ Route::currentRouteNamed('user.home') ? 'active' : ' ' }}">
-                    <i class="nav-icon fas fa-tachometer-alt"></i>
-                      <p>Dashboard
-                          <span class="right badge badge-danger">Live</span>
-                      </p>
-                  </a>
-                </li>
+
+        <li class="{{ Route::currentRouteNamed('CustomerProfileUpdate') ? 'active' : '' }}"><a href="{{ route('CustomerProfileUpdate') }}"><i class="fa fa-tachometer"></i> <span>My Profile
+          <span class="right badge badge-warning">Update</span></span></a></li>
+          
+       
+
+      {{-- Logout --}}
+      <li>
+          <!-- Logout modal trigger Button -->
+          <a href="#" class="nav-link btn btn-primary btn-lg" data-toggle="modal" data-target="#staticBackdrop">                
+          <span>Logout</span>
+          </a>                         
+      </li>
+       
 
 
-                <li class="nav-item">
-                    <a href="{{ route('CustomerAllPlanView') }}" class="nav-link {{ Route::currentRouteNamed('CustomerAllPlanView') ? 'active' : '' }}">
-                        <i class="fa-solid fa-list-check"></i>
-                        <p>
-                            Select Plan
-                            
-                        </p>
-                    </a>
-                </li>
-
-
-
-                <li class="nav-item">
-                    <a href="{{ route('CustomerMakePaymentsView') }}" class="nav-link {{ Route::currentRouteNamed('CustomerMakePaymentsView') ? 'active' : '' }}">
-                        <i class="fas fa-money-bill-wave"></i>
-                        <p>
-                            Make Payments
-                            
-                        </p>
-                    </a>
-                </li>
-
-
-
-                <li class="nav-item">
-                    <a href="{{ route('CustomerProfileUpdate') }}" class="nav-link {{ Route::currentRouteNamed('CustomerProfileUpdate') ? 'active' : '' }}">
-                        <i class="fas fa-university"></i>
-                        <p>
-                            Profile
-                            <span class="right badge badge-warning">Update</span>
-                        </p>
-                    </a>
-                </li>
-
-
-
-                {{-- Logout --}}
-                <li class="nav-item">
-                    <!-- Logout modal trigger Button -->
-                    <a href="#" class="nav-link btn btn-danger" data-toggle="modal" data-target="#staticBackdrop">                
-                    <i class="fas fa-sign-out-alt"></i>
-                        <p>Logout</p>
-                    </a>                         
-                </li>
-
-            </ul>
-        </nav>
-        <!-- /.sidebar-menu -->
-    </div>
+    
+      </ul>
+      <!-- /.sidebar-menu -->
+    </section>
     <!-- /.sidebar -->
-</aside>
+  </aside>

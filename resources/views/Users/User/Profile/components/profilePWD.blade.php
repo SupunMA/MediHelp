@@ -5,12 +5,38 @@
  <div class="col-lg-6 col-12">
     <div class="card card-info">
         <div class="card-header">
-            <h3 class="card-title">Change Password</h3>
+            
         </div>
         <!-- /.card-header -->
         <!-- form start -->
 
         <div class="card-body">
+
+            <form action="{{route('CustomerProfileUpdating')}}" method="post">
+        @csrf
+
+            <input type="hidden" name="id" value="{{$client->id}}">
+
+            <div class="row">
+
+
+                <div class="col-lg-6 col-12">
+                    <div class="form-group">
+                    <label >Name</label>
+                    <input type="name" name="name" value="{{$client->name}}" class="form-control" id="name" placeholder="Enter Name">
+                    </div>
+                </div>
+
+
+                <div class="col-lg-6 col-12">
+                    <div class="form-group">
+                        <label >Email Address</label>
+                        <input type="email" class="form-control" name="email" placeholder="Email Address" value="{{$client->email}}">
+                    </div>
+                </div>
+            </div>
+               
+
 
             <div class="row">
                 <div class="col-lg-6 col-12">
@@ -48,6 +74,7 @@
                     </button>
                 </div>
             </div>
+             </form>
         </div>
     </div>
     
