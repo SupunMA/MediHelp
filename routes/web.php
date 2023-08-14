@@ -40,8 +40,8 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', [homePageController::class, 'index'])->name('welcome');
 
 //Register through HomePage
-Route::get('signup', [homePageController::class, 'register2'])->name('register2');
-Route::POST('registering', [RegisterController::class, 'addingClient'])->name('registering');
+// Route::get('signup', [homePageController::class, 'register2'])->name('register2');
+// Route::POST('registering', [RegisterController::class, 'addingClient'])->name('registering');
 
 //Preventing go back
 Route::middleware(['middleware'=>'lockBack'])->group(function(){
@@ -136,6 +136,6 @@ Route::group(['prefix'=>'Account/Doctor','middleware'=>['checkManager','auth','l
 
 
 //Disabled User Registration
-Route::post('/register', function() {
-    return redirect('/register');
+Route::get('/register', function() {
+    return redirect('/');
 });

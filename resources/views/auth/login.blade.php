@@ -42,7 +42,7 @@
                  
               
             
-                  <a href="{{ route('register2') }}" class="text-center">Register a new membership</a>
+                  {{-- <a href="{{ route('register2') }}" class="text-center">Register a new membership</a> --}}
               
                 </div>
                 <!-- /.login-box-body -->
