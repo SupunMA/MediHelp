@@ -6,6 +6,11 @@
         <i class="fa fa-plus" aria-hidden="true"></i>
         <b>Add Report</b>
     </a>
+    @if(session('message'))
+    <div class="alert alert-success">
+        {{ session('message') }}
+    </div>
+@endif
         @include('Users.Admin.messages.deleteMsg')
         {{-- <div class="row"> --}}
 

@@ -13,7 +13,11 @@
                     <i class="fa fa-plus" aria-hidden="true"></i>
                     <b>Add Doctor</b>
                 </a>
-
+                @if(session('message'))
+                <div class="alert alert-success">
+                    {{ session('message') }}
+                </div>
+                @endif
                 <!-- Import Table -->
                @include('Users.Admin.Doctors.components.allDoctorsTable')
             

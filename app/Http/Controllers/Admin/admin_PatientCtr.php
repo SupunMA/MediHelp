@@ -59,7 +59,7 @@ class admin_PatientCtr extends Controller
         $patient->delete();
        
         
-        return redirect()->back()->with('message','successful');
+        return redirect()->back()->with('message','Deleted Successfully');
     }
 
     public function updatePatient(Request $request)
@@ -90,7 +90,7 @@ class admin_PatientCtr extends Controller
                     
                 ]);
 
-        return redirect()->back()->with('message','successful');
+        return redirect()->back()->with('message','Updated Successfully!');
 
     }
 

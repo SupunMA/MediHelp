@@ -38,7 +38,7 @@ class admin_AvailableTestCtr extends Controller
             
          ]);
         $AvailableTest = AvailableTest::create($data->all());
-        return redirect()->back()->with('message','successful');
+        return redirect()->back()->with('message','Added Successfully');
         //->route('your_url_where_you_want_to_redirect');
     }
 
@@ -56,7 +56,7 @@ class admin_AvailableTestCtr extends Controller
         //dd($branchID);
         $delete = AvailableTest::find($ID);
         $delete->delete();
-        return redirect()->back()->with('message','successful');
+        return redirect()->back()->with('message','Deleted Successful');
     }
 
     public function updateAvailableTest(Request $request)
@@ -76,7 +76,7 @@ class admin_AvailableTestCtr extends Controller
                     
                 ]);
 
-        return redirect()->back()->with('message','successful');
+        return redirect()->back()->with('message','Updated Successfully');
 
     }
 

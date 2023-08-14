@@ -151,7 +151,7 @@ class RegisterController extends Controller
         
 
         if( $user->save() &&  $patient->save()){
-            return redirect()->back()->with('message','successful');
+            return redirect()->back()->with('message','Patient was Added Successfully');
         }else{
             //return redirect()->back()->with('message','Failed');
         }
@@ -201,7 +201,7 @@ class RegisterController extends Controller
         
 
         if( $user->save() &&  $doctor->save()){
-            return redirect()->back()->with('message','successful');
+            return redirect()->back()->with('message','Doctor was Added Successfully');
         }else{
             //return redirect()->back()->with('message','Failed');
         }

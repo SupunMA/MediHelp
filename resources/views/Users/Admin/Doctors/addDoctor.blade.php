@@ -8,7 +8,11 @@
         <i class="fa fa-th-list" aria-hidden="true"></i>
         <b>View All Doctors</b>
     </a>
-    
+    @if(session('message'))
+        <div class="alert alert-success">
+            {{ session('message') }}
+        </div>
+    @endif
     <form action="{{route('admin.addingDoctor')}}" method="post">
         @csrf
         <div class="row">

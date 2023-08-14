@@ -54,7 +54,7 @@ class admin_ReportsCtr extends Controller
         ->update([
                     'done' => 1
                 ]);
-         return redirect()->back()->with('message','successful');
+         return redirect()->back()->with('message','Created Successful');
         
     }
 
@@ -79,7 +79,7 @@ class admin_ReportsCtr extends Controller
         //dd($branchID);
         $delete = Report::find($ID);
         $delete->delete();
-        return redirect()->back()->with('message','successful');
+        return redirect()->back()->with('message','Delete successfully');
     }
 
     public function updateReport(Request $request)
@@ -97,7 +97,7 @@ class admin_ReportsCtr extends Controller
                     
                 ]);
 
-        return redirect()->back()->with('message','successful');
+        return redirect()->back()->with('message','Updated Successfully');
 
     }
 

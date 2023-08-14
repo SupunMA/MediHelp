@@ -53,7 +53,7 @@ class admin_TestsCtr extends Controller
 
         // Save the Test instance to the database
         $test->save();
-        return redirect()->back()->with('message','successful');
+        return redirect()->back()->with('message','Added Successfully');
         //->route('your_url_where_you_want_to_redirect');
     }
 
@@ -82,7 +82,7 @@ class admin_TestsCtr extends Controller
         //dd($branchID);
         $delete = Test::find($ID);
         $delete->delete();
-        return redirect()->back()->with('message','successful');
+        return redirect()->back()->with('message','Deleted Successfully');
     }
 
     public function updateTest(Request $request)
@@ -100,7 +100,7 @@ class admin_TestsCtr extends Controller
                     
                 ]);
 
-        return redirect()->back()->with('message','successful');
+        return redirect()->back()->with('message','Updated Successfully');
 
     }
 

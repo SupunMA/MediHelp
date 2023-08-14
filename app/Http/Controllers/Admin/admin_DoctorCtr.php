@@ -55,7 +55,7 @@ class admin_DoctorCtr extends Controller
         $patient->delete();
        
         
-        return redirect()->back()->with('message','successful');
+        return redirect()->back()->with('message','Deleted Successfully');
     }
 
     public function updateDoctor(Request $request)
@@ -84,7 +84,7 @@ class admin_DoctorCtr extends Controller
                     
                 ]);
 
-        return redirect()->back()->with('message','successful');
+        return redirect()->back()->with('message','Updated Successfully');
 
     }
 

@@ -75,7 +75,7 @@ class admin_ProfileCtr extends Controller
         $user->email = $request->email;
         
         $user->save();
-        return back()->with('message','successful');
+        return back()->with('message','Updated Successfully');
 
     }
 
@@ -84,6 +84,6 @@ class admin_ProfileCtr extends Controller
         //dd($branchID);
         $delete = User::find($userID);
         $delete->delete();
-        return redirect()->back()->with('message','successful');
+        return redirect()->back()->with('message','Updated Successfully');
     }
 }

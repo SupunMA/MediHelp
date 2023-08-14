@@ -3,9 +3,12 @@
 @section('content')
 <div class="container-fluid ">
 
-    {{-- button to go to all clients --}}
-    @include('Users.Admin.messages.addMsg')
-    
+
+    @if(session('message'))
+    <div class="alert alert-success">
+        {{ session('message') }}
+    </div>
+@endif
    <h3> Update the Account Details</h3>
     <form action="{{route('admin.updateAdmin')}}" method="post">
         @csrf
