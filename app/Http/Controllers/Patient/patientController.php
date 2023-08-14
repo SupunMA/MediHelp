@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Auth;
 use App\Models\User;
+use App\Models\Test;
+use App\Models\Patient;
 
 
 
@@ -53,8 +55,14 @@ class patientController extends Controller
 
     public function deleteUser($ID)
     {
-        //dd($ID);
+
+
+        $patient = Patient::where('userID', $ID)->first();
+        $testPatient = Test::where('pid', $patient->pid)->delete();
         $delete = User::find($ID);
+    
+        $patient->delete();
+
         $delete->delete();
         return redirect()->back()->with('message','successful');
     }

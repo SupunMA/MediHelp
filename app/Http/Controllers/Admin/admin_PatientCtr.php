@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Models\User;
 use App\Models\Patient;
+use App\Models\Test;
 
 use Carbon\Carbon;
 use Illuminate\Validation\Rule;
@@ -48,12 +49,13 @@ class admin_PatientCtr extends Controller
     
     public function deletePatient($userID)
     {
-        //
-        
+        //Delete patient data from user,patient,test tables
         $patient = Patient::where('userID', $userID)->first();
-        //dd($patient);
-        $delete = User::find($userID);
-        $delete->delete();
+        $testPatient = Test::where('pid', $patient->pid)->delete();
+        $userPatient = User::find($userID);
+
+        
+        $userPatient->delete();
         $patient->delete();
        
         
