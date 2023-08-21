@@ -88,39 +88,39 @@ Route::group(['prefix'=>'Admin','middleware'=>['checkAdmin','auth','lockBack']],
     Route::get('report/delete/{ID}', [admin_ReportsCtr::class, 'deleteReport'])->name('admin.deleteReport');
     Route::post('report/update', [admin_ReportsCtr::class, 'updateReport'])->name('admin.updateReport');
     Route::get('report/view/{ID}', [admin_ReportsCtr::class, 'viewReport'])->name('admin.viewReport');
-    
+
     //Profile
     Route::get('/myProfile', [admin_ProfileCtr::class, 'AdminViewUpdateProfile'])->name('AdminViewUpdateProfile');
     Route::POST('updateAdmin', [admin_ProfileCtr::class, 'updateAdmin'])->name('admin.updateAdmin');
     Route::get('admin/delete/{userID}', [admin_ProfileCtr::class, 'deleteAdmin'])->name('admin.deleteAdmin');
- 
-    
+
+
 });
 
 //Patient
 Route::group(['prefix'=>'Account/Client','middleware'=>['checkUser','auth','lockBack']],function(){
     Route::get('/', [patientController::class, 'checkUser'])->name('user.home');
-    
+
     //update user profile
-    Route::get('/myProfile', [UpdateProfile::class, 'CustomerViewUpdateProfile'])->name('CustomerProfileUpdate');
-    Route::post('/updatingProfile', [UpdateProfile::class, 'CustomerUpdateProfile'])->name('CustomerProfileUpdating');
+    Route::get('/myProfile', [UpdateProfile::class, 'CustomerViewUpdateProfile'])->name('PatientProfileUpdate');
+    Route::post('/updatingProfile', [UpdateProfile::class, 'CustomerUpdateProfile'])->name('PatientProfileUpdating');
 
     //Delete user profile
     Route::get('user/delete/{ID}', [patientController::class, 'deleteUser'])->name('user.deleteProfile');
 
     //Download Report
     Route::get('patientReport/view/{ID}', [patientController::class, 'viewReport'])->name('user.viewReport');
-    
+
 });
 
 
 //Doctor
-Route::group(['prefix'=>'Account/Doctor','middleware'=>['checkManager','auth','lockBack']],function(){
-    Route::get('/', [doctorController::class, 'checkDoctor'])->name('manager.home');
-    
+Route::group(['prefix'=>'Account/Doctor','middleware'=>['checkDoctor','auth','lockBack']],function(){
+    Route::get('/', [doctorController::class, 'checkDoctor'])->name('doctor.home');
+
     //update user profile
-    Route::get('/myProfile', [UpdateProfile::class, 'DoctorViewUpdateProfile'])->name('CustomerProfileUpdate');
-    Route::post('/updatingProfile', [UpdateProfile::class, 'DoctorUpdateProfile'])->name('CustomerProfileUpdating');
+    Route::get('/myProfile', [UpdateProfile::class, 'DoctorViewUpdateProfile'])->name('DoctorProfileUpdate');
+    Route::post('/doctor/updatingProfile', [UpdateProfile::class, 'DoctorUpdateProfile'])->name('DoctorProfileUpdating');
 
     //Delete user profile
     Route::get('user/delete/{ID}', [doctorController::class, 'deleteUser'])->name('user.deleteProfile');
@@ -128,7 +128,7 @@ Route::group(['prefix'=>'Account/Doctor','middleware'=>['checkManager','auth','l
     //Download Report
     Route::get('patientReport/view/{ID}', [doctorController::class, 'viewReport'])->name('user.viewReport');
 
-    
+
 });
 
 

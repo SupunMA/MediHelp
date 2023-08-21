@@ -1,18 +1,18 @@
  <!-- This form included into addClient Blade -->
- 
+
  {{-- Start of Second Card --}}
 
  <div class="col-lg-6 col-12">
     <div class="card card-info">
         <div class="card-header">
-            
+
         </div>
         <!-- /.card-header -->
         <!-- form start -->
 
         <div class="card-body">
 
-            <form action="{{route('CustomerProfileUpdating')}}" method="post">
+            <form action="{{route('PatientProfileUpdating')}}" method="post">
         @csrf
 
             <input type="hidden" name="id" value="{{$client->id}}">
@@ -35,7 +35,7 @@
                     </div>
                 </div>
             </div>
-               
+
 
 
             <div class="row">
@@ -56,7 +56,7 @@
             </div>
             <small class="form-text text-muted text-left">Minimum Password Length is 8 characters!</small>
 
-            
+
         </div>
         <!-- /.card-body -->
 
@@ -77,7 +77,7 @@
              </form>
         </div>
     </div>
-    
+
 </div>
 
 

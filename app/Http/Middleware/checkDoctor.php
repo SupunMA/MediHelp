@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Auth;
 
-class checkManager
+class checkDoctor
 {
     /**
      * Handle an incoming request.
@@ -24,7 +24,7 @@ class checkManager
         else
         {
             return redirect()->route('login')->with('error',"You do not have permission to Access admin panel");
-           
+
         }
     }
 }

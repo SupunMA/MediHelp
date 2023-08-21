@@ -36,24 +36,24 @@
         <!-- Optionally, you can add icons to the links -->
 
         <li class="{{ Route::currentRouteNamed('user.home') ? 'active' : ' ' }}"><a href="{{ route('user.home') }}"><i class="fa fa-tachometer"></i> <span>Dashboard</span></a></li>
-        
 
-        <li class="{{ Route::currentRouteNamed('CustomerProfileUpdate') ? 'active' : '' }}"><a href="{{ route('CustomerProfileUpdate') }}"><i class="fa fa-tachometer"></i> <span>My Profile
+
+        <li class="{{ Route::currentRouteNamed('PatientProfileUpdate') ? 'active' : '' }}"><a href="{{ route('PatientProfileUpdate') }}"><i class="fa fa-tachometer"></i> <span>My Profile
           <span class="right badge badge-warning">Update</span></span></a></li>
-          
-       
+
+
 
       {{-- Logout --}}
       <li>
           <!-- Logout modal trigger Button -->
-          <a href="#" class="nav-link btn btn-primary btn-lg" data-toggle="modal" data-target="#staticBackdrop">                
+          <a href="#" class="nav-link btn btn-primary btn-lg" data-toggle="modal" data-target="#staticBackdrop">
           <span>Logout</span>
-          </a>                         
+          </a>
       </li>
-       
 
 
-    
+
+
       </ul>
       <!-- /.sidebar-menu -->
     </section>

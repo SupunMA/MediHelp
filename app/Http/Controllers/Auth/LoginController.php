@@ -48,10 +48,10 @@ class LoginController extends Controller
         }elseif(Auth()->user()->role == 3){
             return route('checker.home');
         }elseif(Auth()->user()->role == 2){
-            return route('manager.home');
+            return route('doctor.home');
         }
     }
-    
+
 
     public function login(Request $request)
     {
@@ -65,13 +65,13 @@ class LoginController extends Controller
         if(auth()->attempt(array('email' => $input['email'],
         'password' => $input['password'])))
         {
-             
+
             if(auth()->user()->role == 1){
                 return redirect()->route('admin.home');
             }elseif(auth()->user()->role == 0){
                 return redirect()->route('user.home');
             }elseif(auth()->user()->role == 2){
-                return redirect()->route('manager.home');
+                return redirect()->route('doctor.home');
             }elseif(Auth()->user()->role == 3){
                 return redirect()->route('checker.home');
             }
