@@ -19,7 +19,7 @@ class CreateTestsTable extends Migration
             $table->integer('tlid')->nullable();
             $table->date('date')->nullable();
             $table->string('doctorName')->nullable();
-            $table->integer('done')->nullable();
+            $table->integer('done')->default(0);
             $table->timestamps();
         });
     }
