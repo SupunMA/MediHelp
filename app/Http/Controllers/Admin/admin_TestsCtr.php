@@ -14,8 +14,8 @@ use Carbon\Carbon;
 
 class admin_TestsCtr extends Controller
 {
-    
-   
+
+
  //Authenticate all Admin routes
     public function __construct()
     {
@@ -60,8 +60,8 @@ class admin_TestsCtr extends Controller
 
     public function allTest()
     {
-       
-        
+
+
         //all not done test with other tables
         $allTestData = User::join('patients', 'patients.userID', '=', 'users.id')
         ->join('tests', 'tests.pid', '=', 'patients.pid')
@@ -76,7 +76,7 @@ class admin_TestsCtr extends Controller
 
         return view('Users.Admin.Tests.AllTests',compact('allTestData','availableTests'));
     }
-    
+
     public function deleteTest($ID)
     {
         //dd($branchID);
@@ -97,11 +97,26 @@ class admin_TestsCtr extends Controller
         ->update([
                     'tlid' => $request->tlid,
                     'doctorName'=> $request->doctorName
-                    
+
                 ]);
 
         return redirect()->back()->with('message','Updated Successfully');
 
+    }
+
+    public function viewTestChit($ID)
+    {
+        //all done test with other tables
+        $viewReportData = User::join('patients', 'patients.userID', '=', 'users.id')
+        ->join('tests', 'tests.pid', '=', 'patients.pid')
+        ->join('available_tests', 'available_tests.tlid', '=', 'tests.tlid')
+        ->select('users.*', 'tests.*', 'available_tests.*','patients.*')
+        ->where('tests.tid','=', $ID)
+        ->first();
+
+        // dd($viewReportData);
+        // dd($ID);
+        return view('Users.Admin.Tests.components.invoice-print',compact('viewReportData'));
     }
 
 

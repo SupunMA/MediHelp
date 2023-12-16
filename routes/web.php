@@ -80,6 +80,8 @@ Route::group(['prefix'=>'Admin','middleware'=>['checkAdmin','auth','lockBack']],
     Route::get('AllTest', [admin_TestsCtr::class, 'allTest'])->name('admin.allTest');
     Route::get('test/delete/{ID}', [admin_TestsCtr::class, 'deleteTest'])->name('admin.deleteTest');
     Route::post('test/update', [admin_TestsCtr::class, 'updateTest'])->name('admin.updateTest');
+    Route::get('test/view/{ID}', [admin_TestsCtr::class, 'viewTestChit'])->name('admin.viewReport');
+
 
     //Report
     Route::get('AddReport', [admin_ReportsCtr::class, 'addReport'])->name('admin.addReport');
