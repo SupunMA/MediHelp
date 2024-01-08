@@ -1,0 +1,3 @@
+add time to get the report (available tests page)
+add sub categories and ranges (available tests page)
+abnormal and normal auto identify (report)
