@@ -11,10 +11,10 @@ class AvailableTest extends Model
 
     protected $fillable = [
         'AvailableTestName', 
-        'AvailableTestRange',
+        'resultDays',
         'AvailableTestCost'
     ];
-    
-    
+
+
     protected $primaryKey = 'tlid';
 }
