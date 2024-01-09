@@ -92,7 +92,7 @@ function updateUI(selectElement) {
         var htmlContent = '';
 // console.log(selectedDataArray);
         selectedDataArray.forEach(function(selectedData) {
-            htmlContent += '<label>'+selectedData.SubCategoryName+'</label><input type="number"  name="result" class="form-control" placeholder="Enter Result">';
+            htmlContent += '<label>'+selectedData.SubCategoryName+'</label><input type="number"  name="result[]" class="form-control" placeholder="Enter Result" required>';
         });
         // selectedData.id + ' - ' + selectedData.name + ' - ' + selectedData.AvailableTestName + '<br>'
         document.getElementById('updateInfo').innerHTML = htmlContent;
