@@ -92,10 +92,10 @@ class admin_AvailableTestCtr extends Controller
 
     public function allAvailableTest()
     {
-
+        $AvailableTestsSubcategory = subcategory::with('availableTests')->get();
         $AvailableTests=AvailableTest::all();
-
-        return view('Users.Admin.AvailableTests.AllTests',compact('AvailableTests'));
+// dd($AvailableTests,$AvailableTestsSubcategory);
+        return view('Users.Admin.AvailableTests.AllTests',compact('AvailableTests','AvailableTestsSubcategory'));
     }
 
     public function deleteAvailableTest($ID)

@@ -4,16 +4,17 @@
     </div>
     <!-- /.box-header -->
     <div class="box-body">
-          
+
         <table id="example1" class="table table-bordered table-striped">
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Available Test Name</th>
-                    <th>Normal Range</th>
+                    <th>Categories</th>
+                    <th>Days</th>
                     <th>Cost</th>
                     <th>Action</th>
-                    
+
                 </tr>
             </thead>
             <tbody>
@@ -22,10 +23,17 @@
                     <tr>
                         <td>{{$AvailableTest->tlid}}</td>
                         <td>{{$AvailableTest->AvailableTestName}}</td>
-                        <td>{{$AvailableTest->AvailableTestRange}}</td>
+                        <td>
+                        @foreach ($AvailableTestsSubcategory as $Subcategory)
+                            @if ($AvailableTest->tlid == $Subcategory->AvailableTestID)
+                               {{$Subcategory->SubCategoryName}} <br>
+                            @endif
+                        @endforeach
+                        </td>
+                        <td>{{$AvailableTest->resultDays}} days</td>
                         <td>{{$AvailableTest->AvailableTestCost}}</td>
-                        
-                        
+
+
                         <td>
                             <a class="btn btn-warning" type="button" data-toggle="modal" data-target="#branchEditModal-{{$AvailableTest->tlid}}" >
                                 <i class="fa fa-pencil" aria-hidden="true"></i>
@@ -35,7 +43,7 @@
                             </a>
                         </td>
                     </tr>
-                    
+
                             {{-- update modal and delete modal --}}
                             @include('Users.Admin.AvailableTests.components.updateTest')
                             @include('Users.Admin.AvailableTests.components.deleteTest')
@@ -46,7 +54,8 @@
                 <tr>
                     <th>ID</th>
                     <th>Available Test Name</th>
-                    <th>Normal Range</th>
+                    <th>Categories</th>
+                    <th>Days</th>
                     <th>Cost</th>
                     <th>Action</th>
                 </tr>
@@ -57,7 +66,7 @@
 </div>
   <!-- /.box -->
 
-  
+
 @push('specificJs')
 {{-- toastr msg --}}
 
