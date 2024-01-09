@@ -23,12 +23,16 @@
                     <tr>
                         <td>{{$AvailableTest->tlid}}</td>
                         <td>{{$AvailableTest->AvailableTestName}}</td>
-                        <td>
+                        <td><ul>
                         @foreach ($AvailableTestsSubcategory as $Subcategory)
                             @if ($AvailableTest->tlid == $Subcategory->AvailableTestID)
-                               {{$Subcategory->SubCategoryName}} <br>
+
+                                <li> {{$Subcategory->SubCategoryName}}</li>
+
+                               <br>
                             @endif
                         @endforeach
+                            </ul>
                         </td>
                         <td>{{$AvailableTest->resultDays}} days</td>
                         <td>{{$AvailableTest->AvailableTestCost}}</td>
