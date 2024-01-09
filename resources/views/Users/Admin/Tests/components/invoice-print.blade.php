@@ -74,6 +74,7 @@
             <th>Test ID</th>
             <th>Name</th>
             <th>Test</th>
+            <th>Collection Date</th>
 
           </tr>
           </thead>
@@ -82,6 +83,10 @@
             <td>{{$viewReportData->tid}}</td>
             <td>{{$viewReportData->name}}</td>
             <td>{{$viewReportData->AvailableTestName}}</td>
+            @php
+                $newDate = \Carbon\Carbon::parse($viewReportData->date)->addDays($viewReportData->resultDays)->format('Y-m-d');
+            @endphp
+            <td>{{$newDate}}</td>
 
           </tr>
 
