@@ -84,10 +84,14 @@ class admin_ReportsCtr extends Controller
         ->join('tests', 'tests.pid', '=', 'patients.pid')
         ->join('available_tests', 'available_tests.tlid', '=', 'tests.tlid')
         ->join('reports', 'reports.tid', '=', 'tests.tid')
-        ->select('users.*', 'tests.*', 'available_tests.*','reports.*')
+        ->join('subcategories', 'subcategories.AvailableTestID', '=', 'available_tests.tlid')
+        ->select('*')
         ->where('tests.done','=', 1)
         ->get();
 
+
+
+// dd($allReportData);
         return view('Users.Admin.Reports.AllReport',compact('allReportData'));
     }
 

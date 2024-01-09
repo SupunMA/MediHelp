@@ -16,7 +16,8 @@ class Subcategories extends Migration
         Schema::create('subcategories', function (Blueprint $table) {
             $table->id('sub_id');
             $table->string('SubCategoryName')->nullable();
-            $table->string('SubCategoryRange')->nullable();
+            $table->float('SubCategoryRangeMin')->nullable();
+            $table->float('SubCategoryRangeMax')->nullable();
             $table->string('Units')->nullable();
             $table->integer('AvailableTestID')->nullable();
 

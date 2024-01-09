@@ -37,7 +37,8 @@ class admin_AvailableTestCtr extends Controller
             'resultDays' =>['required','integer'],
             'AvailableTestCost' =>['required','integer'],
             'SubCategoryName.*' => ['required', 'string'],
-            'SubCategoryRange.*' => ['required', 'string'],
+            'SubCategoryRangeMin.*' => ['required', 'numeric'],
+            'SubCategoryRangeMax.*' => ['required', 'numeric'],
             'Units.*' => ['required', 'string']
 
          ]);
@@ -55,7 +56,8 @@ class admin_AvailableTestCtr extends Controller
         $nextId = DB::select("SHOW TABLE STATUS LIKE '$tableName'")[0]->Auto_increment;
 
         $dataInputsName = $request->input('SubCategoryName');
-        $dataInputsRange = $request->input('SubCategoryRange');
+        $dataInputsRangeMin = $request->input('SubCategoryRangeMin');
+        $dataInputsRangeMax = $request->input('SubCategoryRangeMax');
         $dataInputsUnits = $request->input('Units');
 
 
@@ -68,7 +70,8 @@ class admin_AvailableTestCtr extends Controller
                 for ($i = 0; $i < $count; $i++) {
                     $subcategory = new subcategory();
                     $subcategory->SubCategoryName=$dataInputsName[$i];
-                    $subcategory->SubCategoryRange=$dataInputsRange[$i];
+                    $subcategory->SubCategoryRangeMin=$dataInputsRangeMin[$i];
+                    $subcategory->SubCategoryRangeMax=$dataInputsRangeMax[$i];
                     $subcategory->Units=$dataInputsUnits[$i];
                     $subcategory->AvailableTestID=$nextId;
 

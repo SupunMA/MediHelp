@@ -13,7 +13,8 @@ class subcategory extends Model
 
     protected $fillable = [
         'SubCategoryName',
-        'SubCategoryRange',
+        'SubCategoryRangeMin',
+        'SubCategoryRangeMax',
         'Units',
         'AvailableTestID'
     ];

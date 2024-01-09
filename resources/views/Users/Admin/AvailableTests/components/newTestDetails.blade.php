@@ -102,11 +102,16 @@
 
                     <div class="col-lg-2 col-12">
                         <div class="form-group">
-                            <label>Normal Range</label>
-                            <input type="text" id="normal_range" name="SubCategoryRange[]" pattern="\\d+-\\d+" class="form-control normal-range-input" placeholder="Enter range (e.g. 040-120)" required>
+                            <label>Minimum Value</label>
+                            <input type="number" step="any" id="normal_range" name="SubCategoryRangeMin[]" class="form-control" placeholder="e.g. 1.5" required>
                         </div>
                     </div>
-
+                    <div class="col-lg-2 col-12">
+                        <div class="form-group">
+                            <label>Maximum Value</label>
+                            <input type="number" step="any" id="normal_range" name="SubCategoryRangeMax[]" class="form-control" placeholder="e.g. 50" required>
+                        </div>
+                    </div>
 
                     <div class="col-lg-4 col-12">
                     <div class="form-group">
@@ -164,9 +169,9 @@
                 </div>
             `);
         // Initialize InputMask for the new "Normal Range" input
-        $('.normal-range-input').inputmask('999-999', {
-            placeholder: '0', // Space as a placeholder for each digit
-        });
+        // $('.normal-range-input').inputmask('999-999', {
+            // placeholder: '0', // Space as a placeholder for each digit
+        // });
 
         });
 
