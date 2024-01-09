@@ -1,6 +1,7 @@
-@include('Users.Admin.messages.addMsg')
+
 
 <div class="col-lg-10 ">
+    @include('Users.Admin.messages.addMsg')
     <div class="box box-primary">
         <div class="box-header with-border">
             <h3 class="box-title">Available Test's Details</h3>
@@ -8,6 +9,7 @@
         <!-- /.box-header -->
         <!-- form start -->
         <div class="box-body">
+
 <form action="{{ route('admin.addingAvailableTest') }}" method="post">
                 @csrf
             <div class="row">
@@ -56,22 +58,7 @@
                     <!-- /.box -->
                 </div>
 
-
-
-
-
-
-
-
             </div>
-
-
-
-
-
-
-
-
 
             <div class="box-footer">
                 <div class="form-group pull-right">
