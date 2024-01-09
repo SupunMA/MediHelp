@@ -15,8 +15,8 @@ use Carbon\Carbon;
 
 class admin_ReportsCtr extends Controller
 {
-    
-   
+
+
  //Authenticate all Admin routes
     public function __construct()
     {
@@ -32,11 +32,13 @@ class admin_ReportsCtr extends Controller
         $allTestData = User::join('patients', 'patients.userID', '=', 'users.id')
         ->join('tests', 'tests.pid', '=', 'patients.pid')
         ->join('available_tests', 'available_tests.tlid', '=', 'tests.tlid')
-        ->select('users.*', 'tests.*', 'available_tests.*')
+        ->join('subcategories', 'subcategories.AvailableTestID', '=', 'available_tests.tlid')
+        ->select('users.*', 'tests.*', 'available_tests.*', 'subcategories.*')
         ->where('tests.done','=', 0)
         ->get();
 
-        //dd($allTestData);
+
+        // dd($allTestData);
         return view('Users.Admin.Reports.AddNewReport',compact('allTestData'));
     }
 
@@ -55,10 +57,10 @@ class admin_ReportsCtr extends Controller
                     'done' => 1
                 ]);
          return redirect()->back()->with('message','Created Successful');
-        
+
     }
 
-    
+
 
     public function allReport()
     {
@@ -73,7 +75,7 @@ class admin_ReportsCtr extends Controller
 
         return view('Users.Admin.Reports.AllReport',compact('allReportData'));
     }
-    
+
     public function deleteReport($ID)
     {
         //dd($branchID);
@@ -94,7 +96,7 @@ class admin_ReportsCtr extends Controller
         ->update([
                     'result' => $request->result,
                     'status'=> $request->status
-                    
+
                 ]);
 
         return redirect()->back()->with('message','Updated Successfully');
@@ -116,7 +118,7 @@ class admin_ReportsCtr extends Controller
         return view('Users.Admin.Reports.components.invoice-print',compact('viewReportData'));
     }
 
-    
+
 
 
 }
