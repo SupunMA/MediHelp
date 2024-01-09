@@ -44,14 +44,29 @@ class admin_ReportsCtr extends Controller
 
     public function addingReport(Request $data)
     {
+        // dd($data);
          $data->validate([
-            'tid' =>['required'],
-            'result' =>['required','string'],
-            'status' => ['required','string']
+            'tid' => ['required'],
+            'result' => ['required', 'array'],
+            'result.*' => ['required', 'string'],
+            // 'status' => ['required','string']
          ]);
 
-         $report = Report::create($data->all());
+         // Assuming 'result' is an array in the request
+        $results = $data->input('result');
 
+        // Convert the array to a comma-separated string
+        $resultString = implode(', ', $results);
+// dd($resultString);
+        //  $results = $data->input('result');
+        //  dd($results);
+        $report = new Report();
+
+        $report->tid = $data->tid;
+        $report->result = $resultString;
+        // $AvailableTest->AvailableTestCost = $request->AvailableTestCost;
+        //  $report = Report::create($data->all());
+        $report->save();
          Test::where('tid', $data->tid)
         ->update([
                     'done' => 1
