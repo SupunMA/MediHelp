@@ -125,15 +125,24 @@ class admin_ReportsCtr extends Controller
     public function viewReport($ID)
     {
         //all done test with other tables
+        // $viewReportData = User::join('patients', 'patients.userID', '=', 'users.id')
+        // ->join('tests', 'tests.pid', '=', 'patients.pid')
+        // ->join('available_tests', 'available_tests.tlid', '=', 'tests.tlid')
+        // ->join('reports', 'reports.tid', '=', 'tests.tid')
+        // ->select('users.*', 'tests.*', 'available_tests.*','reports.*','patients.*')
+        // ->where('reports.rid','=', $ID)
+        // ->first();
+
         $viewReportData = User::join('patients', 'patients.userID', '=', 'users.id')
         ->join('tests', 'tests.pid', '=', 'patients.pid')
         ->join('available_tests', 'available_tests.tlid', '=', 'tests.tlid')
         ->join('reports', 'reports.tid', '=', 'tests.tid')
-        ->select('users.*', 'tests.*', 'available_tests.*','reports.*','patients.*')
+        ->join('subcategories', 'subcategories.AvailableTestID', '=', 'available_tests.tlid')
+        ->select('*')
         ->where('reports.rid','=', $ID)
-        ->first();
+        ->get();
 
-        //dd($viewReportData);
+        //  dd($viewReportData);
         return view('Users.Admin.Reports.components.invoice-print',compact('viewReportData'));
     }
 

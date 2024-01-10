@@ -21,18 +21,18 @@
 
                 @foreach ($allReportData->unique('rid') as $data)
                         <tr>
-                            <td>{{$data->rid}}</td>
+                            <td>{{$data->rid}} </td>
                             <td>{{$data->name}}</td>
                             <td>{{$data->AvailableTestName}}</td>
                             <td>
                                 @php
                                     $resultArray = explode(',', $data->result);
                                 @endphp
-                             @foreach ($allReportData->unique('sub_id') as $data)
-                                {{$data->SubCategoryName}} :-
+                                @foreach ($allReportData->unique('sub_id') as $data2)
+                                    {{$data2->SubCategoryName}} :-
                                     @foreach($resultArray as $result)
-                                        {{$result}} ({{$data->Units}}) -
-                                        @if ($result < $data->SubCategoryRangeMin || $result > $data->SubCategoryRangeMax)
+                                        {{$result}} ({{$data2->Units}}) -
+                                        @if ($result < $data2->SubCategoryRangeMin || $result > $data2->SubCategoryRangeMax)
                                         <b>Abnormal</b>
                                         @else
                                         <b>Normal</b>
@@ -44,6 +44,7 @@
                                         @break
                                     @endforeach
                                 @endforeach
+
                             </td>
 
 
