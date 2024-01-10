@@ -51,9 +51,9 @@
 
 
                             <td>
-                                <a class="btn btn-warning" type="button" data-toggle="modal" data-target="#branchEditModal-{{$data->rid}}" >
+                                {{-- <a class="btn btn-warning" type="button" data-toggle="modal" data-target="#branchEditModal-{{$data->rid}}" >
                                     <i class="fa fa-pencil" aria-hidden="true"></i>
-                                </a>
+                                </a> --}}
                                 <a class="btn btn-danger" type="button" data-toggle="modal" data-target="#branchDeleteModal-{{$data->rid}}"  >
                                     <i class="fa fa-trash-o" aria-hidden="true"></i>
                                 </a>
@@ -65,7 +65,7 @@
                         </tr>
 
                                 {{-- update modal and delete modal --}}
-                                @include('Users.Admin.Reports.components.updateReport')
+                                {{-- @include('Users.Admin.Reports.components.updateReport') --}}
                                 @include('Users.Admin.Reports.components.deleteReport')
                                 {{-- @include('Users.Admin.Reports.components.invoice-print')  --}}
                     @endforeach

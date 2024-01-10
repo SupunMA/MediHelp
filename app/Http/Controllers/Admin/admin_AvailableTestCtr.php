@@ -114,14 +114,14 @@ class admin_AvailableTestCtr extends Controller
 
         $request->validate([
             'AvailableTestName' =>['required','string'],
-            'AvailableTestRange' =>['required','string'],
+            'resultDays' =>['required','integer'],
             'AvailableTestCost' =>['required','integer']
         ]);
 
         AvailableTest::where('tlid', $request->id)
         ->update([
                     'AvailableTestName' => $request->AvailableTestName,
-                    'AvailableTestRange'=> $request->AvailableTestRange,
+                    'resultDays'=> $request->resultDays,
                     'AvailableTestCost'=> $request->AvailableTestCost
 
                 ]);
