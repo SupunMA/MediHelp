@@ -57,7 +57,8 @@ class admin_HomeCtr extends Controller
         //Get data for Bar chart labels
         $testList = AvailableTest::pluck('AvailableTestName')->toArray();
 
-
+        $notDoneTestsArray[]=[];
+        $DoneTestsArray[]=[];
         //Get data for Bar chart values
         foreach ($testList as $oneTest) {
             $notDoneTest = Test::join('available_tests', 'available_tests.tlid', '=', 'tests.tlid')
