@@ -11,6 +11,19 @@
 
    <!-- Style -->
    @include('layouts.adminComponents.lib.Style')
+<style>
+    body {
+      position: relative;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+    .lab-assistant {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+</style>
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -126,7 +139,8 @@
 
 
             </td>
-            <td>{{($normal/($abnormal + $normal))*100}} %</td>
+            <td>{{ number_format(($normal / ($abnormal + $normal)) * 100, 2) }} %</td>
+
           </tr>
 
           </tbody>
@@ -174,6 +188,12 @@
     <!-- /.row -->
   </section>
   <!-- /.content -->
+  <div class="lab-assistant">
+    ........................................ <br>
+    Laboratory Assistant <br>
+    {{ date('Y-m-d') }}
+  </div>
+
 </div>
 <!-- ./wrapper -->
 

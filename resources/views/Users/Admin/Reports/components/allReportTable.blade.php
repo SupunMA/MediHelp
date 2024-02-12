@@ -28,21 +28,28 @@
                                 @php
                                     $resultArray = explode(',', $data->result);
                                 @endphp
+
+                                    {{-- @foreach ($allReportData->unique('AvailableTestID') as $data2)
+                                        {{1}}
+                                    @endforeach --}}
+
                                 @foreach ($allReportData->unique('sub_id') as $data2)
-                                    {{$data2->SubCategoryName}} :-
-                                    @foreach($resultArray as $result)
-                                        {{$result}} ({{$data2->Units}}) -
-                                        @if ($result < $data2->SubCategoryRangeMin || $result > $data2->SubCategoryRangeMax)
-                                        <b>Abnormal</b>
-                                        @else
-                                        <b>Normal</b>
-                                        @endif
-                                        <br>
-                                        @php
-                                            array_shift($resultArray);
-                                        @endphp
+                                    @if ($data->AvailableTestID == $data2->AvailableTestID)
+                                        {{$data2->SubCategoryName}} :-
+                                        @foreach($resultArray as $result)
+                                            {{$result}} ({{$data2->Units}}) -
+                                            @if ($result < $data2->SubCategoryRangeMin || $result > $data2->SubCategoryRangeMax)
+                                            <b>Abnormal</b>
+                                            @else
+                                            <b>Normal</b>
+                                            @endif
+                                            <br>
+                                            @php
+                                                array_shift($resultArray);
+                                            @endphp
                                         @break
-                                    @endforeach
+                                        @endforeach
+                                    @endif
                                 @endforeach
 
                             </td>
@@ -68,7 +75,7 @@
                                 {{-- @include('Users.Admin.Reports.components.updateReport') --}}
                                 @include('Users.Admin.Reports.components.deleteReport')
                                 {{-- @include('Users.Admin.Reports.components.invoice-print')  --}}
-                    @endforeach
+                @endforeach
 
             </tbody>
             <tfoot>

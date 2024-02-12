@@ -89,7 +89,7 @@ class admin_ReportsCtr extends Controller
         ->where('tests.done','=', 1)
         ->get();
 
-
+// dd($allReportData);
 
 // dd($allReportData);
         return view('Users.Admin.Reports.AllReport',compact('allReportData'));
