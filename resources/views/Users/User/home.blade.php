@@ -73,10 +73,10 @@
                                 <thead>
                                     <tr>
                                         <th>Report ID</th>
+                                        <th>Test Date</th>
                                         <th>Patient Name</th>
                                         <th>Test Name</th>
                                         <th>Result</th>
-                                        <th>Status</th>
 
                                         <th>Action</th>
 
@@ -84,13 +84,41 @@
                                 </thead>
                                 <tbody>
 
-                                    @foreach ($allReportData as $data)
+                                    @foreach ($allReportData->unique('rid') as $data)
                                         <tr>
                                             <td>{{$data->rid}}</td>
+                                            <td>{{$data->date}}</td>
                                             <td>{{$data->name}}</td>
                                             <td>{{$data->AvailableTestName}}</td>
-                                            <td>{{$data->result}}</td>
-                                            <td>{{$data->status}}</td>
+                                            <td>
+                                                @php
+                                                    $resultArray = explode(',', $data->result);
+                                                @endphp
+
+                                                    {{-- @foreach ($allReportData->unique('AvailableTestID') as $data2)
+                                                        {{1}}
+                                                    @endforeach --}}
+
+                                                @foreach ($allReportData->unique('sub_id') as $data2)
+                                                    @if ($data->AvailableTestID == $data2->AvailableTestID)
+                                                        {{$data2->SubCategoryName}} :-
+                                                        @foreach($resultArray as $result)
+                                                            {{$result}} ({{$data2->Units}}) -
+                                                            @if ($result < $data2->SubCategoryRangeMin || $result > $data2->SubCategoryRangeMax)
+                                                            <b>Abnormal</b>
+                                                            @else
+                                                            <b>Normal</b>
+                                                            @endif
+                                                            <br>
+                                                            @php
+                                                                array_shift($resultArray);
+                                                            @endphp
+                                                        @break
+                                                        @endforeach
+                                                    @endif
+                                                @endforeach
+                                            </td>
+
 
 
                                             <td>
@@ -114,10 +142,10 @@
                                 <tfoot>
                                     <tr>
                                         <th>Report ID</th>
+                                        <th>Test Date</th>
                                         <th>Patient Name</th>
                                         <th>Test Name</th>
                                         <th>Result</th>
-                                        <th>Status</th>
 
                                         <th>Action</th>
                                     </tr>

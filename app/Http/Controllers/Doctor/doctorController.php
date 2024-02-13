@@ -35,15 +35,25 @@ class doctorController extends Controller
         ->select('users.*', 'tests.*', 'available_tests.*','reports.*')
         ->where('tests.done','=', 0)
         ->count();
-        
+
        //all done test with other tables
+    //    $allReportData = User::join('patients', 'patients.userID', '=', 'users.id')
+    //    ->join('tests', 'tests.pid', '=', 'patients.pid')
+    //    ->join('available_tests', 'available_tests.tlid', '=', 'tests.tlid')
+    //    ->join('reports', 'reports.tid', '=', 'tests.tid')
+    //    ->select('users.*', 'tests.*', 'available_tests.*','reports.*')
+    //    ->where('tests.done','=', 1)
+
+    //    ->get();
+
+
        $allReportData = User::join('patients', 'patients.userID', '=', 'users.id')
        ->join('tests', 'tests.pid', '=', 'patients.pid')
        ->join('available_tests', 'available_tests.tlid', '=', 'tests.tlid')
        ->join('reports', 'reports.tid', '=', 'tests.tid')
-       ->select('users.*', 'tests.*', 'available_tests.*','reports.*')
+       ->join('subcategories', 'subcategories.AvailableTestID', '=', 'available_tests.tlid')
+       ->select('*')
        ->where('tests.done','=', 1)
- 
        ->get();
 
        return view('Users.Doctor.home',compact('allReportData','pendingCount','reportCount'));
@@ -58,20 +68,29 @@ class doctorController extends Controller
         return redirect()->back()->with('message','successful');
     }
 
-    
+
     public function viewReport($ID)
     {
-        
+
         //all done test with other tables
+        // $viewReportData = User::join('patients', 'patients.userID', '=', 'users.id')
+        // ->join('tests', 'tests.pid', '=', 'patients.pid')
+        // ->join('available_tests', 'available_tests.tlid', '=', 'tests.tlid')
+        // ->join('reports', 'reports.tid', '=', 'tests.tid')
+        // ->select('users.*', 'tests.*', 'available_tests.*','reports.*','patients.*')
+        // ->where('reports.rid','=', $ID)
+        // ->first();
+
         $viewReportData = User::join('patients', 'patients.userID', '=', 'users.id')
         ->join('tests', 'tests.pid', '=', 'patients.pid')
         ->join('available_tests', 'available_tests.tlid', '=', 'tests.tlid')
         ->join('reports', 'reports.tid', '=', 'tests.tid')
-        ->select('users.*', 'tests.*', 'available_tests.*','reports.*','patients.*')
+        ->join('subcategories', 'subcategories.AvailableTestID', '=', 'available_tests.tlid')
+        ->select('*')
         ->where('reports.rid','=', $ID)
-        ->first();
+        ->get();
 
-        //dd($viewReportData);
+        // dd($viewReportData);
         return view('Users.Doctor.invoice-print',compact('viewReportData'));
     }
 }

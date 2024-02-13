@@ -80,7 +80,7 @@ Route::group(['prefix'=>'Admin','middleware'=>['checkAdmin','auth','lockBack']],
     Route::get('AllTest', [admin_TestsCtr::class, 'allTest'])->name('admin.allTest');
     Route::get('test/delete/{ID}', [admin_TestsCtr::class, 'deleteTest'])->name('admin.deleteTest');
     Route::post('test/update', [admin_TestsCtr::class, 'updateTest'])->name('admin.updateTest');
-    Route::get('test/view/{ID}', [admin_TestsCtr::class, 'viewTestChit'])->name('admin.viewReport');
+    Route::get('test/view/{ID}', [admin_TestsCtr::class, 'viewTestChit'])->name('admin.viewReportChit');
 
 
     //Report
@@ -125,10 +125,10 @@ Route::group(['prefix'=>'Account/Doctor','middleware'=>['checkDoctor','auth','lo
     Route::post('/doctor/updatingProfile', [UpdateProfile::class, 'DoctorUpdateProfile'])->name('DoctorProfileUpdating');
 
     //Delete user profile
-    Route::get('user/delete/{ID}', [doctorController::class, 'deleteUser'])->name('user.deleteProfile');
+    Route::get('user/delete/{ID}', [doctorController::class, 'deleteUser'])->name('doctor.deleteProfile');
 
     //Download Report
-    Route::get('patientReport/view/{ID}', [doctorController::class, 'viewReport'])->name('user.viewReport');
+    Route::get('patientReport/view/{ID}', [doctorController::class, 'viewReport'])->name('doctor.viewReport');
 
 
 });
