@@ -72,15 +72,15 @@
   <!-- /.row -->
 
 
- 
-  
+
+
 
 {{-- Charts --}}
 
-  
+
     <div class="row">
       <div class="col-md-6">
-        
+
 
         <!-- DONUT CHART -->
         <div class="box box-danger">
@@ -95,7 +95,7 @@
           </div>
           <div class="box-body">
             <canvas id="pieChart" ></canvas>
-    
+
           </div>
           <!-- /.box-body -->
         </div>
@@ -104,7 +104,7 @@
       </div>
       <!-- /.col (LEFT) -->
       <div class="col-md-6">
-        
+
 
         <!-- BAR CHART -->
         <div class="box box-success">
@@ -130,54 +130,83 @@
       <!-- /.col (RIGHT) -->
     </div>
     <!-- /.row -->
-          
 
-<div class="box">
-  <div class="box-header">
-    <h3 class="box-title">List of Reports (Today)</h3>
-  </div>
-  <!-- /.box-header -->
-  <div class="box-body">
-    <table id="example1" class="table table-bordered table-striped">
-      <thead>
-          <tr>
-              <th>Report ID</th>
-              <th>Patient Name</th>
-              <th>Test Name</th>
-              <th>Result</th>
-              <th>Status</th>
 
-            
-              
-          </tr>
-      </thead>
-      <tbody>
+    <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">List of Reports</h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
 
-          @foreach ($allReportData as $data)
-              <tr>
-                  <td>{{$data->rid}}</td>
-                  <td>{{$data->name}}</td>
-                  <td>{{$data->AvailableTestName}}</td>
-                  <td>{{$data->result}}</td>
-                  <td>{{$data->status}}</td>
-              </tr>
-          @endforeach
+            <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Report ID</th>
+                        <th>Patient Name</th>
+                        <th>Test Name</th>
+                        <th>Result</th>
 
-      </tbody>
-      <tfoot>
-          <tr>
-              <th>Report ID</th>
-              <th>Patient Name</th>
-              <th>Test Name</th>
-              <th>Result</th>
-              <th>Status</th>
-          </tr>
-      </tfoot>
-  </table>
-  </div>
-  <!-- /.box-body -->
-</div>
-<!-- /.box -->
+
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach ($allReportData->unique('rid') as $data)
+                            <tr>
+                                <td>{{$data->rid}} </td>
+                                <td>{{$data->name}}</td>
+                                <td>{{$data->AvailableTestName}}</td>
+                                <td>
+                                    @php
+                                        $resultArray = explode(',', $data->result);
+                                    @endphp
+                                    @foreach ($allReportData->unique('sub_id') as $data2)
+                                        {{$data2->SubCategoryName}} :-
+                                        @foreach($resultArray as $result)
+                                            {{$result}} ({{$data2->Units}}) -
+                                            @if ($result < $data2->SubCategoryRangeMin || $result > $data2->SubCategoryRangeMax)
+                                            <b>Abnormal</b>
+                                            @else
+                                            <b>Normal</b>
+                                            @endif
+                                            <br>
+                                            @php
+                                                array_shift($resultArray);
+                                            @endphp
+                                            @break
+                                        @endforeach
+                                    @endforeach
+
+                                </td>
+
+
+
+
+
+                            </tr>
+
+
+                        @endforeach
+
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Report ID</th>
+                        <th>Patient Name</th>
+                        <th>Test Name</th>
+                        <th>Result</th>
+
+                     
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <!-- /.box-body -->
+    </div>
+      <!-- /.box -->
+
   @push('specificJs')
           <script>
             $(function () {
@@ -216,9 +245,9 @@
                       }
                   ]
               };
-          
-              
-          
+
+
+
               //-------------
               //- PIE CHART -
               //-------------
@@ -244,7 +273,7 @@
                   highlight: '#0f7c8a',
                   label    : 'Other'
                 }
-        
+
               ]
               var pieOptions     = {
                 //Boolean - Whether we should show a stroke on each segment
@@ -273,7 +302,7 @@
               //Create pie or douhnut chart
               // You can switch between pie and douhnut using the method below.
               pieChart.Doughnut(PieData, pieOptions)
-          
+
               //-------------
               //- BAR CHART -
               //-------------
@@ -310,12 +339,12 @@
                 responsive              : true,
                 maintainAspectRatio     : true
               }
-          
+
               barChartOptions.datasetFill = false
               barChart.Bar(barChartData, barChartOptions)
             })
           </script>
-          
+
 
           <script>
             $(function () {

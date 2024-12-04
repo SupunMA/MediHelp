@@ -6,13 +6,13 @@
         <i class="fa fa-th-list" aria-hidden="true"></i>
         <b>View Available Test</b>
     </a>
-        
+    <br><br>
     <div class="row">
 
         @include('Users.Admin.AvailableTests.components.newTestDetails')
-        
-    </div> 
-            
+
+    </div>
+
 
 
 </div>

@@ -17,7 +17,6 @@ class CreateReportsTable extends Migration
             $table->id('rid');
             $table->integer('tid')->nullable();
             $table->string('result')->nullable();
-            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

@@ -13,6 +13,11 @@
     </div>
 
 @else
+    @if(session('message'))
+    
+        {{ session('message') }}
+
+    @endif
     @if (session('message'))
         <div class="toastrDefaultSuccess"></div>
     @endif

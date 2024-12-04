@@ -22,12 +22,20 @@
                                 </div>
                             </div>
                         {{-- Gender --}}
-                        
-                            <div class="col-lg-4 col-12">
+
+                            {{-- <div class="col-lg-4 col-12">
                                 <div class="form-group">
                                     <label>Normal Range</label>
-                                    
+
                                     <input type="text" id="normal_range" name="AvailableTestRange" value="{{$AvailableTest->AvailableTestRange}}" pattern="\d+-\d+" class="form-control" placeholder="Enter range (e.g. 40-120)">
+                                </div>
+                            </div> --}}
+
+                            <div class="col-lg-3 col-12">
+                                <div class="form-group">
+                                    <label>Days</label>
+
+                                    <input type="number" name="resultDays" class="form-control" value="{{$AvailableTest->resultDays}}" placeholder="How Long Does It Take?" required>
                                 </div>
                             </div>
                         </div>
@@ -40,8 +48,8 @@
                                 </div>
                             </div>
                         </div>
-                        
-        
+
+
                         <input type="hidden" name="id" value="{{$AvailableTest->tlid}}">
 
                     </div>
@@ -52,9 +60,9 @@
                     </div>
                 </div>
         </div>
-                
+
             </form>
 
-       
+
     </div>
 </div>

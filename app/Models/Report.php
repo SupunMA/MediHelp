@@ -11,8 +11,7 @@ class Report extends Model
 
     protected $fillable = [
         'tid',
-        'result',
-        'status'
+        'result'
     ];
 
     protected $primaryKey = 'rid';
